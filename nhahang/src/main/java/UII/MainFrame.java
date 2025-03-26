@@ -7,6 +7,7 @@ package UII;
 import dao.*;
 import java.awt.CardLayout;
 import entity.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -1681,9 +1682,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btn_dangnhap_dangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dangnhap_dangnhapActionPerformed
         // TODO add your handling code here:
-        TK_NhanVien_DAO tknv_DAO = new TK_NhanVien_DAO();
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "trangchu");
+        
+        checkLoginCredentials();
     }//GEN-LAST:event_btn_dangnhap_dangnhapActionPerformed
 
     private void btn_dangnhap_dangkiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dangnhap_dangkiActionPerformed
@@ -1719,6 +1719,34 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    private void checkLoginCredentials() {
+    String username = txt_dangnhap_taikhoan.getText().trim();
+    String password = txt_dangnhap_matkhau.getText().trim();
+
+    // Kiểm tra tài khoản có đúng định dạng không (6 số)
+    if (!username.matches("\\d{6}")) {
+        JOptionPane.showMessageDialog(this, "Tài khoản phải là 6 số!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Kiểm tra mật khẩu không được để trống
+    if (password.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Vui lòng nhập mật khẩu!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Kiểm tra thông tin đăng nhập (thay bằng dữ liệu từ CSDL nếu cần)
+    if (username.equals("123456") && password.equals("password")) {
+        JOptionPane.showMessageDialog(this, "Đăng nhập thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "trangchu");
+        // Mở giao diện trang chủ
+        
+    } else {
+        JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
