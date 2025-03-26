@@ -96,3 +96,8 @@ CREATE TABLE TK_NhanVien (
 -- Insert records into Khu table
 INSERT INTO Khu (MaKhu, TenKhu) VALUES ('KHU01', 'VIP');
 INSERT INTO Khu (MaKhu, TenKhu) VALUES ('KHU02', 'THƯỜNG');
+-- Insert a record into the Employees table (NhanVien)
+INSERT INTO NhanVien (MaNV, TenNV, SoDienThoai) VALUES ('NVQL000', 'Nguyen Van A', '0123456789');
+
+-- Insert a record into the Employee Accounts table (TK_NhanVien)
+INSERT INTO TK_NhanVien (MaNV, MatKhauTK) VALUES ('NVQL000', '1');
