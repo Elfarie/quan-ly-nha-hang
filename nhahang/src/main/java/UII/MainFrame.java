@@ -10,7 +10,7 @@ import entity.*;
 
 /**
  *
- * @author Ahadjshdkajsjdaskjdhakhsdkjlex
+ * @author Alex
  */
 public class MainFrame extends javax.swing.JFrame {
 

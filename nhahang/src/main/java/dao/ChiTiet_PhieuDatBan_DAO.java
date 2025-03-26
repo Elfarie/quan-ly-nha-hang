@@ -18,7 +18,7 @@ public class ChiTiet_PhieuDatBan_DAO {
     }
 
     public void addChiTiet_PhieuDatBan(ChiTiet_PhieuDatBan chiTiet) {
-        String query = "INSERT INTO ChiTiet_PhieuDatBan (MaCTPhieu, Ban_MaBan, HoaDon_MaHD) VALUES (?, ?, ?)";
+        String query = "INSERT INTO ChiTiet_PhieuDatBan (MaCTPhieu, MaBan, MaHD) VALUES (?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, chiTiet.getMaCTPhieu());
@@ -31,15 +31,15 @@ public class ChiTiet_PhieuDatBan_DAO {
     }
 
     public ChiTiet_PhieuDatBan getChiTiet_PhieuDatBan(String maCTPhieu) {
-        String query = "SELECT MaCTPhieu, Ban_MaBan, HoaDon_MaHD FROM ChiTiet_PhieuDatBan WHERE MaCTPhieu = ?";
+        String query = "SELECT MaCTPhieu, MaBan, MaHD FROM ChiTiet_PhieuDatBan WHERE MaCTPhieu = ?";
         ChiTiet_PhieuDatBan chiTiet = null;
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, maCTPhieu);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                Ban ban = new Ban(rs.getString("Ban_MaBan")); // Assume constructor exists for Ban
-                HoaDon hd = new HoaDon(rs.getString("HoaDon_MaHD")); // Assume constructor exists for HoaDon
+                Ban ban = new Ban(rs.getString("MaBan")); // Assume constructor exists for Ban
+                HoaDon hd = new HoaDon(rs.getString("MaHD")); // Assume constructor exists for HoaDon
                 chiTiet = new ChiTiet_PhieuDatBan(rs.getString("MaCTPhieu"), ban, hd);
             }
         } catch (SQLException e) {
@@ -51,13 +51,13 @@ public class ChiTiet_PhieuDatBan_DAO {
 
     public List<ChiTiet_PhieuDatBan> getAllChiTiet_PhieuDatBans() {
         List<ChiTiet_PhieuDatBan> chiTietList = new ArrayList<>();
-        String query = "SELECT MaCTPhieu, Ban_MaBan, HoaDon_MaHD FROM ChiTiet_PhieuDatBan";
+        String query = "SELECT MaCTPhieu, MaBan, MaHD FROM ChiTiet_PhieuDatBan";
 
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                Ban ban = new Ban(rs.getString("Ban_MaBan"));
-                HoaDon hd = new HoaDon(rs.getString("HoaDon_MaHD"));
+                Ban ban = new Ban(rs.getString("MaBan"));
+                HoaDon hd = new HoaDon(rs.getString("MaHD"));
                 ChiTiet_PhieuDatBan chiTiet = new ChiTiet_PhieuDatBan(rs.getString("MaCTPhieu"), ban, hd);
                 chiTietList.add(chiTiet);
             }

@@ -21,7 +21,7 @@ public class TK_NhanVien_DAO {
     }
 
     public void addTK_NhanVien(TK_NhanVien tk_nhanVien) {
-        String query = "INSERT INTO TK_NhanVien (MaTK, MatKhauTK, NhanVien_Id) VALUES (?, ?, ?)";
+        String query = "INSERT INTO TK_NhanVien (MaTK, MatKhauTK, MaNV) VALUES (?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, tk_nhanVien.getMaTK());
@@ -34,14 +34,14 @@ public class TK_NhanVien_DAO {
     }
 
     public TK_NhanVien getTK_NhanVien(String maTK) {
-        String query = "SELECT MaTK, MatKhauTK, NhanVien_Id FROM TK_NhanVien WHERE MaTK = ?";
+        String query = "SELECT MaTK, MatKhauTK, MaNV FROM TK_NhanVien WHERE MaTK = ?";
         TK_NhanVien tk_nhanVien = null;
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, maTK);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                NhanVien nv = new NhanVien(rs.getString("NhanVien_Id")); // Assume constructor exists for NhanVien
+                NhanVien nv = new NhanVien(rs.getString("MaNV")); // Assume constructor exists for NhanVien
                 tk_nhanVien = new TK_NhanVien(nv, rs.getString("MatKhauTK"), rs.getString("MaTK"));
             }
         } catch (SQLException e) {
@@ -53,12 +53,12 @@ public class TK_NhanVien_DAO {
 
     public List<TK_NhanVien> getAllTK_NhanViens() {
         List<TK_NhanVien> tk_nhanViens = new ArrayList<>();
-        String query = "SELECT MaTK, MatKhauTK, NhanVien_Id FROM TK_NhanVien";
+        String query = "SELECT MaTK, MatKhauTK, MaNV FROM TK_NhanVien";
 
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                NhanVien nv = new NhanVien(rs.getString("NhanVien_Id"));
+                NhanVien nv = new NhanVien(rs.getString("MaNV"));
                 TK_NhanVien tk_nhanVien = new TK_NhanVien(nv, rs.getString("MatKhauTK"), rs.getString("MaTK"));
                 tk_nhanViens.add(tk_nhanVien);
             }
@@ -70,7 +70,7 @@ public class TK_NhanVien_DAO {
     }
 
     public void updateTK_NhanVien(TK_NhanVien tk_nhanVien) {
-        String query = "UPDATE TK_NhanVien SET MatKhauTK = ?, NhanVien_Id = ? WHERE MaTK = ?";
+        String query = "UPDATE TK_NhanVien SET MatKhauTK = ?, MaNV = ? WHERE MaTK = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, tk_nhanVien.getMatKhauTK());

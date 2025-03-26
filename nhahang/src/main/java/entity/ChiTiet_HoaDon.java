@@ -1,20 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package entity;
 
 import java.util.Objects;
-
 
 /**
  *
  * @author ADMIN
  */
 public class ChiTiet_HoaDon {
-    private HoaDon hd;
-    private String MaCTPhieu;
-    private Ban ban;
+    private String MaCTHD; // Primary key
+    private HoaDon hd;      // Reference to HoaDon entity
+    private MonAn mon;      // Reference to MonAn entity
+    private int soLuong;    // Quantity of the item
+
+    public ChiTiet_HoaDon(String maCTHD, HoaDon hd, MonAn mon, int soLuong) {
+        this.MaCTHD = maCTHD;
+        this.hd = hd;
+        this.mon = mon;
+        this.soLuong = soLuong;
+    }
+
+    public String getMaCTHD() {
+        return MaCTHD;
+    }
+
+    public void setMaCTHD(String maCTHD) {
+        MaCTHD = maCTHD;
+    }
 
     public HoaDon getHd() {
         return hd;
@@ -24,57 +35,42 @@ public class ChiTiet_HoaDon {
         this.hd = hd;
     }
 
-    public String getMaCTPhieu() {
-        return MaCTPhieu;
+    public MonAn getMon() {
+        return mon;
     }
 
-    public void setMaCTPhieu(String MaCTPhieu) {
-        this.MaCTPhieu = MaCTPhieu;
+    public void setMon(MonAn mon) {
+        this.mon = mon;
     }
 
-    public Ban getBan() {
-        return ban;
+    public int getSoLuong() {
+        return soLuong;
     }
 
-    public void setBan(Ban ban) {
-        this.ban = ban;
-    }
-
-    public ChiTiet_HoaDon(HoaDon hd, String MaCTPhieu, Ban ban) {
-        this.hd = hd;
-        this.MaCTPhieu = MaCTPhieu;
-        this.ban = ban;
-    }
-
-    public ChiTiet_HoaDon(String MaCTPhieu) {
-        this.MaCTPhieu = MaCTPhieu;
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.MaCTPhieu);
-        return hash;
+        return Objects.hash(MaCTHD);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ChiTiet_HoaDon other = (ChiTiet_HoaDon) obj;
-        return Objects.equals(this.MaCTPhieu, other.MaCTPhieu);
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        ChiTiet_HoaDon other = (ChiTiet_HoaDon) obj;
+        return Objects.equals(MaCTHD, other.MaCTHD);
     }
 
     @Override
     public String toString() {
-        return "ChiTiet_HoaDon{" + "hd=" + hd + ", MaCTPhieu=" + MaCTPhieu + ", ban=" + ban + '}';
+        return "ChiTiet_HoaDon{" +
+                "MaCTHD='" + MaCTHD + '\'' +
+                ", hd=" + hd +
+                ", mon=" + mon +
+                ", soLuong=" + soLuong +
+                '}';
     }
-    
 }
