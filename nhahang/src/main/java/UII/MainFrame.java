@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import entity.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -123,21 +124,8 @@ public class MainFrame extends javax.swing.JFrame {
         btn_datmon_qldm = new javax.swing.JButton();
         XoaMon = new javax.swing.JPanel();
         btn_xoamon_qldm = new javax.swing.JButton();
-        cardlayout_TimKiem = new javax.swing.JPanel();
-        TimKiem = new javax.swing.JPanel();
-        btn_tk_qldb = new javax.swing.JButton();
-        btn_tk_timtheokv = new javax.swing.JButton();
-        btn_tk_timtheott = new javax.swing.JButton();
-        TimTheoKhuVuc = new javax.swing.JPanel();
-        btn_timtheokv_tk = new javax.swing.JButton();
-        TimTheoTinhTrang = new javax.swing.JPanel();
-        btn_timtheott_tk = new javax.swing.JButton();
-        LapHoaDon = new javax.swing.JPanel();
-        btn_laphd_qldb = new javax.swing.JButton();
         SuaThongTinDatBan = new javax.swing.JPanel();
         btn_suattban_qldb = new javax.swing.JButton();
-        HuyDatBan = new javax.swing.JPanel();
-        btn_huydb_qldb = new javax.swing.JButton();
         DatBan = new javax.swing.JPanel();
         btn_db_qldb = new javax.swing.JButton();
 
@@ -1059,137 +1047,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         cardlayout_QuanLyDatBan.add(cardlayout_QuanLyDatMon, "qldm");
 
-        cardlayout_TimKiem.setLayout(new java.awt.CardLayout());
-
-        btn_tk_qldb.setText("Quay Lại");
-        btn_tk_qldb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_tk_qldbActionPerformed(evt);
-            }
-        });
-
-        btn_tk_timtheokv.setText("Tìm theo khu vực");
-        btn_tk_timtheokv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_tk_timtheokvActionPerformed(evt);
-            }
-        });
-
-        btn_tk_timtheott.setText("Tìm theo tình trạng");
-        btn_tk_timtheott.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_tk_timtheottActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout TimKiemLayout = new javax.swing.GroupLayout(TimKiem);
-        TimKiem.setLayout(TimKiemLayout);
-        TimKiemLayout.setHorizontalGroup(
-            TimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TimKiemLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(TimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_tk_timtheokv)
-                    .addComponent(btn_tk_timtheott)
-                    .addComponent(btn_tk_qldb))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        TimKiemLayout.setVerticalGroup(
-            TimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TimKiemLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_tk_qldb)
-                .addGap(91, 91, 91)
-                .addComponent(btn_tk_timtheokv)
-                .addGap(18, 18, 18)
-                .addComponent(btn_tk_timtheott)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        cardlayout_TimKiem.add(TimKiem, "tk");
-
-        TimTheoKhuVuc.setPreferredSize(new java.awt.Dimension(600, 400));
-
-        btn_timtheokv_tk.setText("Quay Lại");
-        btn_timtheokv_tk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_timtheokv_tkActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout TimTheoKhuVucLayout = new javax.swing.GroupLayout(TimTheoKhuVuc);
-        TimTheoKhuVuc.setLayout(TimTheoKhuVucLayout);
-        TimTheoKhuVucLayout.setHorizontalGroup(
-            TimTheoKhuVucLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TimTheoKhuVucLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_timtheokv_tk)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        TimTheoKhuVucLayout.setVerticalGroup(
-            TimTheoKhuVucLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TimTheoKhuVucLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_timtheokv_tk)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        cardlayout_TimKiem.add(TimTheoKhuVuc, "timtheokv");
-
-        btn_timtheott_tk.setText("Quay Lại");
-        btn_timtheott_tk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_timtheott_tkActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout TimTheoTinhTrangLayout = new javax.swing.GroupLayout(TimTheoTinhTrang);
-        TimTheoTinhTrang.setLayout(TimTheoTinhTrangLayout);
-        TimTheoTinhTrangLayout.setHorizontalGroup(
-            TimTheoTinhTrangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TimTheoTinhTrangLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_timtheott_tk)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        TimTheoTinhTrangLayout.setVerticalGroup(
-            TimTheoTinhTrangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TimTheoTinhTrangLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_timtheott_tk)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        cardlayout_TimKiem.add(TimTheoTinhTrang, "timtheott");
-
-        cardlayout_QuanLyDatBan.add(cardlayout_TimKiem, "timkiem");
-
-        btn_laphd_qldb.setText("Quay Lại");
-        btn_laphd_qldb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_laphd_qldbActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout LapHoaDonLayout = new javax.swing.GroupLayout(LapHoaDon);
-        LapHoaDon.setLayout(LapHoaDonLayout);
-        LapHoaDonLayout.setHorizontalGroup(
-            LapHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LapHoaDonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_laphd_qldb)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        LapHoaDonLayout.setVerticalGroup(
-            LapHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LapHoaDonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_laphd_qldb)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        cardlayout_QuanLyDatBan.add(LapHoaDon, "laphoadon");
-
         btn_suattban_qldb.setText("Quay Lại");
         btn_suattban_qldb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1215,32 +1072,6 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         cardlayout_QuanLyDatBan.add(SuaThongTinDatBan, "suattdatban");
-
-        btn_huydb_qldb.setText("Quay Lại");
-        btn_huydb_qldb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_huydb_qldbActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout HuyDatBanLayout = new javax.swing.GroupLayout(HuyDatBan);
-        HuyDatBan.setLayout(HuyDatBanLayout);
-        HuyDatBanLayout.setHorizontalGroup(
-            HuyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HuyDatBanLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_huydb_qldb)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        HuyDatBanLayout.setVerticalGroup(
-            HuyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HuyDatBanLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_huydb_qldb)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        cardlayout_QuanLyDatBan.add(HuyDatBan, "huydatban");
 
         btn_db_qldb.setText("Quay Lại");
         btn_db_qldb.addActionListener(new java.awt.event.ActionListener() {
@@ -1443,45 +1274,10 @@ public class MainFrame extends javax.swing.JFrame {
         card.show(cardlayout_QuanLyDatMon, "qldatmon");
     }//GEN-LAST:event_btn_xoamon_qldmActionPerformed
 
-    private void btn_timtheokv_tkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timtheokv_tkActionPerformed
-        CardLayout card = (CardLayout)cardlayout_TimKiem.getLayout();
-        card.show(cardlayout_TimKiem, "tk");
-    }//GEN-LAST:event_btn_timtheokv_tkActionPerformed
-
-    private void btn_timtheott_tkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_timtheott_tkActionPerformed
-        CardLayout card = (CardLayout)cardlayout_TimKiem.getLayout();
-        card.show(cardlayout_TimKiem, "tk");
-    }//GEN-LAST:event_btn_timtheott_tkActionPerformed
-
-    private void btn_tk_timtheokvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tk_timtheokvActionPerformed
-        CardLayout card = (CardLayout)cardlayout_TimKiem.getLayout();
-        card.show(cardlayout_TimKiem, "timtheokv");
-    }//GEN-LAST:event_btn_tk_timtheokvActionPerformed
-
-    private void btn_tk_timtheottActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tk_timtheottActionPerformed
-        CardLayout card = (CardLayout)cardlayout_TimKiem.getLayout();
-        card.show(cardlayout_TimKiem, "timtheott");
-    }//GEN-LAST:event_btn_tk_timtheottActionPerformed
-
-    private void btn_tk_qldbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tk_qldbActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
-        card.show(cardlayout_QuanLyDatBan, "qldb");
-    }//GEN-LAST:event_btn_tk_qldbActionPerformed
-
-    private void btn_laphd_qldbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_laphd_qldbActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
-        card.show(cardlayout_QuanLyDatBan, "qldb");
-    }//GEN-LAST:event_btn_laphd_qldbActionPerformed
-
     private void btn_suattban_qldbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suattban_qldbActionPerformed
         CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
         card.show(cardlayout_QuanLyDatBan, "qldb");
     }//GEN-LAST:event_btn_suattban_qldbActionPerformed
-
-    private void btn_huydb_qldbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_huydb_qldbActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
-        card.show(cardlayout_QuanLyDatBan, "qldb");
-    }//GEN-LAST:event_btn_huydb_qldbActionPerformed
 
     private void btn_db_qldbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_db_qldbActionPerformed
         CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
@@ -1588,8 +1384,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel DangNhap;
     private javax.swing.JPanel DatBan;
     private javax.swing.JPanel DatMon;
-    private javax.swing.JPanel HuyDatBan;
-    private javax.swing.JPanel LapHoaDon;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel QuanLyBan;
     private javax.swing.JPanel QuanLyDatBan;
@@ -1599,16 +1393,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel QuanLyNhanVien;
     private javax.swing.JPanel SuaThongTinDatBan;
     private javax.swing.JPanel ThongKe;
-    private javax.swing.JPanel TimKiem;
-    private javax.swing.JPanel TimTheoKhuVuc;
-    private javax.swing.JPanel TimTheoTinhTrang;
     private javax.swing.JPanel TrangChu;
     private javax.swing.JPanel XoaMon;
     private javax.swing.JButton btn_dangnhap_dangnhap;
     private javax.swing.JButton btn_datmon_qldm;
     private javax.swing.JButton btn_db_qldb;
-    private javax.swing.JButton btn_huydb_qldb;
-    private javax.swing.JButton btn_laphd_qldb;
     private javax.swing.JButton btn_qlban_suaban;
     private javax.swing.JButton btn_qlban_themban;
     private javax.swing.JButton btn_qlban_trangchu;
@@ -1639,11 +1428,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_qlynhanvien;
     private javax.swing.JButton btn_suattban_qldb;
     private javax.swing.JButton btn_thongke_qlhd;
-    private javax.swing.JButton btn_timtheokv_tk;
-    private javax.swing.JButton btn_timtheott_tk;
-    private javax.swing.JButton btn_tk_qldb;
-    private javax.swing.JButton btn_tk_timtheokv;
-    private javax.swing.JButton btn_tk_timtheott;
     private javax.swing.JButton btn_trangchu_dangxuat;
     private javax.swing.JButton btn_xoamon_qldm;
     private javax.swing.JPanel cardlayout_QuanLyBan;
@@ -1652,7 +1436,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel cardlayout_QuanLyHoaDon;
     private javax.swing.JPanel cardlayout_QuanLyKhachHang;
     private javax.swing.JPanel cardlayout_QuanLyNhanVien;
-    private javax.swing.JPanel cardlayout_TimKiem;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
