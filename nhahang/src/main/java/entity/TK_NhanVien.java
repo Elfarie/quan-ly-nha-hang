@@ -13,7 +13,6 @@ import java.util.Objects;
 public class TK_NhanVien {
     private NhanVien nv;
     private String MatKhauTK;
-    private String MaTK;
 
     public NhanVien getNv() {
         return nv;
@@ -31,24 +30,15 @@ public class TK_NhanVien {
         this.MatKhauTK = MatKhauTK;
     }
 
-    public String getMaTK() {
-        return MaTK;
-    }
-
-    public void setMaTK(String MaTK) {
-        this.MaTK = MaTK;
-    }
-
-    public TK_NhanVien(NhanVien nv, String MatKhauTK, String MaTK) {
+    public TK_NhanVien(NhanVien nv, String MatKhauTK) {
         this.nv = nv;
         this.MatKhauTK = MatKhauTK;
-        this.MaTK = MaTK;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.MaTK);
+        hash = 17 * hash + Objects.hashCode(this.nv);
         return hash;
     }
 
@@ -64,12 +54,13 @@ public class TK_NhanVien {
             return false;
         }
         final TK_NhanVien other = (TK_NhanVien) obj;
-        return Objects.equals(this.MaTK, other.MaTK);
+        return Objects.equals(this.nv, other.nv);
     }
 
     @Override
     public String toString() {
-        return "TK_NhanVien{" + "nv=" + nv + ", MatKhauTK=" + MatKhauTK + ", MaTK=" + MaTK + '}';
+        return "TK_NhanVien{" + "nv=" + nv + ", MatKhauTK=" + MatKhauTK + '}';
     }
+
 
 }
