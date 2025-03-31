@@ -280,7 +280,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane4" min="-2" pref="672" max="-2" attributes="0"/>
+                                      <Component id="scroll_qlnv_bang" min="-2" pref="672" max="-2" attributes="0"/>
                                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                           <Component id="btn_qlnv_dangkytknv" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
@@ -291,15 +291,15 @@
                                               </Group>
                                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jTextField2" max="32767" attributes="0"/>
+                                                  <Component id="txt_qlnv_tennv" max="32767" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jTextField3" min="-2" pref="178" max="-2" attributes="0"/>
+                                                      <Component id="txt_qlnv_idtk" min="-2" pref="178" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Component id="jLabel13" min="-2" pref="90" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jTextField4" min="-2" pref="189" max="-2" attributes="0"/>
+                                                      <Component id="txt_qlnv_mk" min="-2" pref="189" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txt_qlnv_sdt" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -314,21 +314,21 @@
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel4" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlnv_tennv" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel9" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txt_qlnv_idtk" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel13" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jTextField4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlnv_mk" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel14" min="-2" pref="29" max="-2" attributes="0"/>
-                                      <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlnv_sdt" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                   <Component id="btn_qlnv_dangkytknv" min="-2" max="-2" attributes="0"/>
@@ -339,7 +339,7 @@
                                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                           <Component id="btn_qlnv_suattnv" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jScrollPane4" min="-2" pref="404" max="-2" attributes="0"/>
+                                      <Component id="scroll_qlnv_bang" min="-2" pref="404" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               </Group>
@@ -390,9 +390,9 @@
                             <Property name="text" type="java.lang.String" value="ID t&#xe0;i kho&#x1ea3;n:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField2">
+                        <Component class="javax.swing.JTextField" name="txt_qlnv_tennv">
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField3">
+                        <Component class="javax.swing.JTextField" name="txt_qlnv_idtk">
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel13">
                           <Properties>
@@ -402,7 +402,7 @@
                             <Property name="text" type="java.lang.String" value="M&#x1ead;t kh&#x1ea9;u :"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField4">
+                        <Component class="javax.swing.JTextField" name="txt_qlnv_mk">
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel14">
                           <Properties>
@@ -412,16 +412,16 @@
                             <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField5">
+                        <Component class="javax.swing.JTextField" name="txt_qlnv_sdt">
                         </Component>
-                        <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+                        <Container class="javax.swing.JScrollPane" name="scroll_qlnv_bang">
                           <AuxValues>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable4">
+                            <Component class="javax.swing.JTable" name="table_qlnv_bang">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="4" rowCount="4">
@@ -499,9 +499,15 @@
                                       <Component id="btn_qlhd_trangchu" min="-2" max="-2" attributes="0"/>
                                       <Component id="btn_qlhd_thongke" min="-2" pref="84" max="-2" attributes="0"/>
                                   </Group>
+<<<<<<< HEAD
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jScrollPane5" min="-2" pref="736" max="-2" attributes="0"/>
                                   <EmptySpace pref="41" max="32767" attributes="0"/>
+=======
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="scroll_qlhd_bang" min="-2" pref="736" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+>>>>>>> 2f67c6f75442e1a25a39d057a22358822eef0d8f
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -517,7 +523,7 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane5" min="-2" pref="547" max="-2" attributes="0"/>
+                                          <Component id="scroll_qlhd_bang" min="-2" pref="547" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace pref="16" max="32767" attributes="0"/>
@@ -542,14 +548,14 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlhd_thongkeActionPerformed"/>
                           </Events>
                         </Component>
-                        <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+                        <Container class="javax.swing.JScrollPane" name="scroll_qlhd_bang">
                           <AuxValues>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable5">
+                            <Component class="javax.swing.JTable" name="table_qlhd_bang">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="4" rowCount="4">
@@ -652,19 +658,19 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jTextField8" max="32767" attributes="0"/>
-                                              <Component id="jTextField7" max="32767" attributes="0"/>
-                                              <Component id="jTextField6" max="32767" attributes="0"/>
+                                              <Component id="txt_qlkh_makh" max="32767" attributes="0"/>
+                                              <Component id="txt_qlkh_sdt" max="32767" attributes="0"/>
+                                              <Component id="txt_qlkh_tenkh" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jScrollPane3" min="-2" pref="697" max="-2" attributes="0"/>
+                                              <Component id="scroll_qlkh_bang" min="-2" pref="697" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="btn_qlkh_timkhtheosdt" min="-2" pref="91" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jTextField1" max="32767" attributes="0"/>
+                                                  <Component id="txt_qlkh_tim" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <EmptySpace max="32767" attributes="0"/>
@@ -684,17 +690,17 @@
                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlkh_tenkh" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlkh_sdt" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlkh_makh" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                                   <Component id="btn_qlkh_taokh" min="-2" max="-2" attributes="0"/>
@@ -706,11 +712,11 @@
                                           <Component id="btn_qlkh_suatt" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="jScrollPane3" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="scroll_qlkh_bang" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlkh_tim" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btn_qlkh_timkhtheosdt" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -751,7 +757,7 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlkh_timkhtheosdtActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField1">
+                        <Component class="javax.swing.JTextField" name="txt_qlkh_tim">
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel15">
                           <Properties>
@@ -777,20 +783,20 @@
                             <Property name="text" type="java.lang.String" value="M&#xe3; kh&#xe1;ch h&#xe0;ng:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField6">
+                        <Component class="javax.swing.JTextField" name="txt_qlkh_tenkh">
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField7">
+                        <Component class="javax.swing.JTextField" name="txt_qlkh_sdt">
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField8">
+                        <Component class="javax.swing.JTextField" name="txt_qlkh_makh">
                         </Component>
-                        <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                        <Container class="javax.swing.JScrollPane" name="scroll_qlkh_bang">
                           <AuxValues>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable3">
+                            <Component class="javax.swing.JTable" name="table_qlkh_bang">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="4" rowCount="4">
@@ -841,7 +847,7 @@
                                       <Component id="btn_qlban_xoaban" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="726" max="-2" attributes="0"/>
+                                  <Component id="scroll_qlban_bang" min="-2" pref="726" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -860,7 +866,7 @@
                                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                           <Component id="btn_qlban_xoaban" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jScrollPane1" min="-2" pref="520" max="-2" attributes="0"/>
+                                      <Component id="scroll_qlban_bang" min="-2" pref="520" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -900,14 +906,14 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlban_xoabanActionPerformed"/>
                           </Events>
                         </Component>
-                        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                        <Container class="javax.swing.JScrollPane" name="scroll_qlban_bang">
                           <AuxValues>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable1">
+                            <Component class="javax.swing.JTable" name="table_qlban_bang">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="4" rowCount="4">
@@ -1000,7 +1006,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="jScrollPane6" min="-2" pref="673" max="-2" attributes="0"/>
+                                              <Component id="scroll_qldm_bang" min="-2" pref="673" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="btn_qldm_datmon" min="-2" pref="92" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
@@ -1029,7 +1035,7 @@
                                                   <Component id="btn_qldm_xoamon" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Component id="jScrollPane6" max="32767" attributes="0"/>
+                                          <Component id="scroll_qldm_bang" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1061,14 +1067,14 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qldm_xoamonActionPerformed"/>
                               </Events>
                             </Component>
-                            <Container class="javax.swing.JScrollPane" name="jScrollPane6">
+                            <Container class="javax.swing.JScrollPane" name="scroll_qldm_bang">
                               <AuxValues>
                                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                               </AuxValues>
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="jTable6">
+                                <Component class="javax.swing.JTable" name="table_qldm_bang">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="4" rowCount="4">
@@ -1280,9 +1286,9 @@
                                       <Group type="102" attributes="0">
                                           <Component id="btn_qldb_timkiem" min="-2" pref="100" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                          <Component id="jComboBox1" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <Component id="cbo_qldb_item" min="-2" pref="115" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jScrollPane2" min="-2" pref="733" max="-2" attributes="0"/>
+                                      <Component id="scroll_qldb_bang" min="-2" pref="733" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -1294,7 +1300,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btn_qldb_timkiem" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cbo_qldb_item" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1311,7 +1317,7 @@
                                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                           <Component id="btn_qldb_datban" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jScrollPane2" min="-2" pref="530" max="-2" attributes="0"/>
+                                      <Component id="scroll_qldb_bang" min="-2" pref="530" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -1375,14 +1381,14 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qldb_datbanActionPerformed"/>
                           </Events>
                         </Component>
-                        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                        <Container class="javax.swing.JScrollPane" name="scroll_qldb_bang">
                           <AuxValues>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable2">
+                            <Component class="javax.swing.JTable" name="table_qldb_bang">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="4" rowCount="4">
@@ -1396,7 +1402,7 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Component class="javax.swing.JComboBox" name="jComboBox1">
+                        <Component class="javax.swing.JComboBox" name="cbo_qldb_item">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                               <StringArray count="4">
@@ -1408,7 +1414,7 @@
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbo_qldb_itemActionPerformed"/>
                           </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1440,6 +1446,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                       <Component id="jToggleButton1" alignment="0" pref="200" max="32767" attributes="0"/>
                       <Component id="jToggleButton2" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
@@ -1451,10 +1458,14 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
+=======
+                      <Component id="scroll_menu" alignment="0" pref="200" max="32767" attributes="0"/>
+>>>>>>> 2f67c6f75442e1a25a39d057a22358822eef0d8f
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                           <Component id="jToggleButton1" min="-2" max="-2" attributes="0"/>
@@ -1467,11 +1478,17 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jToggleButton5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="406" max="32767" attributes="0"/>
+=======
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="116" max="32767" attributes="0"/>
+                          <Component id="scroll_menu" min="-2" pref="484" max="-2" attributes="0"/>
+>>>>>>> 2f67c6f75442e1a25a39d057a22358822eef0d8f
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+<<<<<<< HEAD
                 <Component class="javax.swing.JToggleButton" name="jToggleButton1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xfd; Kh&#xe1;ch H&#xe0;ng"/>
@@ -1524,6 +1541,38 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton5ActionPerformed"/>
                   </Events>
                 </Component>
+=======
+                <Container class="javax.swing.JScrollPane" name="scroll_menu">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="table_menu">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                          <Table columnCount="1" rowCount="4">
+                            <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                          </Table>
+                        </Property>
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                          <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                          </TableColumnModel>
+                        </Property>
+                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+>>>>>>> 2f67c6f75442e1a25a39d057a22358822eef0d8f
               </SubComponents>
             </Container>
           </SubComponents>
