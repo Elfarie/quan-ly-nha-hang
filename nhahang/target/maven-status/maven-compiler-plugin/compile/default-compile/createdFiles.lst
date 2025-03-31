@@ -24,6 +24,7 @@ dao\KhachHang_DAO.class
 UII\MainFrame$15.class
 UII\MainFrame$18.class
 connectDB\connectdata.class
+UII\MainFrame$35.class
 entity\ChiTiet_PhieuDatBan.class
 UII\MainFrame$7.class
 dao\HoaDon_DAO.class
@@ -38,6 +39,7 @@ UII\MainFrame$4.class
 UII\MainFrame$1.class
 UII\MainFrame$16.class
 UII\MainFrame$26.class
+UII\MainFrame$36.class
 UII\MainFrame.class
 UII\MainFrame$13.class
 UII\MainFrame$28.class
