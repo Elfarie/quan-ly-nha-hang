@@ -47,7 +47,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel = new javax.swing.JPanel();
         cardlayout_QuanLyNhanVien = new javax.swing.JPanel();
         QuanLyNhanVien = new javax.swing.JPanel();
-        btn_qlnv_suattnv = new javax.swing.JButton();
+        btn_qlnv_suatknv = new javax.swing.JButton();
         btn_qlnv_dangkytknv = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -219,10 +219,10 @@ public class MainFrame extends javax.swing.JFrame {
         QuanLyNhanVien.setMinimumSize(new java.awt.Dimension(900, 600));
         QuanLyNhanVien.setPreferredSize(new java.awt.Dimension(900, 600));
 
-        btn_qlnv_suattnv.setText("Sửa thông tin");
-        btn_qlnv_suattnv.addActionListener(new java.awt.event.ActionListener() {
+        btn_qlnv_suatknv.setText("Sửa thông tin");
+        btn_qlnv_suatknv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_qlnv_suattnvActionPerformed(evt);
+                btn_qlnv_suatknvActionPerformed(evt);
             }
         });
 
@@ -261,6 +261,11 @@ public class MainFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        table_qlnv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                table_qlnvMouseClicked(evt);
+            }
+        });
         sp_qlnv.setViewportView(table_qlnv);
         if (table_qlnv.getColumnModel().getColumnCount() > 0) {
             table_qlnv.getColumnModel().getColumn(0).setResizable(false);
@@ -292,7 +297,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGroup(QuanLyNhanVienLayout.createSequentialGroup()
                                 .addComponent(txt_qlnv_thongbao, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_qlnv_suattnv, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_qlnv_suatknv, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_qlnv_dangkytknv))
                             .addGroup(QuanLyNhanVienLayout.createSequentialGroup()
@@ -345,7 +350,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(QuanLyNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_qlnv_suattnv)
+                    .addComponent(btn_qlnv_suatknv)
                     .addComponent(txt_qlnv_thongbao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_qlnv_dangkytknv))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
@@ -1088,10 +1093,32 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_qlnv_suattnvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlnv_suattnvActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyNhanVien.getLayout();
-        card.show(cardlayout_QuanLyNhanVien, "suattnv");
-    }//GEN-LAST:event_btn_qlnv_suattnvActionPerformed
+    private void btn_qlnv_suatknvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlnv_suatknvActionPerformed
+        if(!checkinput_qlnv()){
+            return;
+        }
+        String tennv = txt_qlnv_tennv.getText();
+        String manv = txt_qlnv_manv.getText();
+        String matkhau = txt_qlnv_matkhau.getText();
+        String sdt = txt_qlnv_sdt.getText();
+        NhanVien_DAO nv_dao = new NhanVien_DAO();
+        TK_NhanVien_DAO tknv_dao = new TK_NhanVien_DAO();
+
+        // Tạo đối tượng NhanVien và TK_NhanVien
+        NhanVien nv = new NhanVien(manv, tennv, sdt);
+        TK_NhanVien tknv = new TK_NhanVien(nv, matkhau);
+
+        // Thêm nhân viên vào cơ sở dữ liệu
+        if (!nv_dao.updateNhanVien(nv)) {
+            txt_qlnv_thongbao.setText("Tải khoản này không có sẵn!");
+            txt_qlnv_manv.requestFocus();
+            return;
+        }
+        tknv_dao.updateTK_NhanVien(tknv);
+        
+        update_table_qlnv();
+        JOptionPane.showMessageDialog(null, "Sửa thông tin thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btn_qlnv_suatknvActionPerformed
 
     private void btn_qlhd_thongkeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlhd_thongkeActionPerformed
         CardLayout card = (CardLayout)cardlayout_QuanLyHoaDon.getLayout();
@@ -1222,9 +1249,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void btn_qlnv_dangkytknvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlnv_dangkytknvActionPerformed
-        // TODO add your handling code here:
+    private boolean checkinput_qlnv() {
         String tennv = txt_qlnv_tennv.getText();
         String manv = txt_qlnv_manv.getText();
         String matkhau = txt_qlnv_matkhau.getText();
@@ -1232,39 +1257,84 @@ public class MainFrame extends javax.swing.JFrame {
         String sdt = txt_qlnv_sdt.getText();
 
         // Kiểm tra nếu các trường đầu vào rỗng
-        if (tennv == null || tennv.trim().isEmpty() || 
-            manv == null || manv.trim().isEmpty() || 
-            matkhau == null || matkhau.trim().isEmpty() || 
-            nhaplai == null || nhaplai.trim().isEmpty() || 
-            sdt == null || sdt.trim().isEmpty()) {
-            txt_qlnv_thongbao.setText("Các trường không được để trống!");
-            return;
+        if (tennv == null || tennv.trim().isEmpty()) {
+            txt_qlnv_thongbao.setText("Tên nhân viên không được để trống!");
+            txt_qlnv_tennv.requestFocus();
+            return false;
+        }
+
+        if (manv == null || manv.trim().isEmpty()) {
+            txt_qlnv_thongbao.setText("Mã nhân viên không được để trống!");
+            txt_qlnv_manv.requestFocus();
+            return false;
+        }
+
+        if (matkhau == null || matkhau.trim().isEmpty()) {
+            txt_qlnv_thongbao.setText("Mật khẩu không được để trống!");
+            txt_qlnv_matkhau.requestFocus();
+            return false;
+        }
+
+        if (nhaplai == null || nhaplai.trim().isEmpty()) {
+            txt_qlnv_thongbao.setText("Bạn cần nhập lại mật khẩu!");
+            txt_qlnv_nhaplaimk.requestFocus();
+            return false;
+        }
+
+        if (sdt == null || sdt.trim().isEmpty()) {
+            txt_qlnv_thongbao.setText("Số điện thoại không được để trống!");
+            txt_qlnv_sdt.requestFocus();
+            return false;
         }
 
         // Kiểm tra xem mật khẩu và nhập lại mật khẩu có giống nhau không
         if (!matkhau.equals(nhaplai)) {
             txt_qlnv_thongbao.setText("Mật khẩu và nhập lại mật khẩu không khớp!");
-            return;
+            txt_qlnv_matkhau.requestFocus();
+            return false;
         }
 
-        // Kiểm tra định dạng số điện thoại
+        // Kiểm tra định dạng số điện thoại (phải bắt đầu bằng số 0 và có 10 hoặc 11 chữ số)
         if (!sdt.matches("^(0\\d{9,10})$")) {
             txt_qlnv_thongbao.setText("Số điện thoại không hợp lệ!");
-            return;
+            txt_qlnv_sdt.requestFocus();
+            return false;
         }
-        if (!manv.matches("NV[0-9]{3}")) {
+
+        // Kiểm tra định dạng mã nhân viên (bắt đầu bằng 'NV' và theo sau là 3 chữ số)
+        if (!manv.matches("^NV\\d{3}$")) {
             txt_qlnv_thongbao.setText("Mã nhân viên phải theo mẫu NV000!");
+            txt_qlnv_manv.requestFocus();
+            return false;
+        }
+
+        // Nếu mọi điều kiện hợp lệ, trả về true
+        return true;
+    }
+    private void btn_qlnv_dangkytknvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlnv_dangkytknvActionPerformed
+        // TODO add your handling code here:
+        if(!checkinput_qlnv()){
             return;
         }
-        // Nếu tất cả các trường hợp đều hợp lệ
-        txt_qlnv_thongbao.setText("Tất cả các trường hợp lệ.");
+        String tennv = txt_qlnv_tennv.getText();
+        String manv = txt_qlnv_manv.getText();
+        String matkhau = txt_qlnv_matkhau.getText();
+        String sdt = txt_qlnv_sdt.getText();
+
+        // Khởi tạo DAO
         NhanVien_DAO nv_dao = new NhanVien_DAO();
         TK_NhanVien_DAO tknv_dao = new TK_NhanVien_DAO();
-        
-        NhanVien nv = new NhanVien(manv, tennv, Integer.parseInt(sdt));
+
+        // Tạo đối tượng NhanVien và TK_NhanVien
+        NhanVien nv = new NhanVien(manv, tennv, sdt);
         TK_NhanVien tknv = new TK_NhanVien(nv, matkhau);
-        
-        nv_dao.addNhanVien(nv);
+
+        // Thêm nhân viên vào cơ sở dữ liệu
+        if (!nv_dao.addNhanVien(nv)) {
+            txt_qlnv_thongbao.setText("Đã có mã tài khoản này!");
+            txt_qlnv_manv.requestFocus();
+            return;
+        }
         tknv_dao.addTK_NhanVien(tknv);
         
         update_table_qlnv();
@@ -1280,7 +1350,7 @@ public class MainFrame extends javax.swing.JFrame {
         model.setRowCount(0);
         
         for (int i = 0; i < nhanViens.size(); i++) {            
-            model.addRow(new Object[]{nhanViens.get(i).getTenNV(), nhanViens.get(i).getMaNV(), taiKhoans.get(i).getMatKhauTK(), nhanViens.get(i).getSoDienTHoai()});
+            model.addRow(new Object[]{nhanViens.get(i).getTenNV(), nhanViens.get(i).getMaNV(), taiKhoans.get(i).getMatKhauTK(), nhanViens.get(i).getSoDienThoai()});
         }
         
     }
@@ -1318,6 +1388,30 @@ public class MainFrame extends javax.swing.JFrame {
     private void txt_qlnv_thongbaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qlnv_thongbaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_qlnv_thongbaoActionPerformed
+
+    private void table_qlnvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_qlnvMouseClicked
+        // TODO add your handling code here:
+        int selectedRow = table_qlnv.getSelectedRow(); 
+        
+        if (selectedRow != -1) { 
+            DefaultTableModel model = (DefaultTableModel) table_qlnv.getModel();
+
+            String tennv = String.valueOf(model.getValueAt(selectedRow, 0)); 
+            String manv = String.valueOf(model.getValueAt(selectedRow, 1)); 
+            String matkhau = String.valueOf(model.getValueAt(selectedRow, 2)); 
+            String sdt = String.valueOf(model.getValueAt(selectedRow, 3));
+            
+
+            txt_qlnv_tennv.setText(tennv);
+            txt_qlnv_manv.setText(manv);
+            txt_qlnv_sdt.setText(sdt);
+
+            txt_qlnv_matkhau.setText(matkhau); 
+            txt_qlnv_nhaplaimk.setText(matkhau); 
+        } else {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn một hàng để chỉnh sửa."); 
+        }
+    }//GEN-LAST:event_table_qlnvMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1433,7 +1527,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_qlkh_timkhtheosdt;
     private javax.swing.JButton btn_qlkh_trangchu;
     private javax.swing.JButton btn_qlnv_dangkytknv;
-    private javax.swing.JButton btn_qlnv_suattnv;
+    private javax.swing.JButton btn_qlnv_suatknv;
     private javax.swing.JButton btn_quanliban;
     private javax.swing.JButton btn_quanlidb;
     private javax.swing.JButton btn_quanlihd;

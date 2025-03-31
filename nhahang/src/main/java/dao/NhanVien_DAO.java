@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 
 import connectDB.connectdata;
@@ -16,77 +12,79 @@ public class NhanVien_DAO {
 
     public NhanVien_DAO() {
         connectdata conn = new connectdata();
-        this.connection = conn.getConnection(); // Assume connection is established before passing
+        this.connection = conn.getConnection();
     }
 
-    public void addNhanVien(NhanVien nhanVien) {
-        String query = "INSERT INTO NhanVien (MaNV, TenNV, SoDienTHoai) VALUES (?, ?, ?)";
-
+    // Thêm nhân viên
+    public boolean addNhanVien(NhanVien nhanVien) {
+        String query = "INSERT INTO NhanVien (MaNV, TenNV, SoDienThoai) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, nhanVien.getMaNV());
             stmt.setString(2, nhanVien.getTenNV());
-            stmt.setInt(3, nhanVien.getSoDienTHoai());
+            stmt.setString(3, nhanVien.getSoDienThoai()); // Chuyển đổi sang String
             stmt.executeUpdate();
+            return true;
         } catch (SQLException e) {
-            System.err.println("Error adding NhanVien: " + e.getMessage());
+            System.err.println("Lỗi thêm nhân viên: " + e.getMessage());
+            return false;
         }
     }
 
+    // Lấy nhân viên theo mã NV
     public NhanVien getNhanVien(String maNV) {
-        String query = "SELECT MaNV, TenNV, SoDienTHoai FROM NhanVien WHERE MaNV = ?";
-        NhanVien nhanVien = null;
-
+        String query = "SELECT MaNV, TenNV, SoDienThoai FROM NhanVien WHERE MaNV = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, maNV);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                nhanVien = new NhanVien(rs.getString("MaNV"), rs.getString("TenNV"), rs.getInt("SoDienTHoai"));
+                return new NhanVien(rs.getString("MaNV"), rs.getString("TenNV"), rs.getString("SoDienThoai"));
             }
         } catch (SQLException e) {
-            System.err.println("Error retrieving NhanVien: " + e.getMessage());
+            System.err.println("Lỗi lấy nhân viên: " + e.getMessage());
         }
-
-        return nhanVien;
+        return null;
     }
 
+    // Lấy tất cả nhân viên
     public List<NhanVien> getAllNhanViens() {
         List<NhanVien> nhanViens = new ArrayList<>();
-        String query = "SELECT MaNV, TenNV, SoDienTHoai FROM NhanVien";
-
+        String query = "SELECT MaNV, TenNV, SoDienThoai FROM NhanVien";
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                NhanVien nhanVien = new NhanVien(rs.getString("MaNV"), rs.getString("TenNV"), rs.getInt("SoDienTHoai"));
-                nhanViens.add(nhanVien);
+                nhanViens.add(new NhanVien(rs.getString("MaNV"), rs.getString("TenNV"), rs.getString("SoDienThoai")));
             }
         } catch (SQLException e) {
-            System.err.println("Error retrieving all NhanViens: " + e.getMessage());
+            System.err.println("Lỗi lấy danh sách nhân viên: " + e.getMessage());
         }
-
         return nhanViens;
     }
 
-    public void updateNhanVien(NhanVien nhanVien) {
-        String query = "UPDATE NhanVien SET TenNV = ?, SoDienTHoai = ? WHERE MaNV = ?";
-
+    // Cập nhật nhân viên
+    public boolean updateNhanVien(NhanVien nhanVien) {
+        String query = "UPDATE NhanVien SET TenNV = ?, SoDienThoai = ? WHERE MaNV = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, nhanVien.getTenNV());
-            stmt.setInt(2, nhanVien.getSoDienTHoai());
+            stmt.setString(2, nhanVien.getSoDienThoai()); // Chuyển sang String
             stmt.setString(3, nhanVien.getMaNV());
             stmt.executeUpdate();
+            return true;
         } catch (SQLException e) {
-            System.err.println("Error updating NhanVien: " + e.getMessage());
+            System.err.println("Lỗi cập nhật nhân viên: " + e.getMessage());
+            return false;
         }
     }
 
-    public void deleteNhanVien(String maNV) {
+    // Xóa nhân viên
+    public boolean deleteNhanVien(String maNV) {
         String query = "DELETE FROM NhanVien WHERE MaNV = ?";
-
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, maNV);
             stmt.executeUpdate();
+            return true;
         } catch (SQLException e) {
-            System.err.println("Error deleting NhanVien: " + e.getMessage());
+            System.err.println("Lỗi xóa nhân viên: " + e.getMessage());
+            return false;
         }
     }
 }

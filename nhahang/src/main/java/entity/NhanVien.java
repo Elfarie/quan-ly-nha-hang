@@ -13,7 +13,7 @@ import java.util.Objects;
 public class NhanVien {
     private String MaNV;
     private String TenNV;
-    private int SoDienTHoai;
+    private String SoDienThoai;
 
     public String getMaNV() {
         return MaNV;
@@ -31,18 +31,18 @@ public class NhanVien {
         this.TenNV = TenNV;
     }
 
-    public int getSoDienTHoai() {
-        return SoDienTHoai;
+    public String getSoDienThoai() {
+        return SoDienThoai;
     }
 
-    public void setSoDienTHoai(int SoDienTHoai) {
-        this.SoDienTHoai = SoDienTHoai;
+    public void setSoDienThoai(String SoDienThoai) {
+        this.SoDienThoai = SoDienThoai;
     }
 
-    public NhanVien(String MaNV, String TenNV, int SoDienTHoai) {
+    public NhanVien(String MaNV, String TenNV, String SoDienThoai) {
         this.MaNV = MaNV;
         this.TenNV = TenNV;
-        this.SoDienTHoai = SoDienTHoai;
+        this.SoDienThoai = SoDienThoai;
     }
 
     public NhanVien(String MaNV) {
@@ -74,7 +74,7 @@ public class NhanVien {
     
     @Override
     public String toString() {
-        return "NhanVien{" + "MaNV=" + MaNV + ", TenNV=" + TenNV + ", SoDienTHoai=" + SoDienTHoai + '}';
+        return "NhanVien{" + "MaNV=" + MaNV + ", TenNV=" + TenNV + ", SoDienThoai=" + SoDienThoai + '}';
     }
     
 }

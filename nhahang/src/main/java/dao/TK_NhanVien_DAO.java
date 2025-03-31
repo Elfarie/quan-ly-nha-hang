@@ -85,7 +85,7 @@ public class TK_NhanVien_DAO {
      *
      * @param tk_nhanVien The TK_NhanVien object with updated values.
      */
-    public void updateTK_NhanVien(TK_NhanVien tk_nhanVien) {
+    public boolean updateTK_NhanVien(TK_NhanVien tk_nhanVien) {
         String query = "UPDATE TK_NhanVien SET MatKhauTK = ? WHERE MaNV = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -93,8 +93,10 @@ public class TK_NhanVien_DAO {
             stmt.setString(2, tk_nhanVien.getNv().getMaNV());
             stmt.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Error updating TK_NhanVien: " + e.getMessage());
+            return false;
+            //System.err.println("Error updating TK_NhanVien: " + e.getMessage());
         }
+        return true;
     }
 
     /**
