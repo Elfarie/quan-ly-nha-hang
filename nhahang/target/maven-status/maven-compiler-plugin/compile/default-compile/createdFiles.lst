@@ -2,7 +2,6 @@ dao\ChiTiet_HoaDon_DAO.class
 UII\MainFrame$9.class
 entity\KhachHang.class
 UII\MainFrame$24.class
-UII\MainFrame$34.class
 dao\NhanVien_DAO.class
 entity\HoaDon.class
 UII\MainFrame$30.class
@@ -24,14 +23,12 @@ dao\KhachHang_DAO.class
 UII\MainFrame$15.class
 UII\MainFrame$18.class
 connectDB\connectdata.class
-UII\MainFrame$35.class
 entity\ChiTiet_PhieuDatBan.class
 UII\MainFrame$7.class
 dao\HoaDon_DAO.class
 UII\MainFrame$27.class
 dao\TK_NhanVien_DAO.class
 UII\MainFrame$12.class
-UII\MainFrame$32.class
 UII\MainFrame$19.class
 UII\MainFrame$29.class
 entity\ChiTiet_HoaDon.class
@@ -39,11 +36,9 @@ UII\MainFrame$4.class
 UII\MainFrame$1.class
 UII\MainFrame$16.class
 UII\MainFrame$26.class
-UII\MainFrame$36.class
 UII\MainFrame.class
 UII\MainFrame$13.class
 UII\MainFrame$28.class
-UII\MainFrame$33.class
 entity\TK_NhanVien.class
 UII\MainFrame$31.class
 UII\MainFrame$8.class
@@ -51,7 +46,6 @@ UII\MainFrame$10.class
 UII\MainFrame$25.class
 UII\MainFrame$2.class
 UII\MainFrame$5.class
-UII\MainFrame$37.class
 UII\MainFrame$17.class
 UII\MainFrame$22.class
 dao\Ban_DAO.class
