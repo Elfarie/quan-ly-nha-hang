@@ -1,18 +1,10 @@
-﻿-- Create the database
+-- Create the database if it doesn't already exist
 IF EXISTS (SELECT name FROM sys.databases WHERE name = 'RestaurantManagement')
 BEGIN
     DROP DATABASE RestaurantManagement;
 END
 GO
 
-CREATE DATABASE RestaurantManagement;
-GO
-
--- Use the newly created database
-USE RestaurantManagement;
-GO
-
--- Create the database
 CREATE DATABASE RestaurantManagement;
 GO
 
@@ -60,7 +52,7 @@ CREATE TABLE Ban (
 -- Table for Invoices
 CREATE TABLE HoaDon (
     MaHD VARCHAR(50) PRIMARY KEY,
-	MaNV VARCHAR(50),  -- Changed from INT to VARCHAR
+    MaNV VARCHAR(50),  -- Changed from INT to VARCHAR
     MaKH VARCHAR(50),  -- Changed from INT to VARCHAR
     NgayLapHD DATE NOT NULL,
     Thue FLOAT,  -- Changed from DECIMAL to FLOAT
@@ -70,10 +62,10 @@ CREATE TABLE HoaDon (
 
 -- Table for Invoice Details
 CREATE TABLE ChiTiet_HoaDon (
-    MaCTHD VARCHAR(50) PRIMARY KEY,
     MaHD VARCHAR(50),
     MaMon VARCHAR(50),
     SoLuong INT NOT NULL,
+    PRIMARY KEY (MaHD, MaMon),  -- Composite primary key
     FOREIGN KEY (MaHD) REFERENCES HoaDon(MaHD),
     FOREIGN KEY (MaMon) REFERENCES MonAn(MaMon)
 );
@@ -93,9 +85,11 @@ CREATE TABLE TK_NhanVien (
     MatKhauTK VARCHAR(255) NOT NULL,
     FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
 );
+
 -- Insert records into Khu table
 INSERT INTO Khu (MaKhu, TenKhu) VALUES ('KHU01', 'VIP');
 INSERT INTO Khu (MaKhu, TenKhu) VALUES ('KHU02', 'THƯỜNG');
+
 -- Insert a record into the Employees table (NhanVien)
 INSERT INTO NhanVien (MaNV, TenNV, SoDienThoai) VALUES ('NVQL000', 'Nguyen Van A', '0123456789');
 
