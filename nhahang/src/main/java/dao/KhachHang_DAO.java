@@ -19,16 +19,18 @@ public class KhachHang_DAO {
         this.connection = conn.getConnection(); // Assume connection is established before passing
     }
 
-    public void addKhachHang(KhachHang khachHang) {
+    public boolean addKhachHang(KhachHang khachHang) {
         String query = "INSERT INTO KhachHang (MaKH, TenKH, SoDienTHoai) VALUES (?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, khachHang.getMaKH());
             stmt.setString(2, khachHang.getTenKH());
-            stmt.setInt(3, khachHang.getSoDienTHoai());
+            stmt.setString(3, khachHang.getSoDienTHoai());
             stmt.executeUpdate();
+            return true;
         } catch (SQLException e) {
             System.err.println("Error adding KhachHang: " + e.getMessage());
+            return false;
         }
     }
 
@@ -40,7 +42,7 @@ public class KhachHang_DAO {
             stmt.setString(1, maKH);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                khachHang = new KhachHang(rs.getString("MaKH"), rs.getString("TenKH"), rs.getInt("SoDienTHoai"));
+                khachHang = new KhachHang(rs.getString("MaKH"), rs.getString("TenKH"), rs.getString("SoDienTHoai"));
             }
         } catch (SQLException e) {
             System.err.println("Error retrieving KhachHang: " + e.getMessage());
@@ -56,7 +58,7 @@ public class KhachHang_DAO {
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                KhachHang khachHang = new KhachHang(rs.getString("MaKH"), rs.getString("TenKH"), rs.getInt("SoDienTHoai"));
+                KhachHang khachHang = new KhachHang(rs.getString("MaKH"), rs.getString("TenKH"), rs.getString("SoDienTHoai"));
                 khachHangs.add(khachHang);
             }
         } catch (SQLException e) {
@@ -66,27 +68,59 @@ public class KhachHang_DAO {
         return khachHangs;
     }
 
-    public void updateKhachHang(KhachHang khachHang) {
-        String query = "UPDATE KhachHang SET TenKH = ?, SoDienTHoai = ? WHERE MaKH = ?";
+    public boolean updateKhachHang(KhachHang khachHang) {
+    String query = "UPDATE KhachHang SET TenKH = ?, MaKH = ? WHERE SoDienTHoai = ?"; // Sửa thứ tự tham số trong câu lệnh SQL
+
+    try (PreparedStatement stmt = connection.prepareStatement(query)) {
+        stmt.setString(1, khachHang.getTenKH()); // Đặt tham số TenKH vào vị trí đầu tiên
+        stmt.setString(2, khachHang.getMaKH()); // Đặt tham số MaKH vào vị trí thứ hai
+        stmt.setString(3, khachHang.getSoDienTHoai()); // Đặt tham số SoDienTHoai vào vị trí thứ ba
+
+        int rowsAffected = stmt.executeUpdate(); // Lấy số dòng bị ảnh hưởng
+
+        if (rowsAffected == 0) {
+            System.out.println("Không tìm thấy khách hàng với Số điện thoại: " + khachHang.getSoDienTHoai()); // Thông báo lỗi với số điện thoại
+            return false;
+        }
+        return true;
+    } catch (SQLException e) {
+        System.err.println("Lỗi cập nhật khách hàng: " + e.getMessage());
+        return false;
+    }
+}
+
+    
+// Tìm kiếm khách hàng theo số điện thoại
+    public List<KhachHang> searchKhachHangBySdt(String sdt) {
+        List<KhachHang> khachHangs = new ArrayList<>();
+        String query = "SELECT MaKH, TenKH, SoDienTHoai FROM KhachHang WHERE SoDienTHoai = ?";  // Sử dụng dấu "=" để tìm số điện thoại chính xác
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, khachHang.getTenKH());
-            stmt.setInt(2, khachHang.getSoDienTHoai());
-            stmt.setString(3, khachHang.getMaKH());
-            stmt.executeUpdate();
+            stmt.setString(1, sdt);  // So sánh chính xác số điện thoại
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    KhachHang khachHang = new KhachHang(rs.getString("MaKH"), rs.getString("TenKH"), rs.getString("SoDienTHoai"));
+                    khachHangs.add(khachHang);
+                }
+            }
         } catch (SQLException e) {
-            System.err.println("Error updating KhachHang: " + e.getMessage());
+            System.err.println("Error searching for KhachHang by Sdt: " + e.getMessage());
         }
+
+        return khachHangs;
     }
 
-    public void deleteKhachHang(String maKH) {
+    public boolean deleteKhachHang(String maKH) {
         String query = "DELETE FROM KhachHang WHERE MaKH = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, maKH);
             stmt.executeUpdate();
+            return true;
         } catch (SQLException e) {
             System.err.println("Error deleting KhachHang: " + e.getMessage());
+            return false;
         }
     }
 }
+

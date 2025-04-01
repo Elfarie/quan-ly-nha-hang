@@ -9,6 +9,7 @@ UII\MainFrame$30.class
 UII\MainFrame$14.class
 dao\ChiTiet_PhieuDatBan_DAO.class
 UII\MainFrame$20.class
+UII\MainFrame$40.class
 entity\Ban.class
 UII\MainFrame$11.class
 UII\MainFrame$21.class
@@ -16,6 +17,8 @@ entity\Khu.class
 entity\NhanVien.class
 dao\Khu_DAO.class
 UII\MainFrame$6.class
+UII\MainFrame$38.class
+UII\MainFrame$41.class
 dao\MonAn_DAO.class
 entity\MonAn.class
 UII\MainFrame$3.class
@@ -35,6 +38,7 @@ UII\MainFrame$32.class
 UII\MainFrame$19.class
 UII\MainFrame$29.class
 entity\ChiTiet_HoaDon.class
+UII\MainFrame$39.class
 UII\MainFrame$4.class
 UII\MainFrame$1.class
 UII\MainFrame$16.class

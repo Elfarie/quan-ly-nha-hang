@@ -67,7 +67,6 @@ public class NhanVien_DAO {
             stmt.setString(1, nhanVien.getTenNV());
             stmt.setString(2, nhanVien.getSoDienThoai()); // Chuyển sang String
             stmt.setString(3, nhanVien.getMaNV());
-            stmt.executeUpdate();
             return true;
         } catch (SQLException e) {
             System.err.println("Lỗi cập nhật nhân viên: " + e.getMessage());

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -650,47 +650,59 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btn_qlkh_trangchu" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
-                                      <Component id="btn_qlkh_suatt" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jScrollPane3" min="-2" pref="697" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="btn_qlkh_timkhtheosdt" min="-2" pref="91" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jTextField1" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="txt_qlkh_thongbao" min="-2" pref="270" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="btn_qlkh_suatt" min="-2" pref="113" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="btn_qlkh_taokh" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="txt_qlkh_makh" min="-2" pref="140" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="txt_qlkh_sdt" min="-2" pref="171" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="txt_qlkh_tenkh" min="-2" pref="418" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jTextField7" min="-2" pref="200" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jTextField6" min="-2" pref="200" max="-2" attributes="0"/>
-                                              </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="txt_qlkh_thongbao1" min="-2" pref="292" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                              <Component id="txt_qlkh_tim" min="-2" pref="205" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                              <Component id="btn_qlkh_timkhtheosdt" min="-2" pref="91" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextField8" min="-2" pref="217" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                              <Component id="sp_qlkh" min="-2" pref="810" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <EmptySpace pref="42" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="btn_qlkh_taokh" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="314" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -700,31 +712,28 @@
                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlkh_tenkh" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txt_qlkh_makh" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlkh_sdt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                                  <Component id="btn_qlkh_taokh" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="btn_qlkh_trangchu" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                          <Component id="btn_qlkh_suatt" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Component id="jScrollPane3" alignment="1" pref="369" max="32767" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btn_qlkh_suatt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_qlkh_taokh" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlkh_thongbao" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="sp_qlkh" pref="410" max="32767" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlkh_tim" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btn_qlkh_timkhtheosdt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlkh_thongbao1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               </Group>
@@ -732,14 +741,6 @@
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JButton" name="btn_qlkh_trangchu">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Trang Ch&#x1ee7;"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlkh_trangchuActionPerformed"/>
-                          </Events>
-                        </Component>
                         <Component class="javax.swing.JButton" name="btn_qlkh_taokh">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="T&#x1ea1;o kh&#xe1;ch h&#xe0;ng"/>
@@ -764,7 +765,10 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlkh_timkhtheosdtActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField1">
+                        <Component class="javax.swing.JTextField" name="txt_qlkh_tim">
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_qlkh_timActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel15">
                           <Properties>
@@ -790,33 +794,81 @@
                             <Property name="text" type="java.lang.String" value="M&#xe3; kh&#xe1;ch h&#xe0;ng:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField6">
+                        <Component class="javax.swing.JTextField" name="txt_qlkh_tenkh">
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField7">
+                        <Component class="javax.swing.JTextField" name="txt_qlkh_sdt">
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField8">
+                        <Component class="javax.swing.JTextField" name="txt_qlkh_makh">
                         </Component>
-                        <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                        <Container class="javax.swing.JScrollPane" name="sp_qlkh">
                           <AuxValues>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                           </AuxValues>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable3">
+                            <Component class="javax.swing.JTable" name="table_qlkh">
                               <Properties>
-                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="4" rowCount="4">
-                                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor" postCode="// Gi&#x1ea3; s&#x1eed; b&#x1ea1;n &#x111;&#xe3; c&#xf3; m&#x1ed9;t DefaultTableModel&#xa;DefaultTableModel model = new DefaultTableModel();&#xa;&#xa;// Th&#xea;m c&#x1ed9;t v&#xe0;o model (n&#x1ebf;u c&#x1ea7;n)&#xa;model.addColumn(&quot;T&#xea;n Kh&#xe1;ch H&#xe0;ng&quot;);&#xa;model.addColumn(&quot;M&#xe3; Kh&#xe1;ch H&#xe0;ng&quot;);&#xa;model.addColumn(&quot;S&#x1ed1; &#x110;i&#x1ec7;n Tho&#x1ea1;i&quot;);&#xa;&#xa;// C&#xe0;i &#x111;&#x1eb7;t model cho JTable&#xa;table_qlkh.setModel(model);&#xa;&#xa;// Ng&#x1eeb;ng ch&#x1ec9;nh s&#x1eed;a cho t&#x1ea5;t c&#x1ea3; c&#xe1;c &#xf4; trong b&#x1ea3;ng&#xa;table_qlkh.setDefaultEditor(Object.class, null);  // C&#xe1;ch &#x111;&#x1a1;n gi&#x1ea3;n ng&#x1eeb;ng ch&#x1ec9;nh s&#x1eed;a">
+                                  <Table columnCount="3" rowCount="4">
+                                    <Column editable="true" title="T&#xea;n kh&#xe1;ch h&#xe0;ng" type="java.lang.Object"/>
+                                    <Column editable="true" title="M&#xe3; kh&#xe1;ch h&#xe0;ng" type="java.lang.Object"/>
+                                    <Column editable="true" title="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
+                                <Property name="cellSelectionEnabled" type="boolean" value="true" postCode="// Gi&#x1ea3; s&#x1eed; table_qlkh l&#xe0; t&#xea;n c&#x1ee7;a JTable ch&#x1ee9;a danh s&#xe1;ch kh&#xe1;ch h&#xe0;ng.&#xa;table_qlkh.getSelectionModel().addListSelectionListener(new ListSelectionListener() {&#xa;    @Override&#xa;    public void valueChanged(ListSelectionEvent e) {&#xa;        // Ki&#x1ec3;m tra n&#x1ebf;u kh&#xf4;ng c&#xf3; d&#xf2;ng n&#xe0;o &#x111;&#x1b0;&#x1ee3;c ch&#x1ecd;n&#xa;        if (!e.getValueIsAdjusting() &amp;&amp; table_qlkh.getSelectedRow() != -1) {&#xa;            // L&#x1ea5;y ch&#x1ec9; s&#x1ed1; c&#x1ee7;a d&#xf2;ng &#x111;&#x1b0;&#x1ee3;c ch&#x1ecd;n&#xa;            int selectedRow = table_qlkh.getSelectedRow();&#xa;&#xa;            // L&#x1ea5;y th&#xf4;ng tin t&#x1eeb; c&#xe1;c c&#x1ed9;t trong d&#xf2;ng &#x111;&#x1b0;&#x1ee3;c ch&#x1ecd;n&#xa;            String maKH = table_qlkh.getValueAt(selectedRow, 1).toString(); // C&#x1ed9;t MaKH&#xa;            String tenKH = table_qlkh.getValueAt(selectedRow, 0).toString(); // C&#x1ed9;t TenKH&#xa;            String soDienThoai = table_qlkh.getValueAt(selectedRow, 2).toString(); // C&#x1ed9;t SoDienTHoai&#xa;&#xa;            // &#x110;i&#x1ec1;n th&#xf4;ng tin v&#xe0;o c&#xe1;c TextField&#xa;            txt_qlkh_makh.setText(maKH);&#xa;            txt_qlkh_tenkh.setText(tenKH);&#xa;            txt_qlkh_sdt.setText(soDienThoai);&#xa;        }&#xa;    }&#xa;});"/>
+                                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                                  <TableColumnModel selectionModel="0">
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                      <Title/>
+                                      <Editor/>
+                                      <Renderer/>
+                                    </Column>
+                                  </TableColumnModel>
+                                </Property>
+                                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                                  <Color id="Default Cursor"/>
+                                </Property>
+                                <Property name="selectionMode" type="int" value="0"/>
+                                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                                  <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                                </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="table_qlkhMouseClicked"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
+                        <Component class="javax.swing.JTextField" name="txt_qlkh_thongbao">
+                          <Properties>
+                            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                              <Color id="Text Cursor"/>
+                            </Property>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_qlkh_thongbaoActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txt_qlkh_thongbao1">
+                          <Properties>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_qlkh_thongbao1ActionPerformed"/>
+                          </Events>
+                        </Component>
                       </SubComponents>
                     </Container>
                   </SubComponents>

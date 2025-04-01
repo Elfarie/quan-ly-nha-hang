@@ -13,7 +13,7 @@ import java.util.Objects;
 public class KhachHang {
     private String MaKH;
     private String TenKH;
-    private int SoDienTHoai;
+    private String SoDienTHoai;
 
     public String getMaKH() {
         return MaKH;
@@ -31,15 +31,17 @@ public class KhachHang {
         this.TenKH = TenKH;
     }
 
-    public int getSoDienTHoai() {
+    public String getSoDienTHoai() {
         return SoDienTHoai;
     }
 
-    public void setSoDienTHoai(int SoDienTHoai) {
+    public void setSoDienTHoai(String SoDienTHoai) {
         this.SoDienTHoai = SoDienTHoai;
     }
 
-    public KhachHang(String MaKH, String TenKH, int SoDienTHoai) {
+    
+
+    public KhachHang(String MaKH, String TenKH, String SoDienTHoai) {
         this.MaKH = MaKH;
         this.TenKH = TenKH;
         this.SoDienTHoai = SoDienTHoai;
