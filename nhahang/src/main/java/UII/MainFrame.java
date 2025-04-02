@@ -408,13 +408,14 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(txt_qlnv_thongbao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(QuanLyNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_qlnv_suatknv)
-                    .addComponent(btn_qlnv_dangkytknv)
-                    .addComponent(btn_qlnv_xoatrang)
+                .addGroup(QuanLyNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(QuanLyNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txt_qlnv_tim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_qlnv_timkhtheosdt)))
+                        .addComponent(btn_qlnv_timkhtheosdt))
+                    .addGroup(QuanLyNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_qlnv_suatknv)
+                        .addComponent(btn_qlnv_dangkytknv)
+                        .addComponent(btn_qlnv_xoatrang)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(sp_qlnv, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -589,7 +590,6 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }
         });
-        table_qlkh.setColumnSelectionAllowed(false);
         table_qlkh.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         table_qlkh.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         sp_qlkh.setViewportView(table_qlkh);

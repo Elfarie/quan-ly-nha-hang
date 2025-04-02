@@ -62,12 +62,12 @@ CREATE TABLE ChiTiet_HoaDon (
 );
 
 -- Table for Reservation Details
-CREATE TABLE ChiTiet_PhieuDatBan (
-    MaCTPhieu VARCHAR(50) PRIMARY KEY,
+CREATE TABLE ChiTiet_DatBan (
     MaBan VARCHAR(50),
-    MaPhieu VARCHAR(50),
+    MaHD VARCHAR(50),
+    PRIMARY KEY (MaHD, MaBan),
     FOREIGN KEY (MaBan) REFERENCES Ban(MaBan),
-    FOREIGN KEY (MaPhieu) REFERENCES HoaDon(MaHD)
+    FOREIGN KEY (MaHD) REFERENCES HoaDon(MaHD)
 );
 
 -- Table for Employee Accounts
