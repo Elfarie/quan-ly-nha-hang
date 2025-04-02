@@ -102,6 +102,19 @@ INSERT INTO NhanVien (MaNV, TenNV, SoDienThoai) VALUES
 ('NV008', 'Bui Thi I', '0989012345'),
 ('NV009', 'Do Van J', '0990123456'),
 ('NV010', 'Ngo Thi K', '0901234567');
+-- Insert additional records into TK_NhanVien table
+INSERT INTO TK_NhanVien (MaNV, MatKhauTK) VALUES
+('NV001', 'password1'),
+('NV002', 'password2'),
+('NV003', 'password3'),
+('NV004', 'password4'),
+('NV005', 'password5'),
+('NV006', 'password6'),
+('NV007', 'password7'),
+('NV008', 'password8'),
+('NV009', 'password9'),
+('NV010', 'password10');
+
 
 -- Insert records into KhachHang table
 INSERT INTO KhachHang (MaKH, TenKH, SoDienThoai) VALUES

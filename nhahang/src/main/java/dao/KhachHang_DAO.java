@@ -69,7 +69,7 @@ public class KhachHang_DAO {
     }
 
     public boolean updateKhachHang(KhachHang khachHang) {
-    String query = "UPDATE KhachHang SET TenKH = ?, MaKH = ? WHERE SoDienTHoai = ?"; // Sửa thứ tự tham số trong câu lệnh SQL
+    String query = "UPDATE KhachHang SET TenKH = ?, SoDienTHoai = ? WHERE MaKH = ?"; // Sửa thứ tự tham số trong câu lệnh SQL
 
     try (PreparedStatement stmt = connection.prepareStatement(query)) {
         stmt.setString(1, khachHang.getTenKH()); // Đặt tham số TenKH vào vị trí đầu tiên
