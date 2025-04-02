@@ -94,12 +94,20 @@ public class MainFrame extends javax.swing.JFrame {
         btn_qlkh_xoatrang = new javax.swing.JButton();
         cardlayout_QuanLyBan = new javax.swing.JPanel();
         QuanLyBan = new javax.swing.JPanel();
-        btn_qlban_trangchu = new javax.swing.JButton();
         btn_qlban_suaban = new javax.swing.JButton();
         btn_qlban_themban = new javax.swing.JButton();
         btn_qlban_xoaban = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        scroll_ban = new javax.swing.JScrollPane();
+        table_ban = new javax.swing.JTable();
+        txt_qlban_maban = new javax.swing.JTextField();
+        txt_qlban_makhu = new javax.swing.JTextField();
+        txt_qlban_trangthai = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        txt_qlban_thongbao = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        txt_qlban_maban1 = new javax.swing.JTextField();
         cardlayout_QuanLyDatBan = new javax.swing.JPanel();
         cardlayout_QuanLyDatMon = new javax.swing.JPanel();
         QuanLyDatMon = new javax.swing.JPanel();
@@ -685,13 +693,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         cardlayout_QuanLyBan.setLayout(new java.awt.CardLayout());
 
-        btn_qlban_trangchu.setText("Trang Chủ");
-        btn_qlban_trangchu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_qlban_trangchuActionPerformed(evt);
-            }
-        });
-
         btn_qlban_suaban.setText("Sửa bàn");
         btn_qlban_suaban.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -713,49 +714,122 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table_ban.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Mã Bàn", "Mã Khu", "Trạng Thái", "Đơn Giá"
+                "Mã Bàn", "Mã Khu", "Trạng Thái"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        scroll_ban.setViewportView(table_ban);
+
+        txt_qlban_maban.setEnabled(false);
+        txt_qlban_maban.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_qlban_mabanActionPerformed(evt);
+            }
+        });
+
+        txt_qlban_makhu.setEnabled(false);
+
+        txt_qlban_trangthai.setEnabled(false);
+        txt_qlban_trangthai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_qlban_trangthaiActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel19.setText("Mã bàn:");
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel20.setText("Mã khu:");
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel21.setText("Trạng thái:");
+
+        txt_qlban_thongbao.setEnabled(false);
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel22.setText("Số lượng người:");
+
+        txt_qlban_maban1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_qlban_maban1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout QuanLyBanLayout = new javax.swing.GroupLayout(QuanLyBan);
         QuanLyBan.setLayout(QuanLyBanLayout);
         QuanLyBanLayout.setHorizontalGroup(
             QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(QuanLyBanLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btn_qlban_themban, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_qlban_suaban, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_qlban_trangchu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_qlban_xoaban, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(QuanLyBanLayout.createSequentialGroup()
+                        .addGap(260, 260, 260)
+                        .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QuanLyBanLayout.createSequentialGroup()
+                                .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(QuanLyBanLayout.createSequentialGroup()
+                                        .addComponent(jLabel20)
+                                        .addGap(124, 124, 124))
+                                    .addGroup(QuanLyBanLayout.createSequentialGroup()
+                                        .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel19)
+                                            .addGroup(QuanLyBanLayout.createSequentialGroup()
+                                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txt_qlban_maban, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                                                    .addComponent(txt_qlban_makhu, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(txt_qlban_trangthai))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel22)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addComponent(txt_qlban_maban1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(QuanLyBanLayout.createSequentialGroup()
+                                .addComponent(txt_qlban_thongbao, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_qlban_xoaban, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_qlban_suaban, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_qlban_themban, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(QuanLyBanLayout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(scroll_ban, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         QuanLyBanLayout.setVerticalGroup(
             QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(QuanLyBanLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(QuanLyBanLayout.createSequentialGroup()
-                        .addComponent(btn_qlban_trangchu)
-                        .addGap(32, 32, 32)
-                        .addComponent(btn_qlban_suaban)
-                        .addGap(35, 35, 35)
-                        .addComponent(btn_qlban_themban)
-                        .addGap(33, 33, 33)
-                        .addComponent(btn_qlban_xoaban))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(txt_qlban_maban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22)
+                    .addComponent(txt_qlban_maban1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_qlban_makhu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(txt_qlban_trangthai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_qlban_thongbao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_qlban_xoaban)
+                    .addComponent(btn_qlban_suaban)
+                    .addComponent(btn_qlban_themban))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scroll_ban, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         cardlayout_QuanLyBan.add(QuanLyBan, "qlban");
@@ -1153,7 +1227,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGap(0, 24, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(12, Short.MAX_VALUE)
                         .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_quanliban, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_quanlidb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1391,11 +1465,6 @@ public class MainFrame extends javax.swing.JFrame {
             model.addRow(new Object[]{kh.getTenKH(), kh.getMaKH(), kh.getSoDienTHoai()});
         }
     }
-    private void btn_qlban_trangchuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlban_trangchuActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "trangchu");
-    }//GEN-LAST:event_btn_qlban_trangchuActionPerformed
-
     private void btn_qlban_suabanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlban_suabanActionPerformed
         CardLayout card = (CardLayout)cardlayout_QuanLyBan.getLayout();
         card.show(cardlayout_QuanLyBan, "suaban");
@@ -1725,6 +1794,18 @@ public class MainFrame extends javax.swing.JFrame {
         txt_qlnv_matkhau.setText("");
         txt_qlnv_nhaplaimk.setText("");
     }//GEN-LAST:event_btn_qlnv_xoatrangActionPerformed
+
+    private void txt_qlban_mabanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qlban_mabanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_qlban_mabanActionPerformed
+
+    private void txt_qlban_trangthaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qlban_trangthaiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_qlban_trangthaiActionPerformed
+
+    private void txt_qlban_maban1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qlban_maban1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_qlban_maban1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -1784,7 +1865,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_db_qldb;
     private javax.swing.JButton btn_qlban_suaban;
     private javax.swing.JButton btn_qlban_themban;
-    private javax.swing.JButton btn_qlban_trangchu;
     private javax.swing.JButton btn_qlban_xoaban;
     private javax.swing.JButton btn_qldb_datban;
     private javax.swing.JButton btn_qldb_huydatban;
@@ -1827,28 +1907,37 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable6;
+    private javax.swing.JScrollPane scroll_ban;
     private javax.swing.JScrollPane sp_qlkh;
     private javax.swing.JScrollPane sp_qlnv;
+    private javax.swing.JTable table_ban;
     private javax.swing.JTable table_qlkh;
     private javax.swing.JTable table_qlnv;
     private javax.swing.JPanel trangchu;
     private javax.swing.JPasswordField txt_dangnhap_matkhau;
     private javax.swing.JTextField txt_dangnhap_taikhoan;
+    private javax.swing.JTextField txt_qlban_maban;
+    private javax.swing.JTextField txt_qlban_maban1;
+    private javax.swing.JTextField txt_qlban_makhu;
+    private javax.swing.JTextField txt_qlban_thongbao;
+    private javax.swing.JTextField txt_qlban_trangthai;
     private javax.swing.JTextField txt_qlkh_makh;
     private javax.swing.JTextField txt_qlkh_sdt;
     private javax.swing.JTextField txt_qlkh_tenkh;
