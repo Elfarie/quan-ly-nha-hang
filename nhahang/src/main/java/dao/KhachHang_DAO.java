@@ -87,28 +87,8 @@ public class KhachHang_DAO {
         System.err.println("Lỗi cập nhật khách hàng: " + e.getMessage());
         return false;
     }
-}
-
-    
-// Tìm kiếm khách hàng theo số điện thoại
-    public List<KhachHang> searchKhachHangBySdt(String sdt) {
-        List<KhachHang> khachHangs = new ArrayList<>();
-        String query = "SELECT MaKH, TenKH, SoDienTHoai FROM KhachHang WHERE SoDienTHoai = ?";  // Sử dụng dấu "=" để tìm số điện thoại chính xác
-
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, sdt);  // So sánh chính xác số điện thoại
-            try (ResultSet rs = stmt.executeQuery()) {
-                while (rs.next()) {
-                    KhachHang khachHang = new KhachHang(rs.getString("MaKH"), rs.getString("TenKH"), rs.getString("SoDienTHoai"));
-                    khachHangs.add(khachHang);
-                }
-            }
-        } catch (SQLException e) {
-            System.err.println("Error searching for KhachHang by Sdt: " + e.getMessage());
-        }
-
-        return khachHangs;
     }
+
 
     public boolean deleteKhachHang(String maKH) {
         String query = "DELETE FROM KhachHang WHERE MaKH = ?";

@@ -167,6 +167,12 @@
             </Component>
             <Component class="javax.swing.JButton" name="btn_dangnhap_dangnhap">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng Nh&#x1ead;p"/>
               </Properties>
               <Events>
@@ -247,6 +253,56 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
               <SubComponents>
+                <Container class="javax.swing.JPanel" name="trangchu">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                      <CardConstraints cardName="trangchu"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="202" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="375" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel6">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="24" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="&#x110;&#xe2;y l&#xe0; &#x1ee9;ng d&#x1ee5;ng qu&#x1ea3;n l&#xed; nh&#xe0; h&#xe0;ng"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel7">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="24" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="&lt;----&#x110;&#x1ec3; b&#x1eaf;t &#x111;&#x1ea7;u vui l&#xf2;ng &#x1ea5;n m&#x1ed9;t ch&#x1ee9;c n&#x103;ng trong menu b&#xea;n c&#x1ea1;nh"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
                 <Container class="javax.swing.JPanel" name="cardlayout_QuanLyNhanVien">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
@@ -279,54 +335,62 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                          <Component id="sp_qlnv" min="-2" pref="810" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="txt_qlnv_thongbao" min="-2" pref="323" max="-2" attributes="0"/>
                                               <Group type="102" attributes="0">
-                                                  <Component id="txt_qlnv_thongbao" min="-2" pref="320" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Component id="jLabel13" min="-2" pref="90" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="jLabel9" max="32767" attributes="0"/>
+                                                          <Component id="jLabel4" max="32767" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="txt_qlnv_tennv" max="32767" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                              <Component id="txt_qlnv_matkhau" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="txt_qlnv_manv" alignment="0" pref="178" max="32767" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                              <Group type="102" attributes="0">
+                                                                  <Component id="jLabel14" min="-2" pref="92" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                                  <Component id="txt_qlnv_sdt" min="-2" pref="189" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <Group type="102" attributes="0">
+                                                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                                                  <EmptySpace max="-2" attributes="0"/>
+                                                                  <Component id="txt_qlnv_nhaplaimk" max="32767" attributes="0"/>
+                                                              </Group>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="btn_qlnv_timkhtheosdt" min="-2" pref="91" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="txt_qlnv_tim" min="-2" pref="205" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="btn_qlnv_xoatrang" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="btn_qlnv_suatknv" min="-2" pref="115" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="btn_qlnv_dangkytknv" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Group type="103" groupAlignment="1" attributes="0">
-                                                              <Component id="jLabel13" min="-2" pref="90" max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                                  <Component id="jLabel9" max="32767" attributes="0"/>
-                                                                  <Component id="jLabel4" max="32767" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
-                                                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="txt_qlnv_tennv" max="32767" attributes="0"/>
-                                                      <Component id="txt_qlnv_nhaplaimk" alignment="0" max="32767" attributes="0"/>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Component id="txt_qlnv_manv" min="-2" pref="178" max="-2" attributes="0"/>
-                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                          <Component id="jLabel14" min="-2" pref="92" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                                          <Component id="txt_qlnv_sdt" min="-2" pref="189" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="txt_qlnv_matkhau" max="32767" attributes="0"/>
-                                                  </Group>
+                                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                          <Component id="sp_qlnv" min="-2" pref="810" max="-2" attributes="0"/>
-                                      </Group>
                                   </Group>
-                                  <EmptySpace pref="51" max="32767" attributes="0"/>
+                                  <EmptySpace pref="71" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -349,19 +413,22 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel13" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                       <Component id="txt_qlnv_matkhau" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txt_qlnv_nhaplaimk" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel18" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="txt_qlnv_nhaplaimk" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                  <Component id="txt_qlnv_thongbao" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btn_qlnv_suatknv" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txt_qlnv_thongbao" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btn_qlnv_dangkytknv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_qlnv_xoatrang" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                          <Component id="txt_qlnv_tim" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btn_qlnv_timkhtheosdt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                                  <EmptySpace pref="15" max="32767" attributes="0"/>
                                   <Component id="sp_qlnv" min="-2" pref="380" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               </Group>
@@ -494,6 +561,24 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Nh&#x1ead;p l&#x1ea1;i m&#x1ead;t kh&#x1ea9;u:"/>
                           </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btn_qlnv_xoatrang">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="X&#xf3;a Tr&#x1eaf;ng"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlnv_xoatrangActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="btn_qlnv_timkhtheosdt">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="T&#xec;m sdt:"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlnv_timkhtheosdtActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txt_qlnv_tim">
                         </Component>
                       </SubComponents>
                     </Container>
@@ -651,55 +736,52 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
+                                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                                   <Component id="txt_qlkh_thongbao" min="-2" pref="270" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="btn_qlkh_suatt" min="-2" pref="113" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="btn_qlkh_taokh" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="102" alignment="1" attributes="0">
+                                                              <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="1" attributes="0">
+                                                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="txt_qlkh_makh" min="-2" pref="140" max="-2" attributes="0"/>
+                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                              <Component id="txt_qlkh_sdt" min="-2" pref="171" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Component id="txt_qlkh_tenkh" max="32767" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
                                               </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="txt_qlkh_makh" min="-2" pref="140" max="-2" attributes="0"/>
-                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                          <Component id="txt_qlkh_sdt" min="-2" pref="171" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="txt_qlkh_tenkh" min="-2" pref="418" max="-2" attributes="0"/>
-                                                  </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="btn_qlkh_timkhtheosdt" min="-2" pref="91" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="txt_qlkh_tim" min="-2" pref="205" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="btn_qlkh_xoatrang" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="btn_qlkh_taokh" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="btn_qlkh_suatt" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="txt_qlkh_thongbao1" min="-2" pref="292" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                              <Component id="txt_qlkh_tim" min="-2" pref="205" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                              <Component id="btn_qlkh_timkhtheosdt" min="-2" pref="91" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                              <Component id="sp_qlkh" min="-2" pref="810" max="-2" attributes="0"/>
-                                          </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                          <Component id="sp_qlkh" min="-2" pref="810" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace pref="42" max="32767" attributes="0"/>
@@ -721,21 +803,19 @@
                                       <Component id="txt_qlkh_sdt" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btn_qlkh_suatt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btn_qlkh_taokh" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txt_qlkh_thongbao" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="sp_qlkh" pref="410" max="32767" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                  <Component id="txt_qlkh_thongbao" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txt_qlkh_tim" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btn_qlkh_timkhtheosdt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txt_qlkh_thongbao1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_qlkh_taokh" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_qlkh_suatt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_qlkh_xoatrang" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="sp_qlkh" pref="399" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -759,16 +839,13 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="btn_qlkh_timkhtheosdt">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="T&#xec;m:"/>
+                            <Property name="text" type="java.lang.String" value="T&#xec;m sdt:"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlkh_timkhtheosdtActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txt_qlkh_tim">
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_qlkh_timActionPerformed"/>
-                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel15">
                           <Properties>
@@ -811,31 +888,32 @@
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor" postCode="// Gi&#x1ea3; s&#x1eed; b&#x1ea1;n &#x111;&#xe3; c&#xf3; m&#x1ed9;t DefaultTableModel&#xa;DefaultTableModel model = new DefaultTableModel();&#xa;&#xa;// Th&#xea;m c&#x1ed9;t v&#xe0;o model (n&#x1ebf;u c&#x1ea7;n)&#xa;model.addColumn(&quot;T&#xea;n Kh&#xe1;ch H&#xe0;ng&quot;);&#xa;model.addColumn(&quot;M&#xe3; Kh&#xe1;ch H&#xe0;ng&quot;);&#xa;model.addColumn(&quot;S&#x1ed1; &#x110;i&#x1ec7;n Tho&#x1ea1;i&quot;);&#xa;&#xa;// C&#xe0;i &#x111;&#x1eb7;t model cho JTable&#xa;table_qlkh.setModel(model);&#xa;&#xa;// Ng&#x1eeb;ng ch&#x1ec9;nh s&#x1eed;a cho t&#x1ea5;t c&#x1ea3; c&#xe1;c &#xf4; trong b&#x1ea3;ng&#xa;table_qlkh.setDefaultEditor(Object.class, null);  // C&#xe1;ch &#x111;&#x1a1;n gi&#x1ea3;n ng&#x1eeb;ng ch&#x1ec9;nh s&#x1eed;a">
                                   <Table columnCount="3" rowCount="4">
-                                    <Column editable="true" title="T&#xea;n kh&#xe1;ch h&#xe0;ng" type="java.lang.Object"/>
-                                    <Column editable="true" title="M&#xe3; kh&#xe1;ch h&#xe0;ng" type="java.lang.Object"/>
-                                    <Column editable="true" title="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i" type="java.lang.Object"/>
+                                    <Column editable="false" title="T&#xea;n kh&#xe1;ch h&#xe0;ng" type="java.lang.Object"/>
+                                    <Column editable="false" title="M&#xe3; kh&#xe1;ch h&#xe0;ng" type="java.lang.Object"/>
+                                    <Column editable="false" title="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
-                                <Property name="cellSelectionEnabled" type="boolean" value="true" postCode="// Gi&#x1ea3; s&#x1eed; table_qlkh l&#xe0; t&#xea;n c&#x1ee7;a JTable ch&#x1ee9;a danh s&#xe1;ch kh&#xe1;ch h&#xe0;ng.&#xa;table_qlkh.getSelectionModel().addListSelectionListener(new ListSelectionListener() {&#xa;    @Override&#xa;    public void valueChanged(ListSelectionEvent e) {&#xa;        // Ki&#x1ec3;m tra n&#x1ebf;u kh&#xf4;ng c&#xf3; d&#xf2;ng n&#xe0;o &#x111;&#x1b0;&#x1ee3;c ch&#x1ecd;n&#xa;        if (!e.getValueIsAdjusting() &amp;&amp; table_qlkh.getSelectedRow() != -1) {&#xa;            // L&#x1ea5;y ch&#x1ec9; s&#x1ed1; c&#x1ee7;a d&#xf2;ng &#x111;&#x1b0;&#x1ee3;c ch&#x1ecd;n&#xa;            int selectedRow = table_qlkh.getSelectedRow();&#xa;&#xa;            // L&#x1ea5;y th&#xf4;ng tin t&#x1eeb; c&#xe1;c c&#x1ed9;t trong d&#xf2;ng &#x111;&#x1b0;&#x1ee3;c ch&#x1ecd;n&#xa;            String maKH = table_qlkh.getValueAt(selectedRow, 1).toString(); // C&#x1ed9;t MaKH&#xa;            String tenKH = table_qlkh.getValueAt(selectedRow, 0).toString(); // C&#x1ed9;t TenKH&#xa;            String soDienThoai = table_qlkh.getValueAt(selectedRow, 2).toString(); // C&#x1ed9;t SoDienTHoai&#xa;&#xa;            // &#x110;i&#x1ec1;n th&#xf4;ng tin v&#xe0;o c&#xe1;c TextField&#xa;            txt_qlkh_makh.setText(maKH);&#xa;            txt_qlkh_tenkh.setText(tenKH);&#xa;            txt_qlkh_sdt.setText(soDienThoai);&#xa;        }&#xa;    }&#xa;});"/>
+                                <Property name="cellSelectionEnabled" postCode="// Gi&#x1ea3; s&#x1eed; table_qlkh l&#xe0; t&#xea;n c&#x1ee7;a JTable ch&#x1ee9;a danh s&#xe1;ch kh&#xe1;ch h&#xe0;ng.&#xa;table_qlkh.getSelectionModel().addListSelectionListener(new ListSelectionListener() {&#xa;    @Override&#xa;    public void valueChanged(ListSelectionEvent e) {&#xa;        // Ki&#x1ec3;m tra n&#x1ebf;u kh&#xf4;ng c&#xf3; d&#xf2;ng n&#xe0;o &#x111;&#x1b0;&#x1ee3;c ch&#x1ecd;n&#xa;        if (!e.getValueIsAdjusting() &amp;&amp; table_qlkh.getSelectedRow() != -1) {&#xa;            // L&#x1ea5;y ch&#x1ec9; s&#x1ed1; c&#x1ee7;a d&#xf2;ng &#x111;&#x1b0;&#x1ee3;c ch&#x1ecd;n&#xa;            int selectedRow = table_qlkh.getSelectedRow();&#xa;&#xa;            // L&#x1ea5;y th&#xf4;ng tin t&#x1eeb; c&#xe1;c c&#x1ed9;t trong d&#xf2;ng &#x111;&#x1b0;&#x1ee3;c ch&#x1ecd;n&#xa;            String maKH = table_qlkh.getValueAt(selectedRow, 1).toString(); // C&#x1ed9;t MaKH&#xa;            String tenKH = table_qlkh.getValueAt(selectedRow, 0).toString(); // C&#x1ed9;t TenKH&#xa;            String soDienThoai = table_qlkh.getValueAt(selectedRow, 2).toString(); // C&#x1ed9;t SoDienTHoai&#xa;&#xa;            // &#x110;i&#x1ec1;n th&#xf4;ng tin v&#xe0;o c&#xe1;c TextField&#xa;            txt_qlkh_makh.setText(maKH);&#xa;            txt_qlkh_tenkh.setText(tenKH);&#xa;            txt_qlkh_sdt.setText(soDienThoai);&#xa;        }&#xa;    }&#xa;});"/>
                                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                                   <TableColumnModel selectionModel="0">
-                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                       <Title/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
-                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                       <Title/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
-                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                                       <Title/>
                                       <Editor/>
                                       <Renderer/>
                                     </Column>
                                   </TableColumnModel>
                                 </Property>
+                                <Property name="columnSelectionAllowed" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                                   <Color id="Default Cursor"/>
                                 </Property>
@@ -844,9 +922,6 @@
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
                               </Properties>
-                              <Events>
-                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="table_qlkhMouseClicked"/>
-                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -857,16 +932,13 @@
                             </Property>
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_qlkh_thongbaoActionPerformed"/>
-                          </Events>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txt_qlkh_thongbao1">
+                        <Component class="javax.swing.JButton" name="btn_qlkh_xoatrang">
                           <Properties>
-                            <Property name="enabled" type="boolean" value="false"/>
+                            <Property name="text" type="java.lang.String" value="X&#xf3;a Tr&#x1eaf;ng"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_qlkh_thongbao1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlkh_xoatrangActionPerformed"/>
                           </Events>
                         </Component>
                       </SubComponents>
@@ -883,11 +955,6 @@
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
                   <SubComponents>
                     <Container class="javax.swing.JPanel" name="QuanLyBan">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                        </Property>
-                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
                           <CardConstraints cardName="qlban"/>
@@ -1488,7 +1555,7 @@
             <Container class="javax.swing.JPanel" name="Menu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Default Cursor"/>
@@ -1510,19 +1577,27 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btn_quanlihd" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
-                              <Component id="btn_quanlinv" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
-                              <Component id="btn_quanlikh" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
-                              <Component id="btn_quanliban" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
-                              <Component id="btn_quanlidb" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btn_quanliban" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
+                                      <Component id="btn_quanlidb" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
+                                      <Component id="btn_quanlikh" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
+                                      <Component id="btn_quanlinv" alignment="1" min="-2" pref="182" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="btn_quanlihd" min="-2" pref="182" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1531,7 +1606,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                           <Component id="btn_quanliban" min="-2" pref="29" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btn_quanlidb" min="-2" pref="29" max="-2" attributes="0"/>
@@ -1541,7 +1616,7 @@
                           <Component id="btn_quanlinv" min="-2" pref="28" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btn_quanlihd" min="-2" pref="28" max="-2" attributes="0"/>
-                          <EmptySpace pref="308" max="32767" attributes="0"/>
+                          <EmptySpace pref="271" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1552,17 +1627,25 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="18" style="0"/>
                     </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Menu Ch&#x1ee9;c N&#x103;ng"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_quanliban">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xed; B&#xe0;n"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
-                        <CompoundBorder/>
-                      </Border>
+                      <Border info="null"/>
                     </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Default Cursor"/>
                     </Property>
@@ -1573,12 +1656,17 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_quanlidb">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xed; &#x110;&#x1eb7;t B&#xe0;n"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
-                        <CompoundBorder/>
-                      </Border>
+                      <Border info="null"/>
                     </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_quanlidbActionPerformed"/>
@@ -1586,11 +1674,15 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_quanlikh">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xed; Kh&#xe1;ch H&#xe0;ng"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
-                        <CompoundBorder/>
-                      </Border>
+                      <Border info="null"/>
                     </Property>
                     <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
@@ -1600,12 +1692,17 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_quanlinv">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xed; Nh&#xe2;n Vi&#xea;n"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
-                        <CompoundBorder/>
-                      </Border>
+                      <Border info="null"/>
                     </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_quanlinvActionPerformed"/>
@@ -1613,12 +1710,17 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btn_quanlihd">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n L&#xed; H&#xf3;a &#x110;&#x1a1;n"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
-                        <CompoundBorder/>
-                      </Border>
+                      <Border info="null"/>
                     </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_quanlihdActionPerformed"/>

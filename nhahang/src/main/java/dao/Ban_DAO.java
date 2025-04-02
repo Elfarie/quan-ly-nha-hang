@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 
 import connectDB.connectdata;
 import entity.Ban;
-import entity.Khu;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,19 +11,16 @@ public class Ban_DAO {
 
     public Ban_DAO() {
         connectdata conn = new connectdata();
-        this.connection = conn.getConnection(); // Assume connection is established before passing
+        this.connection = conn.getConnection();
     }
 
-
     public void addBan(Ban ban) {
-        String query = "INSERT INTO Ban (MaBan, Khu_MaKhu, SoLuongNguoi, TrangThai, DonGia) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO Ban (MaBan, SoLuongNguoi, TrangThai) VALUES (?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, ban.getMaBan());
-            stmt.setString(2, ban.getKhu().getMaKhu()); // Assume Khu has a method getMaKhu
-            stmt.setInt(3, ban.getSoLuongNguoi());
-            stmt.setBoolean(4, ban.isTrangThai());
-            stmt.setDouble(5, ban.getDonGia());
+            stmt.setInt(2, ban.getSoLuongNguoi());
+            stmt.setBoolean(3, ban.isTrangThai());
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Error adding Ban: " + e.getMessage());
@@ -37,15 +28,14 @@ public class Ban_DAO {
     }
 
     public Ban getBan(String maBan) {
-        String query = "SELECT MaBan, Khu_MaKhu, SoLuongNguoi, TrangThai, DonGia FROM Ban WHERE MaBan = ?";
+        String query = "SELECT MaBan, SoLuongNguoi, TrangThai FROM Ban WHERE MaBan = ?";
         Ban ban = null;
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, maBan);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                Khu khu = new Khu(rs.getString("Khu_MaKhu")); // Assume Khu constructor can take MaKhu
-                ban = new Ban(rs.getString("MaBan"), khu, rs.getInt("SoLuongNguoi"), rs.getBoolean("TrangThai"), rs.getDouble("DonGia"));
+                ban = new Ban(rs.getString("MaBan"), rs.getInt("SoLuongNguoi"), rs.getBoolean("TrangThai"));
             }
         } catch (SQLException e) {
             System.err.println("Error retrieving Ban: " + e.getMessage());
@@ -56,13 +46,12 @@ public class Ban_DAO {
 
     public List<Ban> getAllBans() {
         List<Ban> bans = new ArrayList<>();
-        String query = "SELECT MaBan, Khu_MaKhu, SoLuongNguoi, TrangThai, DonGia FROM Ban";
+        String query = "SELECT MaBan, SoLuongNguoi, TrangThai FROM Ban";
 
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                Khu khu = new Khu(rs.getString("Khu_MaKhu"));
-                Ban ban = new Ban(rs.getString("MaBan"), khu, rs.getInt("SoLuongNguoi"), rs.getBoolean("TrangThai"), rs.getDouble("DonGia"));
+                Ban ban = new Ban(rs.getString("MaBan"), rs.getInt("SoLuongNguoi"), rs.getBoolean("TrangThai"));
                 bans.add(ban);
             }
         } catch (SQLException e) {
@@ -73,14 +62,12 @@ public class Ban_DAO {
     }
 
     public void updateBan(Ban ban) {
-        String query = "UPDATE Ban SET Khu_MaKhu = ?, SoLuongNguoi = ?, TrangThai = ?, DonGia = ? WHERE MaBan = ?";
+        String query = "UPDATE Ban SET SoLuongNguoi = ?, TrangThai = ? WHERE MaBan = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, ban.getKhu().getMaKhu());
-            stmt.setInt(2, ban.getSoLuongNguoi());
-            stmt.setBoolean(3, ban.isTrangThai());
-            stmt.setDouble(4, ban.getDonGia());
-            stmt.setString(5, ban.getMaBan());
+            stmt.setInt(1, ban.getSoLuongNguoi());
+            stmt.setBoolean(2, ban.isTrangThai());
+            stmt.setString(3, ban.getMaBan());
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Error updating Ban: " + e.getMessage());

@@ -1,21 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package entity;
 
 import java.util.Objects;
 
-/**
- *
- * @author ADMIN
- */
 public class Ban {
     private String MaBan;
-    private Khu khu;
     private int SoLuongNguoi;
     private boolean TrangThai;
-    private double DonGia;
 
     public String getMaBan() {
         return MaBan;
@@ -23,14 +13,6 @@ public class Ban {
 
     public void setMaBan(String MaBan) {
         this.MaBan = MaBan;
-    }
-
-    public Khu getKhu() {
-        return khu;
-    }
-
-    public void setKhu(Khu khu) {
-        this.khu = khu;
     }
 
     public int getSoLuongNguoi() {
@@ -49,31 +31,19 @@ public class Ban {
         this.TrangThai = TrangThai;
     }
 
-    public double getDonGia() {
-        return DonGia;
-    }
-
-    public void setDonGia(double DonGia) {
-        this.DonGia = DonGia;
-    }
-
-    public Ban(String MaBan, Khu khu, int SoLuongNguoi, boolean TrangThai, double DonGia) {
+    public Ban(String MaBan, int SoLuongNguoi, boolean TrangThai) {
         this.MaBan = MaBan;
-        this.khu = khu;
         this.SoLuongNguoi = SoLuongNguoi;
         this.TrangThai = TrangThai;
-        this.DonGia = DonGia;
     }
 
     public Ban(String MaBan) {
         this.MaBan = MaBan;
     }
- 
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.MaBan);
-        return hash;
+        return Objects.hash(MaBan);
     }
 
     @Override
@@ -81,19 +51,15 @@ public class Ban {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Ban other = (Ban) obj;
+        Ban other = (Ban) obj;
         return Objects.equals(this.MaBan, other.MaBan);
     }
 
     @Override
     public String toString() {
-        return "Ban{" + "MaBan=" + MaBan + ", khu=" + khu + ", SoLuongNguoi=" + SoLuongNguoi + ", TrangThai=" + TrangThai + ", DonGia=" + DonGia + '}';
+        return "Ban{" + "MaBan=" + MaBan + ", SoLuongNguoi=" + SoLuongNguoi + ", TrangThai=" + TrangThai + '}';
     }
-    
 }

@@ -13,9 +13,7 @@ UII\MainFrame$40.class
 entity\Ban.class
 UII\MainFrame$11.class
 UII\MainFrame$21.class
-entity\Khu.class
 entity\NhanVien.class
-dao\Khu_DAO.class
 UII\MainFrame$6.class
 UII\MainFrame$38.class
 UII\MainFrame$41.class
@@ -59,3 +57,4 @@ UII\MainFrame$37.class
 UII\MainFrame$17.class
 UII\MainFrame$22.class
 dao\Ban_DAO.class
+UII\MainFrame$42.class
