@@ -1702,6 +1702,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btn_quanlibanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quanlibanActionPerformed
         // TODO add your handling code here:
+        update_table_Ban();
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlyban");
     }//GEN-LAST:event_btn_quanlibanActionPerformed
@@ -1770,7 +1771,24 @@ public class MainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Không có dữ liệu khách hàng!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+    private void update_table_Ban() {
+        DefaultTableModel model = (DefaultTableModel) table_ban.getModel();
+        Ban_DAO ban_dao = new Ban_DAO();
+        ArrayList<Ban> ban = (ArrayList<Ban>) ban_dao.getAllBans();
 
+        // Kiểm tra nếu danh sách khách hàng không phải null và không rỗng
+        if (ban != null && !ban.isEmpty()) {
+            model.setRowCount(0); // Xóa tất cả các dòng cũ trong bảng
+
+            for (Ban b : ban) {
+                model.addRow(new Object[]{b.getMaBan(), b.getSoLuongNguoi()});
+            }
+        } else {
+            // Nếu danh sách khách hàng trống hoặc null, hiển thị thông báo cho người dùng
+            model.setRowCount(0);
+            JOptionPane.showMessageDialog(null, "Không có dữ liệu khách hàng!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
     private void btn_datmon_qldmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_datmon_qldmActionPerformed
         CardLayout card = (CardLayout)cardlayout_QuanLyDatMon.getLayout();
         card.show(cardlayout_QuanLyDatMon, "qldatmon");
