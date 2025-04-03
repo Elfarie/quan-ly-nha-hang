@@ -169,6 +169,12 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel3.setText("Mật Khẩu :");
 
+        txt_dangnhap_taikhoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_dangnhap_taikhoanActionPerformed(evt);
+            }
+        });
+
         btn_dangnhap_dangnhap.setBackground(new java.awt.Color(0, 0, 0));
         btn_dangnhap_dangnhap.setForeground(new java.awt.Color(255, 255, 255));
         btn_dangnhap_dangnhap.setText("Đăng Nhập");
@@ -1327,6 +1333,7 @@ public class MainFrame extends javax.swing.JFrame {
         tknv_dao.updateTK_NhanVien(tknv);
         
         update_table_qlnv();
+        txt_qlnv_thongbao.setText("");
         JOptionPane.showMessageDialog(null, "Sửa thông tin thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_qlnv_suatknvActionPerformed
 
@@ -1360,7 +1367,7 @@ public class MainFrame extends javax.swing.JFrame {
             txt_qlkh_makh.requestFocus();
             return;
         }
-        
+        txt_qlkh_thongbao.setText("");
         update_table_qlkh();
         JOptionPane.showMessageDialog(null, "Tạo thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_qlkh_taokhActionPerformed
@@ -1423,7 +1430,7 @@ public class MainFrame extends javax.swing.JFrame {
             return;
         }
 
-// Cập nhật lại bảng dữ liệu khách hàng
+        txt_qlkh_thongbao.setText("");
         update_table_qlkh();
         JOptionPane.showMessageDialog(null, "Sửa thông tin khách hàng thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_qlkh_suattActionPerformed
@@ -1451,9 +1458,10 @@ public class MainFrame extends javax.swing.JFrame {
             txt_qlkh_thongbao.setText("");
             if(result.isEmpty()){
                JOptionPane.showMessageDialog(null, "Không tìm thấy số điện thoại", "Thông báo", JOptionPane.WARNING_MESSAGE);
-               update_table_qlkh_search(khachHangs);
+               update_table_qlkh();
                return;
             }
+            txt_qlkh_thongbao.setText("");
             update_table_qlkh_search(result);
         }
     }//GEN-LAST:event_btn_qlkh_timkhtheosdtActionPerformed
@@ -1557,9 +1565,14 @@ public class MainFrame extends javax.swing.JFrame {
                 break;
             }
         }
-
-        // Kiểm tra thông tin đăng nhập (thay bằng dữ liệu từ CSDL nếu cần)
+        
         if (check) {
+            if(username.matches("NV[0-9]{3}")){
+                btn_quanlinv.setEnabled(false);
+            }
+            else{
+                btn_quanlinv.setEnabled(true);
+            }
             JOptionPane.showMessageDialog(this, "Đăng nhập thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
             CardLayout card = (CardLayout)Outer.getLayout();
             card.show(Outer, "chucnang");
@@ -1662,6 +1675,7 @@ public class MainFrame extends javax.swing.JFrame {
         tknv_dao.addTK_NhanVien(tknv);
         
         update_table_qlnv();
+        txt_qlnv_thongbao.setText("");
         JOptionPane.showMessageDialog(null, "Đăng ký thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_qlnv_dangkytknvActionPerformed
     private void update_table_qlnv(){
@@ -1672,11 +1686,13 @@ public class MainFrame extends javax.swing.JFrame {
         ArrayList<TK_NhanVien> taiKhoans = (ArrayList<TK_NhanVien>) tknv_dao.getAllTK_NhanViens();
         
         model.setRowCount(0);
-        
+        if(nhanViens.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Không có dữ liệu Nhân Viên!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
         for (int i = 0; i < nhanViens.size(); i++) {            
             model.addRow(new Object[]{nhanViens.get(i).getTenNV(), nhanViens.get(i).getMaNV(), taiKhoans.get(i).getMatKhauTK(), nhanViens.get(i).getSoDienThoai()});
         }
-        
     }
     private void btn_quanlidbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quanlidbActionPerformed
         // TODO add your handling code here:
@@ -1724,7 +1740,7 @@ public class MainFrame extends javax.swing.JFrame {
             String manv = String.valueOf(model.getValueAt(selectedRow, 1)); 
             String matkhau = String.valueOf(model.getValueAt(selectedRow, 2)); 
             String sdt = String.valueOf(model.getValueAt(selectedRow, 3));
-            
+
 
             txt_qlnv_tennv.setText(tennv);
             txt_qlnv_manv.setText(manv);
@@ -1737,23 +1753,23 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_table_qlnvMouseClicked
     private void update_table_qlkh() {
-    DefaultTableModel model = (DefaultTableModel) table_qlkh.getModel();
-    KhachHang_DAO kh_dao = new KhachHang_DAO();
-    ArrayList<KhachHang> khachHangs = (ArrayList<KhachHang>) kh_dao.getAllKhachHangs();
+        DefaultTableModel model = (DefaultTableModel) table_qlkh.getModel();
+        KhachHang_DAO kh_dao = new KhachHang_DAO();
+        ArrayList<KhachHang> khachHangs = (ArrayList<KhachHang>) kh_dao.getAllKhachHangs();
 
-    // Kiểm tra nếu danh sách khách hàng không phải null và không rỗng
-    if (khachHangs != null && !khachHangs.isEmpty()) {
-        model.setRowCount(0); // Xóa tất cả các dòng cũ trong bảng
+        // Kiểm tra nếu danh sách khách hàng không phải null và không rỗng
+        if (khachHangs != null && !khachHangs.isEmpty()) {
+            model.setRowCount(0); // Xóa tất cả các dòng cũ trong bảng
 
-        for (KhachHang kh : khachHangs) {
-            model.addRow(new Object[]{kh.getTenKH(), kh.getMaKH(), kh.getSoDienTHoai()});
+            for (KhachHang kh : khachHangs) {
+                model.addRow(new Object[]{kh.getTenKH(), kh.getMaKH(), kh.getSoDienTHoai()});
+            }
+        } else {
+            // Nếu danh sách khách hàng trống hoặc null, hiển thị thông báo cho người dùng
+            model.setRowCount(0);
+            JOptionPane.showMessageDialog(null, "Không có dữ liệu khách hàng!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
-    } else {
-        // Nếu danh sách khách hàng trống hoặc null, hiển thị thông báo cho người dùng
-        model.setRowCount(0);
-        JOptionPane.showMessageDialog(null, "Không có dữ liệu khách hàng!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
     }
-}
 
     private void btn_datmon_qldmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_datmon_qldmActionPerformed
         CardLayout card = (CardLayout)cardlayout_QuanLyDatMon.getLayout();
@@ -1784,8 +1800,51 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btn_qlnv_timkhtheosdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlnv_timkhtheosdtActionPerformed
         // TODO add your handling code here:
+        String sdt = txt_qlnv_tim.getText().trim();
+        if (sdt.isEmpty()) {
+            txt_qlnv_thongbao.setText("Nhập số điện thoại cần tìm!");
+            txt_qlnv_tim.requestFocus();
+        }
+        else if (!sdt.matches("[0-9].*")) {
+            txt_qlnv_thongbao.setText("Phải là số!");
+            txt_qlnv_tim.requestFocus();
+        }
+        else {
+            // Tìm kiếm khách hàng theo số điện thoại
+            NhanVien_DAO nv_dao = new NhanVien_DAO();
+            List<NhanVien> nhanViens = nv_dao.getAllNhanViens();
+            List<NhanVien> result = new ArrayList<NhanVien>();
+            for (NhanVien nv : nhanViens) {
+                if(nv.getSoDienThoai().contains(sdt)){
+                    result.add(nv);
+                }
+            }
+            txt_qlnv_thongbao.setText("");
+            if(result.isEmpty()){
+               JOptionPane.showMessageDialog(null, "Không tìm thấy số điện thoại", "Thông báo", JOptionPane.WARNING_MESSAGE);
+               update_table_qlnv();
+               return;
+            }
+            txt_qlnv_thongbao.setText("");
+            update_table_qlnv_search(result);
+        }
     }//GEN-LAST:event_btn_qlnv_timkhtheosdtActionPerformed
-
+    private void update_table_qlnv_search(List<NhanVien> nhanViens){
+        DefaultTableModel model = (DefaultTableModel) table_qlnv.getModel();
+        TK_NhanVien_DAO tknv_dao = new TK_NhanVien_DAO();
+        ArrayList<TK_NhanVien> taiKhoans = (ArrayList<TK_NhanVien>) tknv_dao.getAllTK_NhanViens();
+        
+        model.setRowCount(0);
+        
+        for (NhanVien nv : nhanViens){
+            for (TK_NhanVien tk : taiKhoans) {
+                if(nv.getMaNV().equals(tk.getNv().getMaNV())){
+                    model.addRow(new Object[]{nv.getTenNV(), nv.getMaNV(), tk.getMatKhauTK(), nv.getSoDienThoai()});
+                    break;
+                }
+            } 
+        }
+    }
     private void btn_qlnv_xoatrangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlnv_xoatrangActionPerformed
         // TODO add your handling code here:
         txt_qlnv_tennv.setText("");
@@ -1806,6 +1865,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void txt_qlban_maban1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qlban_maban1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_qlban_maban1ActionPerformed
+
+    private void txt_dangnhap_taikhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dangnhap_taikhoanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_dangnhap_taikhoanActionPerformed
     
     /**
      * @param args the command line arguments
