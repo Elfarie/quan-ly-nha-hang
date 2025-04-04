@@ -14,7 +14,7 @@ public class Ban_DAO {
         this.connection = conn.getConnection();
     }
 
-    public void addBan(Ban ban) {
+    public boolean addBan(Ban ban) {
         String query = "INSERT INTO Ban (MaBan, SoLuongNguoi, TrangThai) VALUES (?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -24,7 +24,9 @@ public class Ban_DAO {
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Error adding Ban: " + e.getMessage());
+            return false;
         }
+        return true;
     }
 
     public Ban getBan(String maBan) {

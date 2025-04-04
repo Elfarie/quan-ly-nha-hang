@@ -107,7 +107,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         txt_qlban_thongbao = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        txt_qlban_maban1 = new javax.swing.JTextField();
+        txt_qlban_soluongnguoi = new javax.swing.JTextField();
         cardlayout_QuanLyDatBan = new javax.swing.JPanel();
         cardlayout_QuanLyDatMon = new javax.swing.JPanel();
         QuanLyDatMon = new javax.swing.JPanel();
@@ -728,12 +728,11 @@ public class MainFrame extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Mã Bàn", "Mã Khu", "Trạng Thái"
+                "Mã Bàn", "Số Lượng Người", "Trạng Thái"
             }
         ));
         scroll_ban.setViewportView(table_ban);
 
-        txt_qlban_maban.setEnabled(false);
         txt_qlban_maban.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_qlban_mabanActionPerformed(evt);
@@ -763,9 +762,9 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel22.setText("Số lượng người:");
 
-        txt_qlban_maban1.addActionListener(new java.awt.event.ActionListener() {
+        txt_qlban_soluongnguoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_qlban_maban1ActionPerformed(evt);
+                txt_qlban_soluongnguoiActionPerformed(evt);
             }
         });
 
@@ -796,7 +795,7 @@ public class MainFrame extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel22)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                                .addComponent(txt_qlban_maban1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txt_qlban_soluongnguoi, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(QuanLyBanLayout.createSequentialGroup()
                                 .addComponent(txt_qlban_thongbao, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -818,7 +817,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel19)
                     .addComponent(txt_qlban_maban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22)
-                    .addComponent(txt_qlban_maban1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_qlban_soluongnguoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_qlban_makhu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1371,6 +1370,7 @@ public class MainFrame extends javax.swing.JFrame {
         update_table_qlkh();
         JOptionPane.showMessageDialog(null, "Tạo thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_qlkh_taokhActionPerformed
+    
     private boolean checkinput_qlkh() {
         String tenkh = txt_qlkh_tenkh.getText();
         String makh = txt_qlkh_makh.getText();
@@ -1474,15 +1474,39 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     private void btn_qlban_suabanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlban_suabanActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyBan.getLayout();
-        card.show(cardlayout_QuanLyBan, "suaban");
+        
+        
     }//GEN-LAST:event_btn_qlban_suabanActionPerformed
 
     private void btn_qlban_thembanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlban_thembanActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyBan.getLayout();
-        card.show(cardlayout_QuanLyBan, "themban");
+                                              
+        // TODO add your handling code here:
+        //if(!checkinput_qlkh()){
+           // return;
+        //}
+        String maban = txt_qlban_maban.getText();
+        Integer sln = Integer.valueOf(txt_qlban_soluongnguoi.getText());
+
+
+        // Khởi tạo DAO
+        Ban_DAO b_dao = new Ban_DAO();
+
+        // Tạo đối tượng NhanVien và TK_NhanVien
+        Ban b = new Ban(maban, 0, true);
+
+        // Thêm nhân viên vào cơ sở dữ liệu
+        if (!b_dao.addBan(b)){
+            txt_qlban_thongbao.setText("Đã có mã tài khoản này!");
+            txt_qlban_maban.requestFocus();
+            return;
+        }
+        txt_qlban_thongbao.setText("");
+        update_table_Ban();
+        JOptionPane.showMessageDialog(null, "Tạo thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                                       
     }//GEN-LAST:event_btn_qlban_thembanActionPerformed
 
+    
     private void btn_qlban_xoabanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlban_xoabanActionPerformed
         CardLayout card = (CardLayout)cardlayout_QuanLyBan.getLayout();
         card.show(cardlayout_QuanLyBan, "xoaban");
@@ -1781,12 +1805,12 @@ public class MainFrame extends javax.swing.JFrame {
             model.setRowCount(0); // Xóa tất cả các dòng cũ trong bảng
 
             for (Ban b : ban) {
-                model.addRow(new Object[]{b.getMaBan(), b.getSoLuongNguoi()});
+                model.addRow(new Object[]{b.getMaBan(), b.getSoLuongNguoi(),b.isTrangThai()});
             }
         } else {
             // Nếu danh sách khách hàng trống hoặc null, hiển thị thông báo cho người dùng
             model.setRowCount(0);
-            JOptionPane.showMessageDialog(null, "Không có dữ liệu khách hàng!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Không có dữ liệu bàn!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     private void btn_datmon_qldmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_datmon_qldmActionPerformed
@@ -1880,9 +1904,9 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_qlban_trangthaiActionPerformed
 
-    private void txt_qlban_maban1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qlban_maban1ActionPerformed
+    private void txt_qlban_soluongnguoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qlban_soluongnguoiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_qlban_maban1ActionPerformed
+    }//GEN-LAST:event_txt_qlban_soluongnguoiActionPerformed
 
     private void txt_dangnhap_taikhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dangnhap_taikhoanActionPerformed
         // TODO add your handling code here:
@@ -2015,8 +2039,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPasswordField txt_dangnhap_matkhau;
     private javax.swing.JTextField txt_dangnhap_taikhoan;
     private javax.swing.JTextField txt_qlban_maban;
-    private javax.swing.JTextField txt_qlban_maban1;
     private javax.swing.JTextField txt_qlban_makhu;
+    private javax.swing.JTextField txt_qlban_soluongnguoi;
     private javax.swing.JTextField txt_qlban_thongbao;
     private javax.swing.JTextField txt_qlban_trangthai;
     private javax.swing.JTextField txt_qlkh_makh;
