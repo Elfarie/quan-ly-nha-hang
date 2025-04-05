@@ -1072,7 +1072,7 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="btn_qlban_xoaban">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="X&#xf3;a b&#xe0;n"/>
+                            <Property name="text" type="java.lang.String" value="X&#xf3;a Tr&#x1eaf;ng"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlban_xoabanActionPerformed"/>
@@ -1117,6 +1117,9 @@
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="table_banAncestorAdded"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>

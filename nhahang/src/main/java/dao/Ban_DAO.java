@@ -69,7 +69,7 @@ public class Ban_DAO {
         return bans;
     }
 
-    public void updateBan(Ban ban) {
+    public boolean updateBan(Ban ban) {
         String query = "UPDATE Ban SET SoLuongNguoi = ?, TrangThai = ? WHERE MaBan = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -79,7 +79,9 @@ public class Ban_DAO {
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Error updating Ban: " + e.getMessage());
+            return false;
         }
+        return true ;
     }
 
     public void deleteBan(String maBan) {

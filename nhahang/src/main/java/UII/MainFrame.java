@@ -713,7 +713,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btn_qlban_xoaban.setText("Xóa bàn");
+        btn_qlban_xoaban.setText("Xóa Trắng");
         btn_qlban_xoaban.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_qlban_xoabanActionPerformed(evt);
@@ -731,6 +731,15 @@ public class MainFrame extends javax.swing.JFrame {
                 "Mã Bàn", "Số Lượng Người", "Trạng Thái"
             }
         ));
+        table_ban.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                table_banAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         scroll_ban.setViewportView(table_ban);
 
         txt_qlban_maban.addActionListener(new java.awt.event.ActionListener() {
@@ -1474,16 +1483,42 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     private void btn_qlban_suabanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlban_suabanActionPerformed
-        
+          int selectedRow = table_ban.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn ban để sửa!", "Lỗi", JOptionPane.WARNING_MESSAGE);
+            return;
+        }                                      
+        if (!checkInputBan()) {
+            return;
+        }
+
+        String maban = txt_qlban_maban.getText();
+        Integer sln = Integer.valueOf(txt_qlban_soluongnguoi.getText());
+        Ban_DAO ban_dao = new Ban_DAO();
+
+// Tạo đối tượng KhachHang
+        Ban ban = new Ban(maban, sln, true);
+
+// Cập nhật khách hàng vào cơ sở dữ liệu
+        if (!ban_dao.updateBan(ban)) {
+            txt_qlban_thongbao.setText("Mã Bàn đã tồn tại!");
+            txt_qlban_maban.requestFocus();
+            return;
+        }
+
+        txt_qlban_thongbao.setText("");
+        update_table_Ban();
+        JOptionPane.showMessageDialog(null, "Sửa thông tin bàn thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+                  
         
     }//GEN-LAST:event_btn_qlban_suabanActionPerformed
 
     private void btn_qlban_thembanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlban_thembanActionPerformed
                                               
-        // TODO add your handling code here:
-        //if(!checkinput_qlkh()){
-           // return;
-        //}
+    
+        if(!checkInputBan()){
+            return;
+        }
         String maban = txt_qlban_maban.getText();
         Integer sln = Integer.valueOf(txt_qlban_soluongnguoi.getText());
 
@@ -1492,11 +1527,11 @@ public class MainFrame extends javax.swing.JFrame {
         Ban_DAO b_dao = new Ban_DAO();
 
         // Tạo đối tượng NhanVien và TK_NhanVien
-        Ban b = new Ban(maban, 0, true);
+        Ban b = new Ban(maban, sln, true);
 
         // Thêm nhân viên vào cơ sở dữ liệu
         if (!b_dao.addBan(b)){
-            txt_qlban_thongbao.setText("Đã có mã tài khoản này!");
+            txt_qlban_thongbao.setText("Đã có mã bàn này!");
             txt_qlban_maban.requestFocus();
             return;
         }
@@ -1508,8 +1543,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     
     private void btn_qlban_xoabanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlban_xoabanActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyBan.getLayout();
-        card.show(cardlayout_QuanLyBan, "xoaban");
+        txt_qlban_maban.setText("");
+        txt_qlban_soluongnguoi.setText("");
     }//GEN-LAST:event_btn_qlban_xoabanActionPerformed
 
     private void btn_qldb_qldatmonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_qldatmonActionPerformed
@@ -1672,6 +1707,48 @@ public class MainFrame extends javax.swing.JFrame {
         // Nếu mọi điều kiện hợp lệ, trả về true
         return true;
     }
+    private boolean checkInputBan() {
+    String maban = txt_qlban_maban.getText().trim();
+    String slnStr = txt_qlban_soluongnguoi.getText().trim();
+
+    // Kiểm tra nếu mã bàn trống
+    if (maban.isEmpty()) {
+        txt_qlban_thongbao.setText("Mã bàn không được để trống!");
+        txt_qlban_maban.requestFocus();
+        return false;
+    }
+
+    // Kiểm tra định dạng mã bàn (ví dụ: B001)
+    if (!maban.matches("^B\\d{3}$")) {
+        txt_qlban_thongbao.setText("Mã bàn phải theo mẫu B001!");
+        txt_qlban_maban.requestFocus();
+        return false;
+    }
+
+    // Kiểm tra số lượng người
+    if (slnStr.isEmpty()) {
+        txt_qlban_thongbao.setText("Số lượng người không được để trống!");
+        txt_qlban_soluongnguoi.requestFocus();
+        return false;
+    }
+
+    try {
+        int sln = Integer.parseInt(slnStr);
+        if (sln >15) {
+            txt_qlban_thongbao.setText("Số lượng người phải nhỏ hơn 15!");
+            txt_qlban_soluongnguoi.requestFocus();
+            return false;
+        }
+    } catch (NumberFormatException e) {
+        txt_qlban_thongbao.setText("Số lượng người phải là số nguyên!");
+        txt_qlban_soluongnguoi.requestFocus();
+        return false;
+    }
+
+    // Nếu mọi điều kiện hợp lệ
+    return true;
+}
+
     private void btn_qlnv_dangkytknvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlnv_dangkytknvActionPerformed
         // TODO add your handling code here:
         if(!checkinput_qlnv()){
@@ -1911,6 +1988,23 @@ public class MainFrame extends javax.swing.JFrame {
     private void txt_dangnhap_taikhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dangnhap_taikhoanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_dangnhap_taikhoanActionPerformed
+
+    private void table_banAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_table_banAncestorAdded
+        // TODO add your handling code here:
+        table_ban.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = table_ban.rowAtPoint(evt.getPoint());
+                if (row >= 0) {
+                    // Lấy dữ liệu từ dòng được chọn
+                    txt_qlban_maban.setText(table_ban.getValueAt(row, 0).toString());
+                    txt_qlban_soluongnguoi.setText(table_ban.getValueAt(row, 1).toString());
+                    
+                }
+            }
+        });
+               
+            
+    }//GEN-LAST:event_table_banAncestorAdded
     
     /**
      * @param args the command line arguments
