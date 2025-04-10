@@ -18,7 +18,7 @@ public class MonAn_DAO {
         this.connection = conn.getConnection(); // Assume connection is established
     }
 
-    public void addMonAn(MonAn monAn) {
+    public boolean addMonAn(MonAn monAn) {
         String query = "INSERT INTO MonAn (MaMon, TenMon, DonGia) VALUES (?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -27,8 +27,10 @@ public class MonAn_DAO {
             stmt.setDouble(3, monAn.getDonGia());
             stmt.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Error adding MonAn: " + e.getMessage());
+            return false;
+            //System.err.println("Error adding MonAn: " + e.getMessage());
         }
+        return true;
     }
 
     public MonAn getMonAn(String maMon) {
@@ -70,7 +72,7 @@ public class MonAn_DAO {
         return monAnList;
     }
 
-    public void updateMonAn(MonAn monAn) {
+    public boolean updateMonAn(MonAn monAn) {
         String query = "UPDATE MonAn SET TenMon = ?, DonGia = ? WHERE MaMon = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -79,8 +81,10 @@ public class MonAn_DAO {
             stmt.setString(3, monAn.getMaMon());
             stmt.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("Error updating MonAn: " + e.getMessage());
+            //System.err.println("Error updating MonAn: " + e.getMessage());
+            return false;
         }
+        return true;
     }
 
     public void deleteMonAn(String maMon) {

@@ -141,6 +141,19 @@ INSERT INTO Ban (MaBan, SoLuongNguoi, TrangThai) VALUES
 ('B008', 6, 1),
 ('B009', 4, 1),
 ('B010', 2, 0);
+
+INSERT INTO MonAn (MaMon, TenMon, DonGia) VALUES
+('M011', 'Banh Xeo', 45000),
+('M012', 'Hu Tieu Nam Vang', 50000),
+('M013', 'Bo Luc Lac', 70000),
+('M014', 'Banh Canh Cua', 55000),
+('M015', 'Chao Long', 30000),
+('M016', 'Ca Ri Ga', 60000),
+('M017', 'Bun Bo Hue', 55000),
+('M018', 'Chao Ga', 40000),
+('M019', 'Xoi Ga', 35000),
+('M020', 'Nem Nuong', 50000);
+
 -- Insert a record into the Employees table (NhanVien)
 INSERT INTO NhanVien (MaNV, TenNV, SoDienThoai) VALUES ('NVQL000', 'Nguyen Van A', '0123456789');
 
