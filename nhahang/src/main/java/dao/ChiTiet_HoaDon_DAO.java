@@ -17,35 +17,33 @@ public class ChiTiet_HoaDon_DAO {
     }
 
     public void addChiTietHoaDon(ChiTiet_HoaDon chiTiet) {
-        String query = "INSERT INTO ChiTiet_HoaDon (MaCTHD, MaHD, MaMon, SoLuong) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO ChiTiet_HoaDon (MaHD, MaMon, SoLuong) VALUES (?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, chiTiet.getMaCTHD());
-            stmt.setString(2, chiTiet.getHd().getMaHD()); // Assuming HoaDon has a getMaHD method
-            stmt.setString(3, chiTiet.getMon().getMaMon()); // Assuming MonAn has a getMaMon method
-            stmt.setInt(4, chiTiet.getSoLuong());
+            stmt.setString(1, chiTiet.getHd().getMaHD()); // Assuming HoaDon has a getMaHD method
+            stmt.setString(2, chiTiet.getMon().getMaMon()); // Assuming MonAn has a getMaMon method
+            stmt.setInt(3, chiTiet.getSoLuong());
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Error adding ChiTiet_HoaDon: " + e.getMessage());
         }
     }
 
-    public ChiTiet_HoaDon getChiTietHoaDon(String maCTHD) {
-        String query = "SELECT MaCTHD, MaHD, MaMon, SoLuong FROM ChiTiet_HoaDon WHERE MaCTHD = ?";
+    public ChiTiet_HoaDon getChiTietHoaDon(String maHD, String maMon) {
+        String query = "SELECT MaHD, MaMon, SoLuong FROM ChiTiet_HoaDon WHERE MaHD = ? AND MaMon = ?";
         ChiTiet_HoaDon chiTiet = null;
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, maCTHD);
+            stmt.setString(1, maHD);
+            stmt.setString(2, maMon);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                String maHD = rs.getString("MaHD");
-                String maMon = rs.getString("MaMon");
                 int soLuong = rs.getInt("SoLuong");
                 
-                HoaDon hd = new HoaDon(maHD); // You would retrieve full HoaDon details
-                MonAn mon = new MonAn(maMon); // You would retrieve full MonAn details
+                HoaDon hd = new HoaDon(maHD); // Retrieve full HoaDon details
+                MonAn mon = new MonAn(maMon); // Retrieve full MonAn details
                 
-                chiTiet = new ChiTiet_HoaDon(maCTHD, hd, mon, soLuong);
+                chiTiet = new ChiTiet_HoaDon(hd, mon, soLuong);
             }
         } catch (SQLException e) {
             System.err.println("Error retrieving ChiTiet_HoaDon: " + e.getMessage());
@@ -56,20 +54,19 @@ public class ChiTiet_HoaDon_DAO {
 
     public List<ChiTiet_HoaDon> getAllChiTietHoaDons() {
         List<ChiTiet_HoaDon> chiTietList = new ArrayList<>();
-        String query = "SELECT MaCTHD, MaHD, MaMon, SoLuong FROM ChiTiet_HoaDon";
+        String query = "SELECT MaHD, MaMon, SoLuong FROM ChiTiet_HoaDon";
 
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                String maCTHD = rs.getString("MaCTHD");
                 String maHD = rs.getString("MaHD");
                 String maMon = rs.getString("MaMon");
                 int soLuong = rs.getInt("SoLuong");
                 
-                HoaDon hd = new HoaDon(maHD); // You would need to implement retrieving full HoaDon details
-                MonAn mon = new MonAn(maMon); // You would need to implement retrieving full MonAn details
+                HoaDon hd = new HoaDon(maHD); // Retrieve full HoaDon details
+                MonAn mon = new MonAn(maMon); // Retrieve full MonAn details
                 
-                ChiTiet_HoaDon chiTiet = new ChiTiet_HoaDon(maCTHD, hd, mon, soLuong);
+                ChiTiet_HoaDon chiTiet = new ChiTiet_HoaDon(hd, mon, soLuong);
                 chiTietList.add(chiTiet);
             }
         } catch (SQLException e) {
@@ -80,23 +77,24 @@ public class ChiTiet_HoaDon_DAO {
     }
 
     public void updateChiTietHoaDon(ChiTiet_HoaDon chiTiet) {
-        String query = "UPDATE ChiTiet_HoaDon SET MaHD = ?, MaMon = ?, SoLuong = ? WHERE MaCTHD = ?";
+        String query = "UPDATE ChiTiet_HoaDon SET SoLuong = ? WHERE MaHD = ? AND MaMon = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, chiTiet.getHd().getMaHD());
-            stmt.setString(2, chiTiet.getMon().getMaMon());
-            stmt.setInt(3, chiTiet.getSoLuong());
-            stmt.setString(4, chiTiet.getMaCTHD());
+            stmt.setInt(1, chiTiet.getSoLuong());
+            stmt.setString(2, chiTiet.getHd().getMaHD());
+            stmt.setString(3, chiTiet.getMon().getMaMon());
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Error updating ChiTiet_HoaDon: " + e.getMessage());
         }
     }
-    public void deleteChiTietHoaDon(String maCTHD) {
-        String query = "DELETE FROM ChiTiet_HoaDon WHERE MaCTHD = ?";
+
+    public void deleteChiTietHoaDon(String maHD, String maMon) {
+        String query = "DELETE FROM ChiTiet_HoaDon WHERE MaHD = ? AND MaMon = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, maCTHD); // Specify which ChiTiet_HoaDon to delete by its ID
+            stmt.setString(1, maHD);
+            stmt.setString(2, maMon);
             stmt.executeUpdate(); // Execute the delete command
         } catch (SQLException e) {
             System.err.println("Error deleting ChiTiet_HoaDon: " + e.getMessage());

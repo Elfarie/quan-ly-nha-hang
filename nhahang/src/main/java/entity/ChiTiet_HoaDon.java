@@ -7,24 +7,14 @@ import java.util.Objects;
  * @author ADMIN
  */
 public class ChiTiet_HoaDon {
-    private String MaCTHD; // Primary key
     private HoaDon hd;      // Reference to HoaDon entity
     private MonAn mon;      // Reference to MonAn entity
     private int soLuong;    // Quantity of the item
 
-    public ChiTiet_HoaDon(String maCTHD, HoaDon hd, MonAn mon, int soLuong) {
-        this.MaCTHD = maCTHD;
+    public ChiTiet_HoaDon(HoaDon hd, MonAn mon, int soLuong) {
         this.hd = hd;
         this.mon = mon;
         this.soLuong = soLuong;
-    }
-
-    public String getMaCTHD() {
-        return MaCTHD;
-    }
-
-    public void setMaCTHD(String maCTHD) {
-        MaCTHD = maCTHD;
     }
 
     public HoaDon getHd() {
@@ -53,24 +43,38 @@ public class ChiTiet_HoaDon {
 
     @Override
     public int hashCode() {
-        return Objects.hash(MaCTHD);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.hd);
+        hash = 97 * hash + Objects.hashCode(this.mon);
+        hash = 97 * hash + this.soLuong;
+        return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        ChiTiet_HoaDon other = (ChiTiet_HoaDon) obj;
-        return Objects.equals(MaCTHD, other.MaCTHD);
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ChiTiet_HoaDon other = (ChiTiet_HoaDon) obj;
+        if (this.soLuong != other.soLuong) {
+            return false;
+        }
+        if (!Objects.equals(this.hd, other.hd)) {
+            return false;
+        }
+        return Objects.equals(this.mon, other.mon);
     }
 
     @Override
     public String toString() {
-        return "ChiTiet_HoaDon{" +
-                "MaCTHD='" + MaCTHD + '\'' +
-                ", hd=" + hd +
-                ", mon=" + mon +
-                ", soLuong=" + soLuong +
-                '}';
+        return "ChiTiet_HoaDon{" + "hd=" + hd + ", mon=" + mon + ", soLuong=" + soLuong + '}';
     }
+
+    
 }

@@ -1,3 +1,4 @@
+UII\MainFrame$57.class
 dao\ChiTiet_HoaDon_DAO.class
 UII\MainFrame$9.class
 entity\KhachHang.class
@@ -34,6 +35,8 @@ connectDB\connectdata.class
 UII\MainFrame$35.class
 UII\MainFrame$55.class
 UII\MainFrame$7.class
+UII\HoaDon_GUI.class
+UII\HoaDon_GUI$1.class
 dao\HoaDon_DAO.class
 UII\MainFrame$27.class
 UII\MainFrame$47.class
@@ -50,11 +53,13 @@ UII\MainFrame$4.class
 UII\MainFrame$1.class
 UII\MainFrame$16.class
 UII\MainFrame$26.class
+UII\MainFrame$56.class
 UII\MainFrame$46.class
 UII\MainFrame$36.class
 UII\MainFrame.class
 UII\MainFrame$13.class
 UII\MainFrame$48.class
+UII\HoaDon_GUI$2.class
 UII\MainFrame$28.class
 UII\MainFrame$33.class
 UII\MainFrame$51.class
