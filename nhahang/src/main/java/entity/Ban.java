@@ -26,7 +26,9 @@ public class Ban {
     public boolean isTrangThai() {
         return TrangThai;
     }
-
+    public String getTrangThai() {
+        return TrangThai ? "Đang sử dụng" : "Trống";
+    }
     public void setTrangThai(boolean TrangThai) {
         this.TrangThai = TrangThai;
     }

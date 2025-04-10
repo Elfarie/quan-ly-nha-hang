@@ -73,8 +73,8 @@ public class KhachHang_DAO {
 
     try (PreparedStatement stmt = connection.prepareStatement(query)) {
         stmt.setString(1, khachHang.getTenKH()); // Đặt tham số TenKH vào vị trí đầu tiên
-        stmt.setString(2, khachHang.getMaKH()); // Đặt tham số MaKH vào vị trí thứ hai
-        stmt.setString(3, khachHang.getSoDienTHoai()); // Đặt tham số SoDienTHoai vào vị trí thứ ba
+        stmt.setString(2, khachHang.getSoDienTHoai()); // Đặt tham số MaKH vào vị trí thứ hai
+        stmt.setString(3, khachHang.getMaKH()); // Đặt tham số SoDienTHoai vào vị trí thứ ba
 
         int rowsAffected = stmt.executeUpdate(); // Lấy số dòng bị ảnh hưởng
 

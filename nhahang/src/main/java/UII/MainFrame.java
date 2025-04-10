@@ -36,6 +36,9 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popup_qlban = new javax.swing.JPopupMenu();
+        popup_item_qldb = new javax.swing.JMenuItem();
+        popup_item_qlban = new javax.swing.JMenuItem();
         Outer = new javax.swing.JPanel();
         DangNhap = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -109,6 +112,16 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         txt_qlban_soluongnguoi = new javax.swing.JTextField();
         cardlayout_QuanLyDatBan = new javax.swing.JPanel();
+        QuanLyDatBan = new javax.swing.JPanel();
+        btn_qldb_qldatmon = new javax.swing.JButton();
+        btn_qldb_timkiem = new javax.swing.JButton();
+        btn_qldb_laphoadon = new javax.swing.JButton();
+        btn_qldb_huydatban = new javax.swing.JButton();
+        btn_qldb_datban = new javax.swing.JButton();
+        scrollpane_datban = new javax.swing.JScrollPane();
+        table_datban = new javax.swing.JTable();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
         cardlayout_QuanLyDatMon = new javax.swing.JPanel();
         QuanLyDatMon = new javax.swing.JPanel();
         btn_qldm_qldb = new javax.swing.JButton();
@@ -124,24 +137,34 @@ public class MainFrame extends javax.swing.JFrame {
         btn_suattban_qldb = new javax.swing.JButton();
         DatBan = new javax.swing.JPanel();
         btn_db_qldb = new javax.swing.JButton();
-        QuanLyDatBan = new javax.swing.JPanel();
-        btn_qldb_trangchu = new javax.swing.JButton();
-        btn_qldb_qldatmon = new javax.swing.JButton();
-        btn_qldb_timkiem = new javax.swing.JButton();
-        btn_qldb_laphoadon = new javax.swing.JButton();
-        btn_qldb_suattdatban = new javax.swing.JButton();
-        btn_qldb_huydatban = new javax.swing.JButton();
-        btn_qldb_datban = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
         Menu = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         btn_quanliban = new javax.swing.JButton();
-        btn_quanlidb = new javax.swing.JButton();
         btn_quanlikh = new javax.swing.JButton();
         btn_quanlinv = new javax.swing.JButton();
         btn_quanlihd = new javax.swing.JButton();
+        btn_quanlimon = new javax.swing.JButton();
+
+        popup_qlban.setBackground(new java.awt.Color(0, 0, 0));
+        popup_qlban.setForeground(new java.awt.Color(255, 255, 255));
+
+        popup_item_qldb.setText("Đặt Bàn");
+        popup_item_qldb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_item_qldbActionPerformed(evt);
+            }
+        });
+        popup_qlban.add(popup_item_qldb);
+        popup_item_qldb.getAccessibleContext().setAccessibleName("datban");
+
+        popup_item_qlban.setText("Bàn");
+        popup_item_qlban.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_item_qlbanActionPerformed(evt);
+            }
+        });
+        popup_qlban.add(popup_item_qlban);
+        popup_item_qlban.getAccessibleContext().setAccessibleName("ban");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1100, 600));
@@ -852,6 +875,119 @@ public class MainFrame extends javax.swing.JFrame {
 
         cardlayout_QuanLyDatBan.setLayout(new java.awt.CardLayout());
 
+        QuanLyDatBan.setPreferredSize(new java.awt.Dimension(1200, 900));
+
+        btn_qldb_qldatmon.setText("Đặt món");
+        btn_qldb_qldatmon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qldb_qldatmonActionPerformed(evt);
+            }
+        });
+
+        btn_qldb_timkiem.setText("Tìm kiếm");
+        btn_qldb_timkiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qldb_timkiemActionPerformed(evt);
+            }
+        });
+
+        btn_qldb_laphoadon.setText("Lập hóa đơn");
+        btn_qldb_laphoadon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qldb_laphoadonActionPerformed(evt);
+            }
+        });
+
+        btn_qldb_huydatban.setText("Hủy đặt bàn");
+        btn_qldb_huydatban.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qldb_huydatbanActionPerformed(evt);
+            }
+        });
+
+        btn_qldb_datban.setText("Đặt bàn");
+        btn_qldb_datban.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qldb_datbanActionPerformed(evt);
+            }
+        });
+
+        table_datban.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Mã Bàn", "Số lượng người", "Trạng Thái"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        scrollpane_datban.setViewportView(table_datban);
+        if (table_datban.getColumnModel().getColumnCount() > 0) {
+            table_datban.getColumnModel().getColumn(0).setResizable(false);
+            table_datban.getColumnModel().getColumn(1).setResizable(false);
+            table_datban.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mặc định", "đã đặt", "trống" }));
+
+        jLabel8.setText("Trạng thái:");
+
+        javax.swing.GroupLayout QuanLyDatBanLayout = new javax.swing.GroupLayout(QuanLyDatBan);
+        QuanLyDatBan.setLayout(QuanLyDatBanLayout);
+        QuanLyDatBanLayout.setHorizontalGroup(
+            QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(QuanLyDatBanLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_qldb_datban, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btn_qldb_qldatmon, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_qldb_laphoadon, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_qldb_huydatban, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(27, 27, 27)
+                .addGroup(QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(QuanLyDatBanLayout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_qldb_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrollpane_datban, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        QuanLyDatBanLayout.setVerticalGroup(
+            QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(QuanLyDatBanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_qldb_timkiem)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addGroup(QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(QuanLyDatBanLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(btn_qldb_qldatmon)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_qldb_laphoadon)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_qldb_huydatban)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_qldb_datban))
+                    .addComponent(scrollpane_datban, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        cardlayout_QuanLyDatBan.add(QuanLyDatBan, "qldb");
+
         cardlayout_QuanLyDatMon.setPreferredSize(new java.awt.Dimension(600, 400));
         cardlayout_QuanLyDatMon.setLayout(new java.awt.CardLayout());
 
@@ -901,13 +1037,14 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(QuanLyDatMonLayout.createSequentialGroup()
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 673, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(679, 679, 679)
                         .addComponent(btn_qldm_datmon, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addComponent(btn_qldm_xoamon, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(QuanLyDatMonLayout.createSequentialGroup()
-                        .addComponent(btn_qldm_qldb)
+                        .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_qldm_qldb)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -917,13 +1054,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btn_qldm_qldb)
                 .addGap(18, 18, 18)
-                .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(QuanLyDatMonLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_qldm_datmon)
-                            .addComponent(btn_qldm_xoamon)))
-                    .addComponent(jScrollPane6))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_qldm_datmon)
+                    .addComponent(btn_qldm_xoamon))
                 .addContainerGap())
         );
 
@@ -1039,127 +1174,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         cardlayout_QuanLyDatBan.add(DatBan, "datban");
 
-        QuanLyDatBan.setPreferredSize(new java.awt.Dimension(1200, 900));
-
-        btn_qldb_trangchu.setText("Trang Chủ");
-        btn_qldb_trangchu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_qldb_trangchuActionPerformed(evt);
-            }
-        });
-
-        btn_qldb_qldatmon.setText("Quản lý đặt món");
-        btn_qldb_qldatmon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_qldb_qldatmonActionPerformed(evt);
-            }
-        });
-
-        btn_qldb_timkiem.setText("Tìm kiếm");
-        btn_qldb_timkiem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_qldb_timkiemActionPerformed(evt);
-            }
-        });
-
-        btn_qldb_laphoadon.setText("Lập hóa đơn");
-        btn_qldb_laphoadon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_qldb_laphoadonActionPerformed(evt);
-            }
-        });
-
-        btn_qldb_suattdatban.setText("Sửa thông tin đặt bàn");
-        btn_qldb_suattdatban.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_qldb_suattdatbanActionPerformed(evt);
-            }
-        });
-
-        btn_qldb_huydatban.setText("Hủy đặt bàn");
-        btn_qldb_huydatban.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_qldb_huydatbanActionPerformed(evt);
-            }
-        });
-
-        btn_qldb_datban.setText("Đặt bàn");
-        btn_qldb_datban.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_qldb_datbanActionPerformed(evt);
-            }
-        });
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout QuanLyDatBanLayout = new javax.swing.GroupLayout(QuanLyDatBan);
-        QuanLyDatBan.setLayout(QuanLyDatBanLayout);
-        QuanLyDatBanLayout.setHorizontalGroup(
-            QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(QuanLyDatBanLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_qldb_datban, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btn_qldb_trangchu, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_qldb_qldatmon, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_qldb_laphoadon, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_qldb_suattdatban, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_qldb_huydatban, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
-                .addGroup(QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(QuanLyDatBanLayout.createSequentialGroup()
-                        .addComponent(btn_qldb_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        QuanLyDatBanLayout.setVerticalGroup(
-            QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(QuanLyDatBanLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_qldb_timkiem)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(QuanLyDatBanLayout.createSequentialGroup()
-                        .addComponent(btn_qldb_trangchu)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_qldb_qldatmon)
-                        .addGap(27, 27, 27)
-                        .addComponent(btn_qldb_laphoadon)
-                        .addGap(30, 30, 30)
-                        .addComponent(btn_qldb_suattdatban)
-                        .addGap(26, 26, 26)
-                        .addComponent(btn_qldb_huydatban)
-                        .addGap(28, 28, 28)
-                        .addComponent(btn_qldb_datban))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        cardlayout_QuanLyDatBan.add(QuanLyDatBan, "qldb");
-
         MainPanel.add(cardlayout_QuanLyDatBan, "qlydatban");
 
         Menu.setBackground(new java.awt.Color(0, 0, 0));
@@ -1183,17 +1197,6 @@ public class MainFrame extends javax.swing.JFrame {
         btn_quanliban.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_quanlibanActionPerformed(evt);
-            }
-        });
-
-        btn_quanlidb.setBackground(new java.awt.Color(0, 0, 0));
-        btn_quanlidb.setForeground(new java.awt.Color(255, 255, 255));
-        btn_quanlidb.setText("Quản Lí Đặt Bàn");
-        btn_quanlidb.setBorder(null);
-        btn_quanlidb.setBorderPainted(false);
-        btn_quanlidb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_quanlidbActionPerformed(evt);
             }
         });
 
@@ -1230,6 +1233,17 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        btn_quanlimon.setBackground(new java.awt.Color(0, 0, 0));
+        btn_quanlimon.setForeground(new java.awt.Color(255, 255, 255));
+        btn_quanlimon.setText("Quản Lí Món Ăn");
+        btn_quanlimon.setBorder(null);
+        btn_quanlimon.setBorderPainted(false);
+        btn_quanlimon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_quanlimonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
@@ -1238,19 +1252,23 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jLabel5)
-                        .addGap(0, 24, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                        .addContainerGap(12, Short.MAX_VALUE)
-                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_quanliban, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_quanlidb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_quanlikh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_quanlinv, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel5))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_quanlikh, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_quanlinv, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_quanliban, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_quanlimon, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(btn_quanlihd, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1259,15 +1277,15 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(55, 55, 55)
                 .addComponent(btn_quanliban, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_quanlidb, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(btn_quanlimon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_quanlikh, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(40, 40, 40)
                 .addComponent(btn_quanlinv, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_quanlihd, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(271, Short.MAX_VALUE))
+                .addContainerGap(233, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ChucNangLayout = new javax.swing.GroupLayout(ChucNang);
@@ -1557,16 +1575,6 @@ public class MainFrame extends javax.swing.JFrame {
         card.show(cardlayout_QuanLyDatBan, "laphoadon");
     }//GEN-LAST:event_btn_qldb_laphoadonActionPerformed
 
-    private void btn_qldb_suattdatbanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_suattdatbanActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
-        card.show(cardlayout_QuanLyDatBan, "suattdatban");
-    }//GEN-LAST:event_btn_qldb_suattdatbanActionPerformed
-
-    private void btn_qldb_trangchuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_trangchuActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "trangchu");
-    }//GEN-LAST:event_btn_qldb_trangchuActionPerformed
-
     private void btn_qldb_timkiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_timkiemActionPerformed
         CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
         card.show(cardlayout_QuanLyDatBan, "timkiem");
@@ -1641,10 +1649,6 @@ public class MainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng!", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btn_dangnhap_dangnhapActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
     private boolean checkinput_qlnv() {
         String tennv = txt_qlnv_tennv.getText();
         String manv = txt_qlnv_manv.getText();
@@ -1795,17 +1799,12 @@ public class MainFrame extends javax.swing.JFrame {
             model.addRow(new Object[]{nhanViens.get(i).getTenNV(), nhanViens.get(i).getMaNV(), taiKhoans.get(i).getMatKhauTK(), nhanViens.get(i).getSoDienThoai()});
         }
     }
-    private void btn_quanlidbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quanlidbActionPerformed
-        // TODO add your handling code here:
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "qlydatban");
-    }//GEN-LAST:event_btn_quanlidbActionPerformed
-
     private void btn_quanlibanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quanlibanActionPerformed
         // TODO add your handling code here:
-        update_table_Ban();
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "qlyban");
+        popup_qlban.show(btn_quanliban, 180, 0);
+//        update_table_Ban();
+//        CardLayout card = (CardLayout)MainPanel.getLayout();
+//        card.show(MainPanel, "qlyban");
     }//GEN-LAST:event_btn_quanlibanActionPerformed
 
     private void btn_quanlikhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quanlikhActionPerformed
@@ -1882,7 +1881,7 @@ public class MainFrame extends javax.swing.JFrame {
             model.setRowCount(0); // Xóa tất cả các dòng cũ trong bảng
 
             for (Ban b : ban) {
-                model.addRow(new Object[]{b.getMaBan(), b.getSoLuongNguoi(),b.isTrangThai()});
+                model.addRow(new Object[]{b.getMaBan(), b.getSoLuongNguoi(),b.getTrangThai()});
             }
         } else {
             // Nếu danh sách khách hàng trống hoặc null, hiển thị thông báo cho người dùng
@@ -1998,13 +1997,48 @@ public class MainFrame extends javax.swing.JFrame {
                     // Lấy dữ liệu từ dòng được chọn
                     txt_qlban_maban.setText(table_ban.getValueAt(row, 0).toString());
                     txt_qlban_soluongnguoi.setText(table_ban.getValueAt(row, 1).toString());
-                    
+                    txt_qlban_trangthai.setText(table_ban.getValueAt(row, 2).toString());
                 }
             }
         });
                
             
     }//GEN-LAST:event_table_banAncestorAdded
+
+    private void popup_item_qldbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qldbActionPerformed
+        // TODO add your handling code here:
+         update_table_datban();
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "qlydatban");
+    }//GEN-LAST:event_popup_item_qldbActionPerformed
+    private void update_table_datban() {
+        DefaultTableModel model = (DefaultTableModel) table_datban.getModel();
+        Ban_DAO ban_dao = new Ban_DAO();
+        ArrayList<Ban> ban = (ArrayList<Ban>) ban_dao.getAllBans();
+
+        // Kiểm tra nếu danh sách khách hàng không phải null và không rỗng
+        if (ban != null && !ban.isEmpty()) {
+            model.setRowCount(0); // Xóa tất cả các dòng cũ trong bảng
+
+            for (Ban b : ban) {
+                model.addRow(new Object[]{b.getMaBan(), b.getSoLuongNguoi(),b.getTrangThai()});
+            }
+        } else {
+            // Nếu danh sách khách hàng trống hoặc null, hiển thị thông báo cho người dùng
+            model.setRowCount(0);
+            JOptionPane.showMessageDialog(null, "Không có dữ liệu bàn!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    private void popup_item_qlbanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlbanActionPerformed
+        // TODO add your handling code here:
+        update_table_Ban();
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "qlyban");
+    }//GEN-LAST:event_popup_item_qlbanActionPerformed
+
+    private void btn_quanlimonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quanlimonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_quanlimonActionPerformed
     
     /**
      * @param args the command line arguments
@@ -2069,9 +2103,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_qldb_huydatban;
     private javax.swing.JButton btn_qldb_laphoadon;
     private javax.swing.JButton btn_qldb_qldatmon;
-    private javax.swing.JButton btn_qldb_suattdatban;
     private javax.swing.JButton btn_qldb_timkiem;
-    private javax.swing.JButton btn_qldb_trangchu;
     private javax.swing.JButton btn_qldm_datmon;
     private javax.swing.JButton btn_qldm_qldb;
     private javax.swing.JButton btn_qldm_xoamon;
@@ -2085,9 +2117,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_qlnv_timkhtheosdt;
     private javax.swing.JButton btn_qlnv_xoatrang;
     private javax.swing.JButton btn_quanliban;
-    private javax.swing.JButton btn_quanlidb;
     private javax.swing.JButton btn_quanlihd;
     private javax.swing.JButton btn_quanlikh;
+    private javax.swing.JButton btn_quanlimon;
     private javax.swing.JButton btn_quanlinv;
     private javax.swing.JButton btn_suattban_qldb;
     private javax.swing.JButton btn_thongke_qlhd;
@@ -2116,17 +2148,21 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable6;
+    private javax.swing.JMenuItem popup_item_qlban;
+    private javax.swing.JMenuItem popup_item_qldb;
+    private javax.swing.JPopupMenu popup_qlban;
     private javax.swing.JScrollPane scroll_ban;
+    private javax.swing.JScrollPane scrollpane_datban;
     private javax.swing.JScrollPane sp_qlkh;
     private javax.swing.JScrollPane sp_qlnv;
     private javax.swing.JTable table_ban;
+    private javax.swing.JTable table_datban;
     private javax.swing.JTable table_qlkh;
     private javax.swing.JTable table_qlnv;
     private javax.swing.JPanel trangchu;
