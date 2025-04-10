@@ -108,9 +108,8 @@ public class MainFrame extends javax.swing.JFrame {
         txt_qlban_soluongnguoi = new javax.swing.JTextField();
         cardlayout_QuanLyDatBan = new javax.swing.JPanel();
         QuanLyDatBan = new javax.swing.JPanel();
-        btn_qldb_qldatmon = new javax.swing.JButton();
+        btn_qldb_datmon = new javax.swing.JButton();
         btn_qldb_timkiem = new javax.swing.JButton();
-        btn_qldb_laphoadon = new javax.swing.JButton();
         btn_qldb_traban = new javax.swing.JButton();
         btn_qldb_datban = new javax.swing.JButton();
         scrollpane_datban = new javax.swing.JScrollPane();
@@ -119,21 +118,26 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txt_datban_ban = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        SuaThongTinDatBan = new javax.swing.JPanel();
-        btn_suattban_qldb = new javax.swing.JButton();
         cardlayout_QuanLyDatMon = new javax.swing.JPanel();
         QuanLyDatMon = new javax.swing.JPanel();
         btn_qldm_qldb = new javax.swing.JButton();
         btn_qldm_datmon = new javax.swing.JButton();
-        btn_qldm_xoamon = new javax.swing.JButton();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
-        DatMon = new javax.swing.JPanel();
-        btn_datmon_qldm = new javax.swing.JButton();
-        XoaMon = new javax.swing.JPanel();
-        btn_xoamon_qldm = new javax.swing.JButton();
-        DatBan = new javax.swing.JPanel();
-        btn_db_qldb = new javax.swing.JButton();
+        scroll_datmonn = new javax.swing.JScrollPane();
+        table_qldm_ds = new javax.swing.JTable();
+        txt_qldm_soluong = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txt_qldm_mamon = new javax.swing.JTextField();
+        btn_qldm_tsl = new javax.swing.JButton();
+        btn_qldm_gsl = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        txt_qldm_tongtien = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table_qldm_gio = new javax.swing.JTable();
+        btn_qldm_laphd = new javax.swing.JButton();
+        txt_qldm_dongia = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
         cardlayout_QuanLyMonAn = new javax.swing.JPanel();
         QuanLyMonAn = new javax.swing.JPanel();
         btn_qlmon_suamon = new javax.swing.JButton();
@@ -681,7 +685,7 @@ public class MainFrame extends javax.swing.JFrame {
         cardlayout_QuanLyBan.setBackground(new java.awt.Color(255, 255, 255));
         cardlayout_QuanLyBan.setLayout(new java.awt.CardLayout());
 
-        QuanLyBan.setBackground(new java.awt.Color(204, 255, 255));
+        QuanLyBan.setBackground(new java.awt.Color(255, 255, 255));
 
         btn_qlban_suaban.setText("Sửa bàn");
         btn_qlban_suaban.addActionListener(new java.awt.event.ActionListener() {
@@ -844,10 +848,10 @@ public class MainFrame extends javax.swing.JFrame {
         QuanLyDatBan.setBackground(new java.awt.Color(255, 255, 255));
         QuanLyDatBan.setPreferredSize(new java.awt.Dimension(1200, 900));
 
-        btn_qldb_qldatmon.setText("Đặt món");
-        btn_qldb_qldatmon.addActionListener(new java.awt.event.ActionListener() {
+        btn_qldb_datmon.setText("Đặt món");
+        btn_qldb_datmon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_qldb_qldatmonActionPerformed(evt);
+                btn_qldb_datmonActionPerformed(evt);
             }
         });
 
@@ -855,13 +859,6 @@ public class MainFrame extends javax.swing.JFrame {
         btn_qldb_timkiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_qldb_timkiemActionPerformed(evt);
-            }
-        });
-
-        btn_qldb_laphoadon.setText("Lập hóa đơn");
-        btn_qldb_laphoadon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_qldb_laphoadonActionPerformed(evt);
             }
         });
 
@@ -895,6 +892,7 @@ public class MainFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        table_datban.getTableHeader().setReorderingAllowed(false);
         table_datban.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 table_datbanMouseClicked(evt);
@@ -931,10 +929,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(QuanLyDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(QuanLyDatBanLayout.createSequentialGroup()
-                                .addComponent(btn_qldb_laphoadon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(QuanLyDatBanLayout.createSequentialGroup()
-                                .addComponent(btn_qldb_qldatmon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_qldb_datmon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(QuanLyDatBanLayout.createSequentialGroup()
                                 .addComponent(btn_qldb_datban, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -973,42 +968,12 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_qldb_datban)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_qldb_laphoadon)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_qldb_qldatmon))
+                        .addComponent(btn_qldb_datmon))
                     .addComponent(scrollpane_datban, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
         cardlayout_QuanLyDatBan.add(QuanLyDatBan, "qldb");
-
-        SuaThongTinDatBan.setBackground(new java.awt.Color(255, 255, 255));
-
-        btn_suattban_qldb.setText("Quay Lại");
-        btn_suattban_qldb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_suattban_qldbActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout SuaThongTinDatBanLayout = new javax.swing.GroupLayout(SuaThongTinDatBan);
-        SuaThongTinDatBan.setLayout(SuaThongTinDatBanLayout);
-        SuaThongTinDatBanLayout.setHorizontalGroup(
-            SuaThongTinDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SuaThongTinDatBanLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_suattban_qldb)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        SuaThongTinDatBanLayout.setVerticalGroup(
-            SuaThongTinDatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SuaThongTinDatBanLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_suattban_qldb)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        cardlayout_QuanLyDatBan.add(SuaThongTinDatBan, "suattdatban");
 
         cardlayout_QuanLyDatMon.setBackground(new java.awt.Color(255, 255, 255));
         cardlayout_QuanLyDatMon.setPreferredSize(new java.awt.Dimension(600, 400));
@@ -1032,25 +997,105 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btn_qldm_xoamon.setText("Xóa món");
-        btn_qldm_xoamon.addActionListener(new java.awt.event.ActionListener() {
+        table_qldm_ds.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Mã món ăn", "Tên món ăn", "Đơn giá"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        table_qldm_ds.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                table_qldm_dsMouseClicked(evt);
+            }
+        });
+        scroll_datmonn.setViewportView(table_qldm_ds);
+        if (table_qldm_ds.getColumnModel().getColumnCount() > 0) {
+            table_qldm_ds.getColumnModel().getColumn(0).setResizable(false);
+            table_qldm_ds.getColumnModel().getColumn(1).setResizable(false);
+            table_qldm_ds.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        txt_qldm_soluong.setText("1");
+        txt_qldm_soluong.setEnabled(false);
+
+        jLabel11.setText("Số lượng:");
+
+        jLabel12.setText("Món đang chọn:");
+
+        txt_qldm_mamon.setEnabled(false);
+
+        btn_qldm_tsl.setText("+");
+        btn_qldm_tsl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_qldm_xoamonActionPerformed(evt);
+                btn_qldm_tslActionPerformed(evt);
             }
         });
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        btn_qldm_gsl.setText("-");
+        btn_qldm_gsl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qldm_gslActionPerformed(evt);
+            }
+        });
+
+        jLabel24.setText("Tổng tiền:");
+
+        txt_qldm_tongtien.setEnabled(false);
+
+        table_qldm_gio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã món ăn", "Số lượng", "Đơn giá", "Thành Tiền"
             }
-        ));
-        jScrollPane6.setViewportView(jTable6);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        table_qldm_gio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                table_qldm_gioMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(table_qldm_gio);
+        if (table_qldm_gio.getColumnModel().getColumnCount() > 0) {
+            table_qldm_gio.getColumnModel().getColumn(0).setResizable(false);
+            table_qldm_gio.getColumnModel().getColumn(1).setResizable(false);
+            table_qldm_gio.getColumnModel().getColumn(2).setResizable(false);
+            table_qldm_gio.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        btn_qldm_laphd.setText("Lập Hóa Đơn");
+        btn_qldm_laphd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qldm_laphdActionPerformed(evt);
+            }
+        });
+
+        txt_qldm_dongia.setEnabled(false);
+
+        jLabel27.setText("Đơn giá:");
+
+        jLabel28.setText("Lưu ý: click vào món ăn cần xóa để xóa");
 
         javax.swing.GroupLayout QuanLyDatMonLayout = new javax.swing.GroupLayout(QuanLyDatMon);
         QuanLyDatMon.setLayout(QuanLyDatMonLayout);
@@ -1058,120 +1103,89 @@ public class MainFrame extends javax.swing.JFrame {
             QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(QuanLyDatMonLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(QuanLyDatMonLayout.createSequentialGroup()
-                        .addGap(679, 679, 679)
-                        .addComponent(btn_qldm_datmon, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                        .addComponent(btn_qldm_xoamon, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_qldm_qldb)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(QuanLyDatMonLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(scroll_datmonn, javax.swing.GroupLayout.PREFERRED_SIZE, 478, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
                         .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_qldm_qldb)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addGroup(QuanLyDatMonLayout.createSequentialGroup()
+                                .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, QuanLyDatMonLayout.createSequentialGroup()
+                                        .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(QuanLyDatMonLayout.createSequentialGroup()
+                                                .addComponent(jLabel11)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btn_qldm_gsl))
+                                            .addComponent(jLabel12))
+                                        .addGap(7, 7, 7)
+                                        .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(txt_qldm_mamon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                            .addComponent(txt_qldm_soluong, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(QuanLyDatMonLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn_qldm_tsl)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QuanLyDatMonLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                                                .addComponent(jLabel27)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_qldm_dongia)
+                                            .addComponent(btn_qldm_datmon, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, QuanLyDatMonLayout.createSequentialGroup()
+                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_qldm_tongtien)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btn_qldm_laphd))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                .addGap(48, 48, 48))
+                            .addGroup(QuanLyDatMonLayout.createSequentialGroup()
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         QuanLyDatMonLayout.setVerticalGroup(
             QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(QuanLyDatMonLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(81, 81, 81)
                 .addComponent(btn_qldm_qldb)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
-                .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_qldm_datmon)
-                    .addComponent(btn_qldm_xoamon))
-                .addContainerGap())
+                .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(QuanLyDatMonLayout.createSequentialGroup()
+                        .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_qldm_mamon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_qldm_dongia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel27))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txt_qldm_soluong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_qldm_gsl)
+                                .addComponent(btn_qldm_tsl)
+                                .addComponent(btn_qldm_datmon)))
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel28)
+                        .addGap(1, 1, 1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(QuanLyDatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(txt_qldm_tongtien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_qldm_laphd)))
+                    .addComponent(scroll_datmonn, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         cardlayout_QuanLyDatMon.add(QuanLyDatMon, "qldatmon");
 
-        DatMon.setPreferredSize(new java.awt.Dimension(600, 400));
-
-        btn_datmon_qldm.setText("Quay Lại");
-        btn_datmon_qldm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_datmon_qldmActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout DatMonLayout = new javax.swing.GroupLayout(DatMon);
-        DatMon.setLayout(DatMonLayout);
-        DatMonLayout.setHorizontalGroup(
-            DatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DatMonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_datmon_qldm)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        DatMonLayout.setVerticalGroup(
-            DatMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DatMonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_datmon_qldm)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        cardlayout_QuanLyDatMon.add(DatMon, "datmon");
-
-        XoaMon.setPreferredSize(new java.awt.Dimension(600, 400));
-
-        btn_xoamon_qldm.setText("Quay Lại");
-        btn_xoamon_qldm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_xoamon_qldmActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout XoaMonLayout = new javax.swing.GroupLayout(XoaMon);
-        XoaMon.setLayout(XoaMonLayout);
-        XoaMonLayout.setHorizontalGroup(
-            XoaMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(XoaMonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_xoamon_qldm)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        XoaMonLayout.setVerticalGroup(
-            XoaMonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(XoaMonLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_xoamon_qldm)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        cardlayout_QuanLyDatMon.add(XoaMon, "xoamon");
-
         cardlayout_QuanLyDatBan.add(cardlayout_QuanLyDatMon, "qldm");
-
-        DatBan.setBackground(new java.awt.Color(255, 255, 255));
-
-        btn_db_qldb.setText("Quay Lại");
-        btn_db_qldb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_db_qldbActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout DatBanLayout = new javax.swing.GroupLayout(DatBan);
-        DatBan.setLayout(DatBanLayout);
-        DatBanLayout.setHorizontalGroup(
-            DatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DatBanLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_db_qldb)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        DatBanLayout.setVerticalGroup(
-            DatBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DatBanLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_db_qldb)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        cardlayout_QuanLyDatBan.add(DatBan, "datban");
 
         MainPanel.add(cardlayout_QuanLyDatBan, "qlydatban");
 
@@ -1779,45 +1793,86 @@ public class MainFrame extends javax.swing.JFrame {
         txt_qlban_soluongnguoi.setText("");
     }//GEN-LAST:event_btn_qlban_xoabanActionPerformed
 
-    private void btn_qldb_qldatmonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_qldatmonActionPerformed
+    private void btn_qldb_datmonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_datmonActionPerformed
+        update_table_datmon();
         CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
         card.show(cardlayout_QuanLyDatBan, "qldm");
-    }//GEN-LAST:event_btn_qldb_qldatmonActionPerformed
+    }//GEN-LAST:event_btn_qldb_datmonActionPerformed
+    private void update_table_datmon() {
+        DefaultTableModel model = (DefaultTableModel) table_qldm_ds.getModel();
+        MonAn_DAO monan_dao = new MonAn_DAO();
+        ArrayList<MonAn> dsMonAn = (ArrayList<MonAn>) monan_dao.getAllMonAns();
 
-    private void btn_qldb_laphoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_laphoadonActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
-        card.show(cardlayout_QuanLyDatBan, "laphoadon");
-    }//GEN-LAST:event_btn_qldb_laphoadonActionPerformed
+        // Tạo formatter cho tiền tệ VNĐ
+        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
 
+        if (dsMonAn != null && !dsMonAn.isEmpty()) {
+            model.setRowCount(0); // Xóa các dòng cũ
+
+            for (MonAn mon : dsMonAn) {
+                String donGiaVND = currencyFormatter.format(mon.getDonGia());
+                model.addRow(new Object[]{mon.getMaMon(), mon.getTenMon(), donGiaVND});
+            }
+        } else {
+            model.setRowCount(0);
+            JOptionPane.showMessageDialog(null, "Không có dữ liệu món ăn!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
     private void btn_qldb_timkiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_timkiemActionPerformed
         CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
         card.show(cardlayout_QuanLyDatBan, "timkiem");
     }//GEN-LAST:event_btn_qldb_timkiemActionPerformed
 
     private void btn_qldb_trabanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_trabanActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
-        card.show(cardlayout_QuanLyDatBan, "huydatban");
+
+        int row = table_datban.getSelectedRow();
+        if (row < 0) {
+            return;
+        }
+        String maban = table_datban.getValueAt(row, 0).toString();
+        Integer soluong = Integer.valueOf(table_datban.getValueAt(row, 1).toString());
+        Ban ban = new Ban(maban, soluong, false);
+        
+        Ban_DAO ban_dao = new Ban_DAO();
+        
+        int confirm = JOptionPane.showConfirmDialog(
+                                                    null,
+                                                    "Bạn có chắc chắn muốn trả bàn " + maban + "?",
+                                                    "Xác nhận trả bàn",
+                                                    JOptionPane.YES_NO_OPTION
+                                                    );
+
+        if (confirm == JOptionPane.NO_OPTION){
+            return;
+        }
+        ban_dao.updateBan(ban);
+        update_table_datban();
     }//GEN-LAST:event_btn_qldb_trabanActionPerformed
 
     private void btn_qldb_datbanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_datbanActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
-        card.show(cardlayout_QuanLyDatBan, "datban");
+        int row = table_datban.getSelectedRow();
+        if (row < 0) {
+            return;
+        }
+        String maban = table_datban.getValueAt(row, 0).toString();
+        Integer soluong = Integer.valueOf(table_datban.getValueAt(row, 1).toString());
+        Ban ban = new Ban(maban, soluong, true);
+        
+        Ban_DAO ban_dao = new Ban_DAO();
+        
+        int confirm = JOptionPane.showConfirmDialog(
+                                                    null,
+                                                    "Bạn có chắc chắn muốn đặt bàn " + maban + "?",
+                                                    "Xác nhận đặt bàn",
+                                                    JOptionPane.YES_NO_OPTION
+                                                    );
+
+        if (confirm == JOptionPane.NO_OPTION){
+            return;
+        }
+        ban_dao.updateBan(ban);
+        update_table_datban();
     }//GEN-LAST:event_btn_qldb_datbanActionPerformed
-
-    private void btn_xoamon_qldmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xoamon_qldmActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatMon.getLayout();
-        card.show(cardlayout_QuanLyDatMon, "qldatmon");
-    }//GEN-LAST:event_btn_xoamon_qldmActionPerformed
-
-    private void btn_suattban_qldbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suattban_qldbActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
-        card.show(cardlayout_QuanLyDatBan, "qldb");
-    }//GEN-LAST:event_btn_suattban_qldbActionPerformed
-
-    private void btn_db_qldbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_db_qldbActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
-        card.show(cardlayout_QuanLyDatBan, "qldb");
-    }//GEN-LAST:event_btn_db_qldbActionPerformed
 
     private void btn_dangnhap_dangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dangnhap_dangnhapActionPerformed
         // TODO add your handling code here:
@@ -2103,21 +2158,32 @@ public class MainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Không có dữ liệu bàn!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-    private void btn_datmon_qldmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_datmon_qldmActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatMon.getLayout();
-        card.show(cardlayout_QuanLyDatMon, "qldatmon");
-    }//GEN-LAST:event_btn_datmon_qldmActionPerformed
-
-    private void btn_qldm_xoamonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldm_xoamonActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatMon.getLayout();
-        card.show(cardlayout_QuanLyDatMon, "xoamon");
-    }//GEN-LAST:event_btn_qldm_xoamonActionPerformed
-
     private void btn_qldm_datmonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldm_datmonActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatMon.getLayout();
-        card.show(cardlayout_QuanLyDatMon, "datmon");
-    }//GEN-LAST:event_btn_qldm_datmonActionPerformed
+        // Lấy giá trị từ các JTextField
+        Double dongia = Double.valueOf(txt_qldm_dongia.getText()); // Đơn giá
+        String mamon = txt_qldm_mamon.getText(); // Mã món
+        Integer soluong = Integer.valueOf(txt_qldm_soluong.getText()); // Số lượng
 
+        // Tạo DefaultTableModel từ table_qldm_gio
+        DefaultTableModel model = (DefaultTableModel) table_qldm_gio.getModel();
+
+        // Tính tổng tiền của món hiện tại
+        Double tongTien = dongia * soluong;
+
+        // Thêm một dòng mới vào bảng
+        model.addRow(new Object[] { mamon, soluong, dongia, tongTien });
+        
+        update_txt_tongtien();
+    }//GEN-LAST:event_btn_qldm_datmonActionPerformed
+    private void update_txt_tongtien(){
+        DefaultTableModel model = (DefaultTableModel) table_qldm_gio.getModel();
+        double tongTienToanBo = 0.0;
+        for (int i = 0; i < model.getRowCount(); i++) {
+            // Cộng dồn giá trị trong cột Tổng Tiền (cột thứ 4, index = 3)
+            tongTienToanBo += (Double) model.getValueAt(i, 3);
+        }
+        txt_qldm_tongtien.setText(String.valueOf(tongTienToanBo));
+    }
     private void btn_qldm_qldbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldm_qldbActionPerformed
         CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
         card.show(cardlayout_QuanLyDatBan, "qldb");
@@ -2221,7 +2287,10 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void popup_item_qldbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qldbActionPerformed
         // TODO add your handling code here:
-         update_table_datban();
+        update_table_datban();
+        btn_qldb_datban.setEnabled(false);
+        btn_qldb_traban.setEnabled(false);
+        btn_qldb_datmon.setEnabled(false);
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlydatban");
     }//GEN-LAST:event_popup_item_qldbActionPerformed
@@ -2420,8 +2489,8 @@ public class MainFrame extends javax.swing.JFrame {
             // Lấy dữ liệu từ dòng được chọn
             txt_qlmon_mamon.setText(table_monan.getValueAt(row, 0).toString());
             txt_qlmon_tenmon.setText(table_monan.getValueAt(row, 1).toString());
-            txt_qlmon_dongia.setText(table_monan.getValueAt(row, 2).toString());
-        }
+            txt_qlmon_dongia.setText(table_monan.getValueAt(row, 2).toString().replaceAll("[^\\d]", ""));
+        }    
     }//GEN-LAST:event_table_monanMouseClicked
 
     private void table_datbanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_datbanMouseClicked
@@ -2436,11 +2505,77 @@ public class MainFrame extends javax.swing.JFrame {
         if(trangthai.equals("Đang sử dụng")){
             btn_qldb_datban.setEnabled(false);
             btn_qldb_traban.setEnabled(true);
+            btn_qldb_datmon.setEnabled(true);
             return;
         }
+        btn_qldb_datmon.setEnabled(false);
         btn_qldb_traban.setEnabled(false);
         btn_qldb_datban.setEnabled(true);
     }//GEN-LAST:event_table_datbanMouseClicked
+
+    private void table_qldm_dsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_qldm_dsMouseClicked
+        // TODO add your handling code here:
+        int row = table_qldm_ds.rowAtPoint(evt.getPoint());
+        if (row >= 0) {
+            // Lấy dữ liệu từ dòng được chọn
+            txt_qldm_mamon.setText(table_qldm_ds.getValueAt(row, 0).toString());
+            txt_qldm_dongia.setText(table_qldm_ds.getValueAt(row, 2).toString().replaceAll("[^\\d]", ""));
+            txt_qldm_soluong.setText("1");
+        } 
+    }//GEN-LAST:event_table_qldm_dsMouseClicked
+
+    private void btn_qldm_tslActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldm_tslActionPerformed
+        // TODO add your handling code here:
+        String soluongStr = txt_qldm_soluong.getText();
+        
+        int soluong = Integer.parseInt(soluongStr); // Chuyển đổi sang int
+        soluong += 1; // Cộng thêm 1
+
+        txt_qldm_soluong.setText(String.valueOf(soluong));
+    }//GEN-LAST:event_btn_qldm_tslActionPerformed
+
+    private void btn_qldm_gslActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldm_gslActionPerformed
+        // TODO add your handling code here:
+        String soluongStr = txt_qldm_soluong.getText();
+        
+        int soluong = Integer.parseInt(soluongStr); // Chuyển đổi sang int
+        
+        soluong -= 1; // Cộng thêm 1
+        if(soluong<1){
+            return;
+        }
+        
+        txt_qldm_soluong.setText(String.valueOf(soluong));
+    }//GEN-LAST:event_btn_qldm_gslActionPerformed
+
+    private void table_qldm_gioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_qldm_gioMouseClicked
+        // TODO add your handling code here:
+        // Lấy DefaultTableModel từ bảng
+        DefaultTableModel model = (DefaultTableModel) table_qldm_gio.getModel();
+
+        // Lấy chỉ số của dòng được chọn từ bảng món ăn
+        int row = table_monan.rowAtPoint(evt.getPoint());
+
+        if (row >= 0) {
+            // Hiển thị hộp thoại xác nhận
+            int confirm = JOptionPane.showConfirmDialog(null, "Bạn có muốn xóa món ăn này?", "Xác nhận xóa", JOptionPane.YES_NO_OPTION);
+
+            // Nếu người dùng chọn "Yes"
+            if (confirm == JOptionPane.YES_OPTION) {
+                // Xóa dòng đã chọn
+                model.removeRow(row);
+            }
+        } else {
+            // Nếu không có dòng nào được chọn, hiển thị thông báo
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn một món ăn để xóa.", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    }//GEN-LAST:event_table_qldm_gioMouseClicked
+
+    private void btn_qldm_laphdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldm_laphdActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btn_qldm_laphdActionPerformed
     
     /**
      * @param args the command line arguments
@@ -2481,8 +2616,6 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ChucNang;
     private javax.swing.JPanel DangNhap;
-    private javax.swing.JPanel DatBan;
-    private javax.swing.JPanel DatMon;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel Outer;
@@ -2493,23 +2626,20 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel QuanLyKhachHang;
     private javax.swing.JPanel QuanLyMonAn;
     private javax.swing.JPanel QuanLyNhanVien;
-    private javax.swing.JPanel SuaThongTinDatBan;
     private javax.swing.JPanel ThongKe;
-    private javax.swing.JPanel XoaMon;
     private javax.swing.JButton btn_dangnhap_dangnhap;
-    private javax.swing.JButton btn_datmon_qldm;
-    private javax.swing.JButton btn_db_qldb;
     private javax.swing.JButton btn_qlban_suaban;
     private javax.swing.JButton btn_qlban_themban;
     private javax.swing.JButton btn_qlban_xoaban;
     private javax.swing.JButton btn_qldb_datban;
-    private javax.swing.JButton btn_qldb_laphoadon;
-    private javax.swing.JButton btn_qldb_qldatmon;
+    private javax.swing.JButton btn_qldb_datmon;
     private javax.swing.JButton btn_qldb_timkiem;
     private javax.swing.JButton btn_qldb_traban;
     private javax.swing.JButton btn_qldm_datmon;
+    private javax.swing.JButton btn_qldm_gsl;
+    private javax.swing.JButton btn_qldm_laphd;
     private javax.swing.JButton btn_qldm_qldb;
-    private javax.swing.JButton btn_qldm_xoamon;
+    private javax.swing.JButton btn_qldm_tsl;
     private javax.swing.JButton btn_qlhd_thongke;
     private javax.swing.JButton btn_qlkh_suatt;
     private javax.swing.JButton btn_qlkh_taokh;
@@ -2527,9 +2657,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_quanlikh;
     private javax.swing.JButton btn_quanlimon;
     private javax.swing.JButton btn_quanlinv;
-    private javax.swing.JButton btn_suattban_qldb;
     private javax.swing.JButton btn_thongke_qlhd;
-    private javax.swing.JButton btn_xoamon_qldm;
     private javax.swing.JPanel cardlayout_QuanLyBan;
     private javax.swing.JPanel cardlayout_QuanLyDatBan;
     private javax.swing.JPanel cardlayout_QuanLyDatMon;
@@ -2540,6 +2668,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> combo_qldb;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -2552,8 +2682,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2561,14 +2694,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
     private javax.swing.JMenuItem popup_item_qlban;
     private javax.swing.JMenuItem popup_item_qldb;
     private javax.swing.JPopupMenu popup_qlban;
     private javax.swing.JScrollPane scroll_ban;
+    private javax.swing.JScrollPane scroll_datmonn;
     private javax.swing.JScrollPane scroll_mon;
     private javax.swing.JScrollPane scrollpane_datban;
     private javax.swing.JScrollPane sp_qlkh;
@@ -2576,6 +2709,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTable table_ban;
     private javax.swing.JTable table_datban;
     private javax.swing.JTable table_monan;
+    private javax.swing.JTable table_qldm_ds;
+    private javax.swing.JTable table_qldm_gio;
     private javax.swing.JTable table_qlkh;
     private javax.swing.JTable table_qlnv;
     private javax.swing.JPanel trangchu;
@@ -2587,6 +2722,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txt_qlban_soluongnguoi;
     private javax.swing.JTextField txt_qlban_thongbao;
     private javax.swing.JTextField txt_qlban_trangthai;
+    private javax.swing.JTextField txt_qldm_dongia;
+    private javax.swing.JTextField txt_qldm_mamon;
+    private javax.swing.JTextField txt_qldm_soluong;
+    private javax.swing.JTextField txt_qldm_tongtien;
     private javax.swing.JTextField txt_qlkh_makh;
     private javax.swing.JTextField txt_qlkh_sdt;
     private javax.swing.JTextField txt_qlkh_tenkh;
