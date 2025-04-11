@@ -56,6 +56,7 @@ CREATE TABLE ChiTiet_HoaDon (
     MaHD VARCHAR(50),
     MaMon VARCHAR(50),
     SoLuong INT NOT NULL,
+    DonGia FLOAT NOT NULL
     PRIMARY KEY (MaHD, MaMon),  -- Composite primary key
     FOREIGN KEY (MaHD) REFERENCES HoaDon(MaHD),
     FOREIGN KEY (MaMon) REFERENCES MonAn(MaMon)
@@ -118,6 +119,7 @@ INSERT INTO TK_NhanVien (MaNV, MatKhauTK) VALUES
 
 -- Insert records into KhachHang table
 INSERT INTO KhachHang (MaKH, TenKH, SoDienThoai) VALUES
+('KH000', 'Khach Hang', '0812345678'),
 ('KH001', 'Pham Van L', '0812345678'),
 ('KH002', 'Do Thi M', '0823456789'),
 ('KH003', 'Nguyen Van N', '0834567890'),

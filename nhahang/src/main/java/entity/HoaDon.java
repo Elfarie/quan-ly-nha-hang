@@ -4,7 +4,9 @@
  */
 package entity;
 
+import dao.ChiTiet_HoaDon_DAO;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -56,6 +58,23 @@ public class HoaDon {
 
     public void setNgayLapHD(LocalDateTime NgayLapHD) {
         this.NgayLapHD = NgayLapHD;
+    }
+    public double tinhTongTien(HoaDon hoaDon) {
+        ChiTiet_HoaDon_DAO dao = new ChiTiet_HoaDon_DAO();
+        List<ChiTiet_HoaDon> dsChiTiet = dao.getAllChiTietHoaDons(); // Lấy tất cả chi tiết
+
+        double tongTien = 0;
+
+        for (ChiTiet_HoaDon ct : dsChiTiet) {
+            if (ct.getHd().getMaHD().equals(hoaDon.getMaHD())) {
+                tongTien += ct.tinhThanhTien(); // sử dụng phương thức đã thêm
+            }
+        }
+
+        // Cộng thêm thuế (nếu có)
+        tongTien += tongTien * hoaDon.getThue();
+        
+        return tongTien;
     }
 
     public HoaDon(String MaHD, NhanVien nv, KhachHang kh, double Thue, LocalDateTime NgayLapHD) {
