@@ -214,6 +214,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn_quanlihd = new javax.swing.JButton();
         btn_quanlimon = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        btn_dangxuat = new javax.swing.JButton();
 
         popup_qlban.setBackground(new java.awt.Color(57, 41, 42));
         popup_qlban.setForeground(java.awt.Color.white);
@@ -329,7 +330,6 @@ public class MainFrame extends javax.swing.JFrame {
         popup_qlhd.add(popup_item_qlhd_thongke);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setSize(new java.awt.Dimension(1280, 720));
 
@@ -364,6 +364,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn_dangnhap_dangnhap.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn_dangnhap_dangnhap.setForeground(new java.awt.Color(255, 255, 255));
         btn_dangnhap_dangnhap.setText("Đăng Nhập");
+        btn_dangnhap_dangnhap.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
         btn_dangnhap_dangnhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_dangnhap_dangnhapActionPerformed(evt);
@@ -1784,9 +1785,9 @@ public class MainFrame extends javax.swing.JFrame {
         btn_quanliban.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn_quanliban.setForeground(new java.awt.Color(255, 255, 255));
         btn_quanliban.setText("Bàn");
-        btn_quanliban.setBorder(null);
-        btn_quanliban.setBorderPainted(false);
+        btn_quanliban.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_quanliban.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_quanliban.setFocusPainted(false);
         btn_quanliban.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_quanlibanActionPerformed(evt);
@@ -1797,8 +1798,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn_quanlikh.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn_quanlikh.setForeground(new java.awt.Color(255, 255, 255));
         btn_quanlikh.setText("Khách Hàng");
-        btn_quanlikh.setBorder(null);
-        btn_quanlikh.setBorderPainted(false);
+        btn_quanlikh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_quanlikh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_quanlikhActionPerformed(evt);
@@ -1809,8 +1809,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn_quanlinv.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn_quanlinv.setForeground(new java.awt.Color(255, 255, 255));
         btn_quanlinv.setText("Nhân Viên");
-        btn_quanlinv.setBorder(null);
-        btn_quanlinv.setBorderPainted(false);
+        btn_quanlinv.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_quanlinv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_quanlinvActionPerformed(evt);
@@ -1821,8 +1820,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn_quanlihd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn_quanlihd.setForeground(new java.awt.Color(255, 255, 255));
         btn_quanlihd.setText("Hóa Đơn");
-        btn_quanlihd.setBorder(null);
-        btn_quanlihd.setBorderPainted(false);
+        btn_quanlihd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_quanlihd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_quanlihdActionPerformed(evt);
@@ -1833,8 +1831,9 @@ public class MainFrame extends javax.swing.JFrame {
         btn_quanlimon.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn_quanlimon.setForeground(new java.awt.Color(255, 255, 255));
         btn_quanlimon.setText("Món ăn ");
-        btn_quanlimon.setBorder(null);
-        btn_quanlimon.setBorderPainted(false);
+        btn_quanlimon.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_quanlimon.setDefaultCapable(false);
+        btn_quanlimon.setFocusPainted(false);
         btn_quanlimon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_quanlimonActionPerformed(evt);
@@ -1843,6 +1842,17 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo (1).jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
+
+        btn_dangxuat.setBackground(new java.awt.Color(57, 41, 42));
+        btn_dangxuat.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btn_dangxuat.setForeground(new java.awt.Color(255, 255, 255));
+        btn_dangxuat.setText("Đăng Xuất");
+        btn_dangxuat.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_dangxuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_dangxuatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
@@ -1857,6 +1867,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(btn_quanlihd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_quanlinv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_quanlikh, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_dangxuat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1873,7 +1884,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(btn_quanlinv, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_quanlihd, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_dangxuat, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(169, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ChucNangLayout = new javax.swing.GroupLayout(ChucNang);
@@ -3162,6 +3175,11 @@ public class MainFrame extends javax.swing.JFrame {
             model.addRow(row);
         }
     }//GEN-LAST:event_btn_qlmon_timActionPerformed
+
+    private void btn_dangxuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dangxuatActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btn_dangxuatActionPerformed
     
     /**
      * @param args the command line arguments
@@ -3214,6 +3232,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel QuanLyNhanVien;
     private javax.swing.JPanel ThongKe;
     private javax.swing.JButton btn_dangnhap_dangnhap;
+    private javax.swing.JButton btn_dangxuat;
     private javax.swing.JButton btn_qlban_suaban;
     private javax.swing.JButton btn_qlban_themban;
     private javax.swing.JButton btn_qlban_xoaban;
