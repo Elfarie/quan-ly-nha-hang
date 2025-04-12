@@ -104,10 +104,10 @@ public class MainFrame extends javax.swing.JFrame {
         QuanLyHoaDon = new javax.swing.JPanel();
         scroll_qlhd_ds = new javax.swing.JScrollPane();
         table_qlhd_ds = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        btn_qlhd_tim = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        txt_qlhd_sdt = new javax.swing.JTextField();
+        txt_qlhd_sdtkh = new javax.swing.JTextField();
         txt_qlhd_manv = new javax.swing.JTextField();
         ThongKe = new javax.swing.JPanel();
         cardlayout_QuanLyKhachHang = new javax.swing.JPanel();
@@ -715,7 +715,12 @@ public class MainFrame extends javax.swing.JFrame {
             table_qlhd_ds.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        jButton2.setText("Tìm");
+        btn_qlhd_tim.setText("Tìm");
+        btn_qlhd_tim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qlhd_timActionPerformed(evt);
+            }
+        });
 
         jLabel38.setText("SDT khách hàng:");
 
@@ -732,13 +737,13 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(QuanLyHoaDonLayout.createSequentialGroup()
                         .addComponent(jLabel38)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_qlhd_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_qlhd_sdtkh, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_qlhd_manv, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_qlhd_tim, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         QuanLyHoaDonLayout.setVerticalGroup(
@@ -746,10 +751,10 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QuanLyHoaDonLayout.createSequentialGroup()
                 .addContainerGap(52, Short.MAX_VALUE)
                 .addGroup(QuanLyHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(btn_qlhd_tim)
                     .addComponent(jLabel38)
                     .addComponent(jLabel39)
-                    .addComponent(txt_qlhd_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_qlhd_sdtkh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_qlhd_manv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(scroll_qlhd_ds, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -818,6 +823,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel17.setText("Mã khách hàng:");
+
+        txt_qlkh_makh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_qlkh_makhActionPerformed(evt);
+            }
+        });
 
         table_qlkh.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2905,12 +2916,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_quanlimonActionPerformed
 
     private void btn_quanlihdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quanlihdActionPerformed
-        // TODO add your handling code here:
         popup_qlhd.show(btn_quanlihd, 280, WIDTH);
 //        CardLayout card = (CardLayout)MainPanel.getLayout();
 //        card.show(MainPanel, "qlyhoadon");
     }//GEN-LAST:event_btn_quanlihdActionPerformed
-
+    
     private void btn_quanlinvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quanlinvActionPerformed
         // TODO add your handling code here:
         popup_nv.show(btn_quanlinv, 280, WIDTH);
@@ -2958,11 +2968,43 @@ public class MainFrame extends javax.swing.JFrame {
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlynhanvien");
     }//GEN-LAST:event_popup_item_qlnvActionPerformed
-
+ 
     private void popup_item_qlhdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlhdActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlyhoadon");
+        // TODO add your handling code here:
+
+        DefaultTableModel model = (DefaultTableModel) table_qlhd_ds.getModel();
+        model.setRowCount(0);
+
+        HoaDon_DAO hd_dao = new HoaDon_DAO();
+        List<HoaDon> hd_list = hd_dao.getAllHoaDons();
+
+        for (HoaDon hd : hd_list) {
+
+            String maHD = hd.getMaHD();
+
+            NhanVien nv = hd.getNv();
+            String maNV = nv.getMaNV();
+
+            KhachHang kh = hd.getKh();
+            String maKH = kh.getMaKH();
+
+            String sdtKH = "";
+            KhachHang_DAO kh_dao = new KhachHang_DAO();
+            List<KhachHang> kh_list = kh_dao.getAllKhachHangs();
+            for (KhachHang KH : kh_list) {
+                if (KH.getMaKH().equals(maKH)) {
+                    sdtKH = KH.getSoDienTHoai();
+                    break;
+                }
+            }
+
+            double tongTien = hd.tinhTongTien(hd);
+
+            model.addRow(new Object[]{maHD, maNV, maKH, sdtKH, tongTien});
+        }
     }//GEN-LAST:event_popup_item_qlhdActionPerformed
 
     private void btn_qldm_xoagioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldm_xoagioActionPerformed
@@ -2979,6 +3021,14 @@ public class MainFrame extends javax.swing.JFrame {
         CardLayout card = (CardLayout)cardlayout_QuanLyHoaDon.getLayout();
         card.show(cardlayout_QuanLyHoaDon, "thongke");
     }//GEN-LAST:event_popup_item_qlhd_thongkeActionPerformed
+
+    private void btn_qlhd_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlhd_timActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_qlhd_timActionPerformed
+    
+    private void txt_qlkh_makhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qlkh_makhActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_qlkh_makhActionPerformed
     
     /**
      * @param args the command line arguments
@@ -3044,6 +3094,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_qldm_qldb;
     private javax.swing.JButton btn_qldm_tsl;
     private javax.swing.JButton btn_qldm_xoagio;
+    private javax.swing.JButton btn_qlhd_tim;
     private javax.swing.JButton btn_qlkh_suatt;
     private javax.swing.JButton btn_qlkh_taokh;
     private javax.swing.JButton btn_qlkh_timkhtheosdt;
@@ -3070,7 +3121,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel cardlayout_QuanLyNhanVien;
     private javax.swing.JComboBox<String> combo_qldb;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3166,7 +3216,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txt_qldm_thue;
     private javax.swing.JTextField txt_qldm_tongtien;
     private javax.swing.JTextField txt_qlhd_manv;
-    private javax.swing.JTextField txt_qlhd_sdt;
+    private javax.swing.JTextField txt_qlhd_sdtkh;
     private javax.swing.JTextField txt_qlkh_makh;
     private javax.swing.JTextField txt_qlkh_sdt;
     private javax.swing.JTextField txt_qlkh_tenkh;

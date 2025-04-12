@@ -968,13 +968,13 @@
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txt_qlhd_sdt" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <Component id="txt_qlhd_sdtkh" min="-2" pref="120" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jLabel39" min="-2" pref="82" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="txt_qlhd_manv" min="-2" pref="79" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jButton2" min="-2" pref="51" max="-2" attributes="0"/>
+                                          <Component id="btn_qlhd_tim" min="-2" pref="51" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace pref="43" max="32767" attributes="0"/>
@@ -986,10 +986,10 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace pref="52" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_qlhd_tim" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txt_qlhd_sdt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlhd_sdtkh" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txt_qlhd_manv" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1054,10 +1054,13 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Component class="javax.swing.JButton" name="jButton2">
+                        <Component class="javax.swing.JButton" name="btn_qlhd_tim">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="T&#xec;m"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlhd_timActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel38">
                           <Properties>
@@ -1069,7 +1072,7 @@
                             <Property name="text" type="java.lang.String" value="M&#xe3; Nh&#xe2;n Vi&#xea;n:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txt_qlhd_sdt">
+                        <Component class="javax.swing.JTextField" name="txt_qlhd_sdtkh">
                         </Component>
                         <Component class="javax.swing.JTextField" name="txt_qlhd_manv">
                         </Component>
@@ -1299,6 +1302,9 @@
                         <Component class="javax.swing.JTextField" name="txt_qlkh_sdt">
                         </Component>
                         <Component class="javax.swing.JTextField" name="txt_qlkh_makh">
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_qlkh_makhActionPerformed"/>
+                          </Events>
                         </Component>
                         <Container class="javax.swing.JScrollPane" name="sp_qlkh">
                           <AuxValues>
