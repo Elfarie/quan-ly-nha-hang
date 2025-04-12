@@ -2374,14 +2374,15 @@
                                           <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                                           <Component id="scroll_mon" min="-2" pref="885" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="289" max="-2" attributes="0"/>
-                                          <Component id="btn_timmamon" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txt_timmamon" min="-2" pref="301" max="-2" attributes="0"/>
-                                      </Group>
                                   </Group>
                                   <EmptySpace pref="44" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="btn_qlmon_tim" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="txt_qlmon_tim" min="-2" pref="286" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="307" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2408,14 +2409,14 @@
                                       <Component id="btn_qlmon_suamon" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btn_qlmon_them" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="scroll_mon" min="-2" pref="481" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txt_timmamon" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btn_timmamon" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_qlmon_tim" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_qlmon_tim" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="scroll_mon" min="-2" pref="484" max="-2" attributes="0"/>
+                                  <EmptySpace pref="24" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2534,14 +2535,17 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_qlmon_tenmonActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btn_timmamon">
+                        <Component class="javax.swing.JButton" name="btn_qlmon_tim">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="T&#xec;m m&#xe3; m&#xf3;n:"/>
+                            <Property name="text" type="java.lang.String" value="T&#xec;m t&#xea;n m&#xf3;n:"/>
                           </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="txt_timmamon">
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_timmamonActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlmon_timActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txt_qlmon_tim">
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_qlmon_timActionPerformed"/>
                           </Events>
                         </Component>
                       </SubComponents>

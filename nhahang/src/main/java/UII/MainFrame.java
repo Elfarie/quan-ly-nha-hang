@@ -199,8 +199,8 @@ public class MainFrame extends javax.swing.JFrame {
         txt_qlmon_thongbao = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         txt_qlmon_tenmon = new javax.swing.JTextField();
-        btn_timmamon = new javax.swing.JButton();
-        txt_timmamon = new javax.swing.JTextField();
+        btn_qlmon_tim = new javax.swing.JButton();
+        txt_qlmon_tim = new javax.swing.JTextField();
         Menu = new javax.swing.JPanel();
         btn_quanliban = new javax.swing.JButton();
         btn_quanlikh = new javax.swing.JButton();
@@ -1640,11 +1640,16 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btn_timmamon.setText("Tìm mã món:");
-
-        txt_timmamon.addActionListener(new java.awt.event.ActionListener() {
+        btn_qlmon_tim.setText("Tìm tên món:");
+        btn_qlmon_tim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_timmamonActionPerformed(evt);
+                btn_qlmon_timActionPerformed(evt);
+            }
+        });
+
+        txt_qlmon_tim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_qlmon_timActionPerformed(evt);
             }
         });
 
@@ -1683,13 +1688,14 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(txt_qlmon_tenmon, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(QuanLyMonAnLayout.createSequentialGroup()
                         .addGap(71, 71, 71)
-                        .addComponent(scroll_mon, javax.swing.GroupLayout.PREFERRED_SIZE, 885, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(QuanLyMonAnLayout.createSequentialGroup()
-                        .addGap(289, 289, 289)
-                        .addComponent(btn_timmamon)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_timmamon, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(scroll_mon, javax.swing.GroupLayout.PREFERRED_SIZE, 885, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(44, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QuanLyMonAnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_qlmon_tim)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_qlmon_tim, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(307, 307, 307))
         );
         QuanLyMonAnLayout.setVerticalGroup(
             QuanLyMonAnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1711,13 +1717,13 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(btn_qlmon_xoatrang)
                     .addComponent(btn_qlmon_suamon)
                     .addComponent(btn_qlmon_them))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scroll_mon, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(QuanLyMonAnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_timmamon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_timmamon))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(txt_qlmon_tim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_qlmon_tim))
+                .addGap(25, 25, 25)
+                .addComponent(scroll_mon, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         cardlayout_QuanLyMonAn.add(QuanLyMonAn, "qlban");
@@ -2122,8 +2128,31 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     private void btn_qldb_timkiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_timkiemActionPerformed
-        CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
-        card.show(cardlayout_QuanLyDatBan, "timkiem");
+        update_table_Ban();
+        DefaultTableModel model = (DefaultTableModel) table_datban.getModel();
+
+        String trangThaiChon = combo_qldb.getSelectedItem().toString().trim();
+        List<Object[]> ketQua = new ArrayList<>();
+        
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String trangThai = model.getValueAt(i, 2).toString().trim(); // Cột trạng thái
+
+            boolean matchTrangThai = trangThaiChon.equals("Mặc định") || trangThai.equalsIgnoreCase(trangThaiChon);
+
+            if (matchTrangThai) {
+                Object[] row = new Object[model.getColumnCount()];
+                for (int j = 0; j < model.getColumnCount(); j++) {
+                    row[j] = model.getValueAt(i, j);
+                }
+                ketQua.add(row);
+            }
+        }
+
+// Xóa toàn bộ bảng rồi nạp lại kết quả lọc
+        model.setRowCount(0);
+        for (Object[] row : ketQua) {
+            model.addRow(row);
+        }
     }//GEN-LAST:event_btn_qldb_timkiemActionPerformed
 
     private void btn_qldb_trabanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_trabanActionPerformed
@@ -2944,9 +2973,9 @@ public class MainFrame extends javax.swing.JFrame {
         //        card.show(MainPanel, "qlyban");
     }//GEN-LAST:event_btn_quanlibanActionPerformed
 
-    private void txt_timmamonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_timmamonActionPerformed
+    private void txt_qlmon_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qlmon_timActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_timmamonActionPerformed
+    }//GEN-LAST:event_txt_qlmon_timActionPerformed
 
     private void popup_item_qlmonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlmonActionPerformed
         // TODO add your handling code here:
@@ -2971,8 +3000,11 @@ public class MainFrame extends javax.swing.JFrame {
  
     private void popup_item_qlhdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlhdActionPerformed
         // TODO add your handling code here:
+        update_table_qlhd();
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlyhoadon");
+    }//GEN-LAST:event_popup_item_qlhdActionPerformed
+    private void update_table_qlhd(){ 
         // TODO add your handling code here:
 
         DefaultTableModel model = (DefaultTableModel) table_qlhd_ds.getModel();
@@ -3005,8 +3037,7 @@ public class MainFrame extends javax.swing.JFrame {
 
             model.addRow(new Object[]{maHD, maNV, maKH, sdtKH, tongTien});
         }
-    }//GEN-LAST:event_popup_item_qlhdActionPerformed
-
+    }
     private void btn_qldm_xoagioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldm_xoagioActionPerformed
         // TODO add your handling code here:
         int confirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa giỏ hàng ?", "Xác nhận xóa bàn", JOptionPane.YES_NO_OPTION);
@@ -3023,12 +3054,72 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_popup_item_qlhd_thongkeActionPerformed
 
     private void btn_qlhd_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlhd_timActionPerformed
-        // TODO add your handling code here:
+        update_table_qlhd();
+        String sdtTim = txt_qlhd_sdtkh.getText().trim().toLowerCase();
+        String maNVTim = txt_qlhd_manv.getText().trim().toLowerCase();
+
+        DefaultTableModel model = (DefaultTableModel) table_qlhd_ds.getModel(); 
+
+        // Danh sách chứa các dòng thỏa điều kiện
+        List<Object[]> ketQua = new ArrayList<>();
+
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String sdt = model.getValueAt(i, 3).toString().toLowerCase();   // Cột SDT khách hàng
+            String maNV = model.getValueAt(i, 1).toString().toLowerCase();  // Cột mã NV
+
+            boolean matchSdt = sdtTim.isEmpty() || sdt.contains(sdtTim);
+            boolean matchNV = maNVTim.isEmpty() || maNV.contains(maNVTim);
+
+            if (matchSdt && matchNV) {
+                Object[] row = new Object[model.getColumnCount()];
+                for (int j = 0; j < model.getColumnCount(); j++) {
+                    row[j] = model.getValueAt(i, j);
+                }
+                ketQua.add(row);
+            }
+        }
+
+        // Xóa toàn bộ bảng rồi nạp lại kết quả lọc
+        model.setRowCount(0);
+        for (Object[] row : ketQua) {
+            model.addRow(row);
+        }
+        
     }//GEN-LAST:event_btn_qlhd_timActionPerformed
-    
+
     private void txt_qlkh_makhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qlkh_makhActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_qlkh_makhActionPerformed
+
+    private void btn_qlmon_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlmon_timActionPerformed
+        update_table_mon();
+        String tenMonTim = txt_qlmon_tim.getText().trim().toLowerCase(); // Tên món nhập vào
+
+        DefaultTableModel model = (DefaultTableModel) table_monan.getModel();
+
+// Danh sách chứa các dòng thỏa điều kiện
+        List<Object[]> ketQua = new ArrayList<>();
+
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String tenMon = model.getValueAt(i, 1).toString().toLowerCase(); // Cột tên món (cột 1)
+
+            boolean matchTen = tenMonTim.isEmpty() || tenMon.contains(tenMonTim);
+
+            if (matchTen) {
+                Object[] row = new Object[model.getColumnCount()];
+                for (int j = 0; j < model.getColumnCount(); j++) {
+                    row[j] = model.getValueAt(i, j);
+                }
+                ketQua.add(row);
+            }
+        }
+
+// Xóa toàn bộ bảng rồi nạp lại kết quả lọc
+        model.setRowCount(0);
+        for (Object[] row : ketQua) {
+            model.addRow(row);
+        }
+    }//GEN-LAST:event_btn_qlmon_timActionPerformed
     
     /**
      * @param args the command line arguments
@@ -3101,6 +3192,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_qlkh_xoatrang;
     private javax.swing.JButton btn_qlmon_suamon;
     private javax.swing.JButton btn_qlmon_them;
+    private javax.swing.JButton btn_qlmon_tim;
     private javax.swing.JButton btn_qlmon_xoatrang;
     private javax.swing.JButton btn_qlnv_dangkytknv;
     private javax.swing.JButton btn_qlnv_suatknv;
@@ -3111,7 +3203,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_quanlikh;
     private javax.swing.JButton btn_quanlimon;
     private javax.swing.JButton btn_quanlinv;
-    private javax.swing.JButton btn_timmamon;
     private javax.swing.JPanel cardlayout_QuanLyBan;
     private javax.swing.JPanel cardlayout_QuanLyDatBan;
     private javax.swing.JPanel cardlayout_QuanLyDatMon;
@@ -3226,6 +3317,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txt_qlmon_mamon;
     private javax.swing.JTextField txt_qlmon_tenmon;
     private javax.swing.JTextField txt_qlmon_thongbao;
+    private javax.swing.JTextField txt_qlmon_tim;
     private javax.swing.JTextField txt_qlnv_manv;
     private javax.swing.JTextField txt_qlnv_matkhau;
     private javax.swing.JTextField txt_qlnv_nhaplaimk;
@@ -3233,6 +3325,5 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txt_qlnv_tennv;
     private javax.swing.JTextField txt_qlnv_thongbao;
     private javax.swing.JTextField txt_qlnv_tim;
-    private javax.swing.JTextField txt_timmamon;
     // End of variables declaration//GEN-END:variables
 }
