@@ -3201,6 +3201,8 @@ public class MainFrame extends javax.swing.JFrame {
         update_table_qlhd();
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlyhoadon");
+        card = (CardLayout)cardlayout_QuanLyHoaDon.getLayout();
+        card.show(cardlayout_QuanLyHoaDon, "qlhd");
     }//GEN-LAST:event_popup_item_qlhdActionPerformed
     private void update_table_qlhd(){ 
         // TODO add your handling code here:
@@ -3321,7 +3323,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btn_dangxuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dangxuatActionPerformed
         // TODO add your handling code here:
-        
+        txt_dangnhap_taikhoan.setText("");
+        txt_dangnhap_matkhau.setText("");
+
+        CardLayout card = (CardLayout)Outer.getLayout();
+        card.show(Outer, "dangnhap");
     }//GEN-LAST:event_btn_dangxuatActionPerformed
 
     private void txt_dangnhap_matkhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dangnhap_matkhauActionPerformed
@@ -3331,7 +3337,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void ngayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngayActionPerformed
         // TODO add your handling code here:
     
-
 
     }//GEN-LAST:event_ngayActionPerformed
 
