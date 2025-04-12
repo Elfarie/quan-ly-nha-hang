@@ -4,6 +4,7 @@
  */
 package UII;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import dao.*;
 import java.awt.CardLayout;
 import entity.*;
@@ -29,6 +30,11 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public MainFrame() {
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize FlatLaf");
+        }
         initComponents();
     }
 
@@ -209,13 +215,17 @@ public class MainFrame extends javax.swing.JFrame {
         btn_quanlimon = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
-        popup_qlban.setBackground(new java.awt.Color(0, 0, 0));
-        popup_qlban.setForeground(new java.awt.Color(255, 255, 255));
+        popup_qlban.setBackground(new java.awt.Color(57, 41, 42));
+        popup_qlban.setForeground(java.awt.Color.white);
         popup_qlban.setMaximumSize(new java.awt.Dimension(900, 900));
 
+        jMenuItem1.setBackground(new java.awt.Color(57, 41, 42));
+        jMenuItem1.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem1.setText("-------------------");
         popup_qlban.add(jMenuItem1);
 
+        popup_item_qldb.setBackground(new java.awt.Color(57, 41, 42));
+        popup_item_qldb.setForeground(new java.awt.Color(255, 255, 255));
         popup_item_qldb.setText("Đặt Bàn");
         popup_item_qldb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,6 +235,8 @@ public class MainFrame extends javax.swing.JFrame {
         popup_qlban.add(popup_item_qldb);
         popup_item_qldb.getAccessibleContext().setAccessibleName("datban");
 
+        popup_item_qlban.setBackground(new java.awt.Color(57, 41, 42));
+        popup_item_qlban.setForeground(new java.awt.Color(255, 255, 255));
         popup_item_qlban.setText("Quản Lí Bàn");
         popup_item_qlban.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,9 +246,16 @@ public class MainFrame extends javax.swing.JFrame {
         popup_qlban.add(popup_item_qlban);
         popup_item_qlban.getAccessibleContext().setAccessibleName("ban");
 
+        popup_monan.setBackground(new java.awt.Color(57, 41, 42));
+        popup_monan.setForeground(java.awt.Color.white);
+
+        jMenuItem2.setBackground(new java.awt.Color(57, 41, 42));
+        jMenuItem2.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem2.setText("-----------------------------");
         popup_monan.add(jMenuItem2);
 
+        popup_item_qlmon.setBackground(new java.awt.Color(57, 41, 42));
+        popup_item_qlmon.setForeground(new java.awt.Color(255, 255, 255));
         popup_item_qlmon.setText("Quản Lí Món Ăn");
         popup_item_qlmon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,9 +264,16 @@ public class MainFrame extends javax.swing.JFrame {
         });
         popup_monan.add(popup_item_qlmon);
 
+        popup_kh.setBackground(new java.awt.Color(57, 41, 42));
+        popup_kh.setForeground(java.awt.Color.white);
+
+        jMenuItem3.setBackground(new java.awt.Color(57, 41, 42));
+        jMenuItem3.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem3.setText("-----------------------------");
         popup_kh.add(jMenuItem3);
 
+        popup_item_qlkh.setBackground(new java.awt.Color(57, 41, 42));
+        popup_item_qlkh.setForeground(new java.awt.Color(255, 255, 255));
         popup_item_qlkh.setText("Quản Lí Khách Hàng");
         popup_item_qlkh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,9 +282,16 @@ public class MainFrame extends javax.swing.JFrame {
         });
         popup_kh.add(popup_item_qlkh);
 
+        popup_nv.setBackground(new java.awt.Color(57, 41, 42));
+        popup_nv.setForeground(java.awt.Color.white);
+
+        jMenuItem4.setBackground(new java.awt.Color(57, 41, 42));
+        jMenuItem4.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem4.setText("-----------------------------");
         popup_nv.add(jMenuItem4);
 
+        popup_item_qlnv.setBackground(new java.awt.Color(57, 41, 42));
+        popup_item_qlnv.setForeground(new java.awt.Color(255, 255, 255));
         popup_item_qlnv.setText("Quản Lí Nhân Viên");
         popup_item_qlnv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,9 +300,16 @@ public class MainFrame extends javax.swing.JFrame {
         });
         popup_nv.add(popup_item_qlnv);
 
+        popup_qlhd.setBackground(new java.awt.Color(57, 41, 42));
+        popup_qlhd.setForeground(java.awt.Color.white);
+
+        jMenuItem5.setBackground(new java.awt.Color(57, 41, 42));
+        jMenuItem5.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem5.setText("-----------------------------");
         popup_qlhd.add(jMenuItem5);
 
+        popup_item_qlhd.setBackground(new java.awt.Color(57, 41, 42));
+        popup_item_qlhd.setForeground(new java.awt.Color(255, 255, 255));
         popup_item_qlhd.setText("Danh Sách Hóa Đơn");
         popup_item_qlhd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,6 +318,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
         popup_qlhd.add(popup_item_qlhd);
 
+        popup_item_qlhd_thongke.setBackground(new java.awt.Color(57, 41, 42));
+        popup_item_qlhd_thongke.setForeground(new java.awt.Color(255, 255, 255));
         popup_item_qlhd_thongke.setText("Thống Kê");
         popup_item_qlhd_thongke.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
