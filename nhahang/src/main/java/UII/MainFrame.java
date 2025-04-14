@@ -102,9 +102,11 @@ public class MainFrame extends javax.swing.JFrame {
         popup_kh = new javax.swing.JPopupMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         popup_item_qlkh = new javax.swing.JMenuItem();
+        popup_item_qlkh_ds = new javax.swing.JMenuItem();
         popup_nv = new javax.swing.JPopupMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         popup_item_qlnv = new javax.swing.JMenuItem();
+        popup_item_qlnv_ds = new javax.swing.JMenuItem();
         popup_qlhd = new javax.swing.JPopupMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         popup_item_qlhd = new javax.swing.JMenuItem();
@@ -192,6 +194,12 @@ public class MainFrame extends javax.swing.JFrame {
         table_qlkh = new javax.swing.JTable();
         txt_qlkh_thongbao = new javax.swing.JTextField();
         btn_qlkh_xoatrang = new javax.swing.JButton();
+        DanhSachKhachHang = new javax.swing.JPanel();
+        btn_qlkh_ds_sdt = new javax.swing.JButton();
+        txt_qlkh_ds_tim = new javax.swing.JTextField();
+        sp_qlkh_tim = new javax.swing.JScrollPane();
+        table_qlkh_tim = new javax.swing.JTable();
+        txt_qlkh_ds_thongbao = new javax.swing.JTextField();
         cardlayout_QuanLyBan = new javax.swing.JPanel();
         QuanLyBan = new javax.swing.JPanel();
         btn_qlban_suaban = new javax.swing.JButton();
@@ -342,6 +350,16 @@ public class MainFrame extends javax.swing.JFrame {
         });
         popup_kh.add(popup_item_qlkh);
 
+        popup_item_qlkh_ds.setBackground(new java.awt.Color(57, 41, 42));
+        popup_item_qlkh_ds.setForeground(new java.awt.Color(255, 255, 255));
+        popup_item_qlkh_ds.setText("Danh sách khách hàng");
+        popup_item_qlkh_ds.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_item_qlkh_dsActionPerformed(evt);
+            }
+        });
+        popup_kh.add(popup_item_qlkh_ds);
+
         popup_nv.setBackground(new java.awt.Color(57, 41, 42));
         popup_nv.setForeground(java.awt.Color.white);
 
@@ -359,6 +377,16 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         popup_nv.add(popup_item_qlnv);
+
+        popup_item_qlnv_ds.setBackground(new java.awt.Color(57, 41, 42));
+        popup_item_qlnv_ds.setForeground(new java.awt.Color(255, 255, 255));
+        popup_item_qlnv_ds.setText("Danh Sách Nhân Viên");
+        popup_item_qlnv_ds.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_item_qlnv_dsActionPerformed(evt);
+            }
+        });
+        popup_nv.add(popup_item_qlnv_ds);
 
         popup_qlhd.setBackground(new java.awt.Color(57, 41, 42));
         popup_qlhd.setForeground(java.awt.Color.white);
@@ -968,7 +996,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jLabel44)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         ThongKeLayout.setVerticalGroup(
             ThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1151,7 +1179,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txt_qlkh_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txt_qlkh_tenkh, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 231, Short.MAX_VALUE))
+                .addGap(0, 233, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QuanLyKhachHangLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(QuanLyKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1197,6 +1225,79 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         cardlayout_QuanLyKhachHang.add(QuanLyKhachHang, "qlkh");
+
+        DanhSachKhachHang.setBackground(new java.awt.Color(255, 255, 255));
+        DanhSachKhachHang.setMaximumSize(new java.awt.Dimension(1000, 720));
+        DanhSachKhachHang.setMinimumSize(new java.awt.Dimension(1000, 720));
+
+        btn_qlkh_ds_sdt.setText("Tìm sdt:");
+        btn_qlkh_ds_sdt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qlkh_ds_sdtActionPerformed(evt);
+            }
+        });
+
+        table_qlkh_tim.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Tên khách hàng", "Mã khách hàng", "Số điện thoại"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        table_qlkh_tim.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        table_qlkh_tim.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        sp_qlkh_tim.setViewportView(table_qlkh_tim);
+        if (table_qlkh_tim.getColumnModel().getColumnCount() > 0) {
+            table_qlkh_tim.getColumnModel().getColumn(0).setResizable(false);
+            table_qlkh_tim.getColumnModel().getColumn(1).setResizable(false);
+            table_qlkh_tim.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        txt_qlkh_ds_thongbao.setEnabled(false);
+
+        javax.swing.GroupLayout DanhSachKhachHangLayout = new javax.swing.GroupLayout(DanhSachKhachHang);
+        DanhSachKhachHang.setLayout(DanhSachKhachHangLayout);
+        DanhSachKhachHangLayout.setHorizontalGroup(
+            DanhSachKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DanhSachKhachHangLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(DanhSachKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sp_qlkh_tim, javax.swing.GroupLayout.PREFERRED_SIZE, 927, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(DanhSachKhachHangLayout.createSequentialGroup()
+                        .addComponent(btn_qlkh_ds_sdt, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(DanhSachKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_qlkh_ds_thongbao)
+                            .addComponent(txt_qlkh_ds_tim, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+        DanhSachKhachHangLayout.setVerticalGroup(
+            DanhSachKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DanhSachKhachHangLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(DanhSachKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_qlkh_ds_sdt)
+                    .addComponent(txt_qlkh_ds_tim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addComponent(txt_qlkh_ds_thongbao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sp_qlkh_tim, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        cardlayout_QuanLyKhachHang.add(DanhSachKhachHang, "danhsach");
 
         MainPanel.add(cardlayout_QuanLyKhachHang, "qlykhachhang");
 
@@ -1463,7 +1564,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addGap(16, 16, 16)
                                 .addComponent(jLabel10)
                                 .addGap(8, 8, 8)
-                                .addComponent(txt_datban_ban, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                                .addComponent(txt_datban_ban, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
                             .addGroup(QuanLyDatBanLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(btn_qldb_datmon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1941,8 +2042,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(txt_qlmon_tim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_qlmon_tim))
                 .addGap(25, 25, 25)
-                .addComponent(scroll_mon, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(scroll_mon, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         cardlayout_QuanLyMonAn.add(QuanLyMonAn, "qlban");
@@ -2135,7 +2236,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         tknv_dao.updateTK_NhanVien(tknv);
         
-        update_table_qlnv();
+        update_table_qlnv(table_qlnv);
         txt_qlnv_thongbao.setText("");
         JOptionPane.showMessageDialog(null, "Sửa thông tin thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_qlnv_suatknvActionPerformed
@@ -2162,7 +2263,7 @@ public class MainFrame extends javax.swing.JFrame {
             return;
         }
         txt_qlkh_thongbao.setText("");
-        update_table_qlkh();
+        update_table_qlkh(table_qlkh);
         JOptionPane.showMessageDialog(null, "Tạo thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_qlkh_taokhActionPerformed
     
@@ -2226,7 +2327,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
 
         txt_qlkh_thongbao.setText("");
-        update_table_qlkh();
+        update_table_qlkh(table_qlkh);
         JOptionPane.showMessageDialog(null, "Sửa thông tin khách hàng thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_qlkh_suattActionPerformed
 
@@ -2253,15 +2354,15 @@ public class MainFrame extends javax.swing.JFrame {
             txt_qlkh_thongbao.setText("");
             if(result.isEmpty()){
                JOptionPane.showMessageDialog(null, "Không tìm thấy số điện thoại", "Thông báo", JOptionPane.WARNING_MESSAGE);
-               update_table_qlkh();
+               update_table_qlkh(table_qlkh);
                return;
             }
             txt_qlkh_thongbao.setText("");
-            update_table_qlkh_search(result);
+            update_table_qlkh_search(result, table_qlkh);
         }
     }//GEN-LAST:event_btn_qlkh_timkhtheosdtActionPerformed
-    private void update_table_qlkh_search(List<KhachHang> khachHangs) {
-        DefaultTableModel model = (DefaultTableModel) table_qlkh.getModel();
+    private void update_table_qlkh_search(List<KhachHang> khachHangs, JTable t) {
+        DefaultTableModel model = (DefaultTableModel) t.getModel();
         model.setRowCount(0);  // Xóa tất cả các dòng cũ
 
         for (KhachHang kh : khachHangs) {
@@ -2293,7 +2394,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
 
         txt_qlban_thongbao.setText("");
-        update_table_Ban();
+        update_table_Ban(table_ban);
         JOptionPane.showMessageDialog(null, "Sửa thông tin bàn thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
                   
         
@@ -2322,7 +2423,7 @@ public class MainFrame extends javax.swing.JFrame {
             return;
         }
         txt_qlban_thongbao.setText("");
-        update_table_Ban();
+        update_table_Ban(table_ban);
         JOptionPane.showMessageDialog(null, "Tạo thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
                                        
     }//GEN-LAST:event_btn_qlban_thembanActionPerformed
@@ -2332,26 +2433,7 @@ public class MainFrame extends javax.swing.JFrame {
         txt_qlban_maban.setText("");
         txt_qlban_soluongnguoi.setText("");
     }//GEN-LAST:event_btn_qlban_xoabanActionPerformed
-    private void update_table_datmon() {
-        DefaultTableModel model = (DefaultTableModel) table_qldm_ds.getModel();
-        MonAn_DAO monan_dao = new MonAn_DAO();
-        ArrayList<MonAn> dsMonAn = (ArrayList<MonAn>) monan_dao.getAllMonAns();
 
-        // Tạo formatter cho tiền tệ VNĐ
-        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
-
-        if (dsMonAn != null && !dsMonAn.isEmpty()) {
-            model.setRowCount(0); // Xóa các dòng cũ
-
-            for (MonAn mon : dsMonAn) {
-                String donGiaVND = currencyFormatter.format(mon.getDonGia());
-                model.addRow(new Object[]{mon.getMaMon(), mon.getTenMon(), donGiaVND});
-            }
-        } else {
-            model.setRowCount(0);
-            JOptionPane.showMessageDialog(null, "Không có dữ liệu món ăn!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-        }
-    }
     private void btn_dangnhap_dangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dangnhap_dangnhapActionPerformed
         // TODO add your handling code here:
         String username = txt_dangnhap_taikhoan.getText().trim();
@@ -2530,12 +2612,12 @@ public class MainFrame extends javax.swing.JFrame {
         }
         tknv_dao.addTK_NhanVien(tknv);
         
-        update_table_qlnv();
+        update_table_qlnv(table_qlnv);
         txt_qlnv_thongbao.setText("");
         JOptionPane.showMessageDialog(null, "Đăng ký thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_qlnv_dangkytknvActionPerformed
-    private void update_table_qlnv(){
-        DefaultTableModel model = (DefaultTableModel) table_qlnv.getModel();
+    private void update_table_qlnv(JTable t){
+        DefaultTableModel model = (DefaultTableModel) t.getModel();
         NhanVien_DAO nv_dao = new NhanVien_DAO();
         TK_NhanVien_DAO tknv_dao = new TK_NhanVien_DAO();
         ArrayList<NhanVien> nhanViens = (ArrayList<NhanVien>) nv_dao.getAllNhanViens();
@@ -2577,8 +2659,8 @@ public class MainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Vui lòng chọn một hàng để chỉnh sửa."); 
         }
     }//GEN-LAST:event_table_qlnvMouseClicked
-    private void update_table_qlkh() {
-        DefaultTableModel model = (DefaultTableModel) table_qlkh.getModel();
+    private void update_table_qlkh(JTable t) {
+        DefaultTableModel model = (DefaultTableModel) t.getModel();
         KhachHang_DAO kh_dao = new KhachHang_DAO();
         ArrayList<KhachHang> khachHangs = (ArrayList<KhachHang>) kh_dao.getAllKhachHangs();
 
@@ -2595,8 +2677,8 @@ public class MainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Không có dữ liệu khách hàng!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-    private void update_table_Ban() {
-        DefaultTableModel model = (DefaultTableModel) table_ban.getModel();
+    private void update_table_Ban(JTable t) {
+        DefaultTableModel model = (DefaultTableModel) t.getModel();
         Ban_DAO ban_dao = new Ban_DAO();
         ArrayList<Ban> ban = (ArrayList<Ban>) ban_dao.getAllBans();
 
@@ -2695,7 +2777,7 @@ public class MainFrame extends javax.swing.JFrame {
             txt_qlnv_thongbao.setText("");
             if(result.isEmpty()){
                JOptionPane.showMessageDialog(null, "Không tìm thấy số điện thoại", "Thông báo", JOptionPane.WARNING_MESSAGE);
-               update_table_qlnv();
+               update_table_qlnv(table_qlnv);
                return;
             }
             txt_qlnv_thongbao.setText("");
@@ -2762,39 +2844,22 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void popup_item_qldbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qldbActionPerformed
         // TODO add your handling code here:
-        update_table_datban();
+        update_table_Ban(table_datban);
         btn_qldb_datban.setEnabled(false);
         btn_qldb_traban.setEnabled(false);
         btn_qldb_datmon.setEnabled(false);
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlydatban");
     }//GEN-LAST:event_popup_item_qldbActionPerformed
-    private void update_table_datban() {
-        DefaultTableModel model = (DefaultTableModel) table_datban.getModel();
-        Ban_DAO ban_dao = new Ban_DAO();
-        ArrayList<Ban> ban = (ArrayList<Ban>) ban_dao.getAllBans();
 
-        // Kiểm tra nếu danh sách khách hàng không phải null và không rỗng
-        if (ban != null && !ban.isEmpty()) {
-            model.setRowCount(0); // Xóa tất cả các dòng cũ trong bảng
-
-            for (Ban b : ban) {
-                model.addRow(new Object[]{b.getMaBan(), b.getSoLuongNguoi(),b.getTrangThai()});
-            }
-        } else {
-            // Nếu danh sách khách hàng trống hoặc null, hiển thị thông báo cho người dùng
-            model.setRowCount(0);
-            JOptionPane.showMessageDialog(null, "Không có dữ liệu bàn!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-        }
-    }
     private void popup_item_qlbanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlbanActionPerformed
         // TODO add your handling code here:
-        update_table_Ban();
+        update_table_Ban(table_ban);
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlyban");
     }//GEN-LAST:event_popup_item_qlbanActionPerformed
-    private void update_table_mon() {
-        DefaultTableModel model = (DefaultTableModel) table_monan.getModel();
+    private void update_table_mon(JTable t) {
+        DefaultTableModel model = (DefaultTableModel) t.getModel();
         MonAn_DAO monan_dao = new MonAn_DAO();
         ArrayList<MonAn> dsMonAn = (ArrayList<MonAn>) monan_dao.getAllMonAns();
 
@@ -2839,7 +2904,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
 
         txt_qlmon_thongbao.setText("");
-        update_table_mon();
+        update_table_mon(table_monan);
         JOptionPane.showMessageDialog(null, "Sửa thông tin món ăn thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btn_qlmon_suamonActionPerformed
 
@@ -2926,7 +2991,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
 
         txt_qlmon_thongbao.setText("");
-        update_table_mon();
+        update_table_mon(table_monan);
         JOptionPane.showMessageDialog(null, "Thêm món ăn thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_btn_qlmon_themActionPerformed
@@ -3114,23 +3179,26 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void popup_item_qlmonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlmonActionPerformed
         // TODO add your handling code here:
-        update_table_mon();
+        update_table_mon(table_monan);
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlymon");
     }//GEN-LAST:event_popup_item_qlmonActionPerformed
 
     private void popup_item_qlkhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlkhActionPerformed
         // TODO add your handling code here:
-        update_table_qlkh();
+        update_table_qlkh(table_qlkh);
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlykhachhang");
+        card = (CardLayout)cardlayout_QuanLyKhachHang.getLayout();
+        card.show(cardlayout_QuanLyKhachHang, "qlkh");
     }//GEN-LAST:event_popup_item_qlkhActionPerformed
 
     private void popup_item_qlnvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlnvActionPerformed
         // TODO add your handling code here:
-        update_table_qlnv();
+        update_table_qlnv(table_qlnv);
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlynhanvien");
+        
     }//GEN-LAST:event_popup_item_qlnvActionPerformed
  
     private void popup_item_qlhdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlhdActionPerformed
@@ -3176,7 +3244,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void popup_item_qlhd_thongkeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlhd_thongkeActionPerformed
         // TODO add your handling code here:
-        CardLayout card = (CardLayout)cardlayout_QuanLyHoaDon.getLayout();
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "qlyhoadon");
+        card = (CardLayout)cardlayout_QuanLyHoaDon.getLayout();
         card.show(cardlayout_QuanLyHoaDon, "thongke");
     }//GEN-LAST:event_popup_item_qlhd_thongkeActionPerformed
 
@@ -3222,7 +3292,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_qlkh_makhActionPerformed
 
     private void btn_qlmon_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlmon_timActionPerformed
-        update_table_mon();
+        update_table_mon(table_monan);
         String tenMonTim = txt_qlmon_tim.getText().trim().toLowerCase(); // Tên món nhập vào
 
         DefaultTableModel model = (DefaultTableModel) table_monan.getModel();
@@ -3322,7 +3392,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void combo_qldbItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_qldbItemStateChanged
         // TODO add your handling code here:
-        update_table_datban();
+        update_table_Ban(table_datban);
         DefaultTableModel model = (DefaultTableModel) table_datban.getModel();
 
         String trangThaiChon = combo_qldb.getSelectedItem().toString().trim();
@@ -3386,7 +3456,7 @@ public class MainFrame extends javax.swing.JFrame {
             return;
         }
         ban_dao.updateBan(ban);
-        update_table_datban();
+        update_table_Ban(table_datban);
     }//GEN-LAST:event_btn_qldb_datbanActionPerformed
 
     private void btn_qldb_trabanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_trabanActionPerformed
@@ -3412,11 +3482,11 @@ public class MainFrame extends javax.swing.JFrame {
             return;
         }
         ban_dao.updateBan(ban);
-        update_table_datban();
+        update_table_Ban(table_datban);
     }//GEN-LAST:event_btn_qldb_trabanActionPerformed
 
     private void btn_qldb_datmonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_datmonActionPerformed
-        update_table_datmon();
+        update_table_mon(table_qldm_ds);
         CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
         card.show(cardlayout_QuanLyDatBan, "qldm");
     }//GEN-LAST:event_btn_qldb_datmonActionPerformed
@@ -3425,6 +3495,51 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         btn_dangnhap_dangnhap.doClick();
     }//GEN-LAST:event_txt_dangnhap_matkhauActionPerformed
+
+    private void btn_qlkh_ds_sdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlkh_ds_sdtActionPerformed
+        // TODO add your handling code here:
+        String sdt = txt_qlkh_ds_tim.getText().trim();
+        if (sdt.isEmpty()) {
+            txt_qlkh_ds_thongbao.setText("Nhập số điện thoại cần tìm!");
+            txt_qlkh_ds_tim.requestFocus();
+        }
+        else if (!sdt.matches("[0-9].*")) {
+            txt_qlkh_ds_thongbao.setText("Phải là số!");
+            txt_qlkh_ds_tim.requestFocus();
+        }
+        else {
+            // Tìm kiếm khách hàng theo số điện thoại
+            KhachHang_DAO kh_dao = new KhachHang_DAO();
+            List<KhachHang> khachHangs = kh_dao.getAllKhachHangs();
+            List<KhachHang> result = new ArrayList<KhachHang>();
+            for (KhachHang kh : khachHangs) {
+                if(kh.getSoDienTHoai().contains(sdt)){
+                    result.add(kh);
+                }
+            }
+            txt_qlkh_thongbao.setText("");
+            if(result.isEmpty()){
+               JOptionPane.showMessageDialog(null, "Không tìm thấy số điện thoại", "Thông báo", JOptionPane.WARNING_MESSAGE);
+               update_table_qlkh(table_qlkh_tim);
+               return;
+            }
+            txt_qlkh_thongbao.setText("");
+            update_table_qlkh_search(result, table_qlkh_tim);
+        }
+    }//GEN-LAST:event_btn_qlkh_ds_sdtActionPerformed
+
+    private void popup_item_qlkh_dsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlkh_dsActionPerformed
+        // TODO add your handling code here:
+        update_table_qlkh(table_qlkh_tim);
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "qlykhachhang");
+        card = (CardLayout)cardlayout_QuanLyKhachHang.getLayout();
+        card.show(cardlayout_QuanLyKhachHang, "danhsach");
+    }//GEN-LAST:event_popup_item_qlkh_dsActionPerformed
+
+    private void popup_item_qlnv_dsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlnv_dsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_popup_item_qlnv_dsActionPerformed
     
     /**
      * @param args the command line arguments
@@ -3465,6 +3580,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ChucNang;
     private javax.swing.JPanel DangNhap;
+    private javax.swing.JPanel DanhSachKhachHang;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel Outer;
@@ -3492,6 +3608,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_qldm_tsl;
     private javax.swing.JButton btn_qldm_xoagio;
     private javax.swing.JButton btn_qlhd_tim;
+    private javax.swing.JButton btn_qlkh_ds_sdt;
     private javax.swing.JButton btn_qlkh_suatt;
     private javax.swing.JButton btn_qlkh_taokh;
     private javax.swing.JButton btn_qlkh_timkhtheosdt;
@@ -3581,8 +3698,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem popup_item_qlhd;
     private javax.swing.JMenuItem popup_item_qlhd_thongke;
     private javax.swing.JMenuItem popup_item_qlkh;
+    private javax.swing.JMenuItem popup_item_qlkh_ds;
     private javax.swing.JMenuItem popup_item_qlmon;
     private javax.swing.JMenuItem popup_item_qlnv;
+    private javax.swing.JMenuItem popup_item_qlnv_ds;
     private javax.swing.JPopupMenu popup_kh;
     private javax.swing.JPopupMenu popup_monan;
     private javax.swing.JPopupMenu popup_nv;
@@ -3596,6 +3715,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel slogan1;
     private javax.swing.JLabel slogan2;
     private javax.swing.JScrollPane sp_qlkh;
+    private javax.swing.JScrollPane sp_qlkh_tim;
     private javax.swing.JScrollPane sp_qlnv;
     private javax.swing.JTable table_ban;
     private javax.swing.JTable table_datban;
@@ -3605,6 +3725,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTable table_qlhd_ds;
     private javax.swing.JTable table_qlhd_tk;
     private javax.swing.JTable table_qlkh;
+    private javax.swing.JTable table_qlkh_tim;
     private javax.swing.JTable table_qlnv;
     private javax.swing.JComboBox<String> thang;
     private javax.swing.JComboBox<String> thang1;
@@ -3628,6 +3749,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txt_qldm_tongtien;
     private javax.swing.JTextField txt_qlhd_sdtkh;
     private javax.swing.JTextField txt_qlhd_sdtnv;
+    private javax.swing.JTextField txt_qlkh_ds_thongbao;
+    private javax.swing.JTextField txt_qlkh_ds_tim;
     private javax.swing.JTextField txt_qlkh_makh;
     private javax.swing.JTextField txt_qlkh_sdt;
     private javax.swing.JTextField txt_qlkh_tenkh;
