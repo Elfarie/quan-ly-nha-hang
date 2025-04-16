@@ -18,6 +18,7 @@ UII\MainFrame$43.class
 UII\MainFrame$15.class
 UII\MainFrame$18.class
 connectDB\connectdata.class
+UII\MainFrame$78.class
 UII\MainFrame$35.class
 UII\MainFrame$55.class
 UII\MainFrame$7.class
@@ -32,6 +33,7 @@ UII\MainFrame$1.class
 UII\MainFrame$26.class
 UII\MainFrame$66.class
 UII\MainFrame$36.class
+UII\MainFrame$76.class
 UII\MainFrame.class
 UII\MainFrame$13.class
 UII\MainFrame$48.class
@@ -44,6 +46,7 @@ UII\MainFrame$2.class
 UII\MainFrame$37.class
 dao\Ban_DAO.class
 UII\MainFrame$42.class
+UII\MainFrame$77.class
 UII\MainFrame$57.class
 UII\MainFrame$67.class
 dao\ChiTiet_HoaDon_DAO.class
@@ -73,6 +76,7 @@ UII\MainFrame$47.class
 UII\MainFrame$52.class
 UII\MainFrame$72.class
 UII\MainFrame$29.class
+UII\MainFrame$75.class
 entity\ChiTiet_HoaDon.class
 UII\MainFrame$69.class
 UII\MainFrame$39.class

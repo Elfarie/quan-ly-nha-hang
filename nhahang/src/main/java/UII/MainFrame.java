@@ -153,6 +153,13 @@ public class MainFrame extends javax.swing.JFrame {
         btn_qlnv_xoatrang = new javax.swing.JButton();
         btn_qlnv_timkhtheosdt = new javax.swing.JButton();
         txt_qlnv_tim = new javax.swing.JTextField();
+        DanhSachNhanVIen = new javax.swing.JPanel();
+        QuanLyNhanVien1 = new javax.swing.JPanel();
+        sp_qlnv1 = new javax.swing.JScrollPane();
+        table_dsnv = new javax.swing.JTable();
+        txt_qlnv_thongbao1 = new javax.swing.JTextField();
+        btn_dsnv_tim = new javax.swing.JButton();
+        txt_qlnv_tim1 = new javax.swing.JTextField();
         cardlayout_QuanLyHoaDon = new javax.swing.JPanel();
         QuanLyHoaDon = new javax.swing.JPanel();
         scroll_qlhd_ds = new javax.swing.JScrollPane();
@@ -813,7 +820,93 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        cardlayout_QuanLyNhanVien.add(QuanLyNhanVien, "qlnv");
+        cardlayout_QuanLyNhanVien.add(QuanLyNhanVien, "qlnhanvien");
+
+        DanhSachNhanVIen.setBackground(new java.awt.Color(255, 255, 255));
+        DanhSachNhanVIen.setMaximumSize(new java.awt.Dimension(1000, 720));
+        DanhSachNhanVIen.setLayout(new java.awt.CardLayout());
+
+        QuanLyNhanVien1.setBackground(new java.awt.Color(255, 255, 255));
+        QuanLyNhanVien1.setMaximumSize(new java.awt.Dimension(1000, 720));
+        QuanLyNhanVien1.setMinimumSize(new java.awt.Dimension(1000, 720));
+
+        table_dsnv.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Tên nhân viên", "Mã Tài Khoản", "Mật khẩu", "Số điện thoại"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        table_dsnv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                table_dsnvMouseClicked(evt);
+            }
+        });
+        sp_qlnv1.setViewportView(table_dsnv);
+        if (table_dsnv.getColumnModel().getColumnCount() > 0) {
+            table_dsnv.getColumnModel().getColumn(0).setResizable(false);
+            table_dsnv.getColumnModel().getColumn(1).setResizable(false);
+            table_dsnv.getColumnModel().getColumn(2).setResizable(false);
+            table_dsnv.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        txt_qlnv_thongbao1.setEditable(false);
+        txt_qlnv_thongbao1.setEnabled(false);
+        txt_qlnv_thongbao1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_qlnv_thongbao1ActionPerformed(evt);
+            }
+        });
+
+        btn_dsnv_tim.setText("Tìm sdt:");
+        btn_dsnv_tim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_dsnv_timActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout QuanLyNhanVien1Layout = new javax.swing.GroupLayout(QuanLyNhanVien1);
+        QuanLyNhanVien1.setLayout(QuanLyNhanVien1Layout);
+        QuanLyNhanVien1Layout.setHorizontalGroup(
+            QuanLyNhanVien1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(QuanLyNhanVien1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(QuanLyNhanVien1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sp_qlnv1, javax.swing.GroupLayout.PREFERRED_SIZE, 921, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(QuanLyNhanVien1Layout.createSequentialGroup()
+                        .addComponent(btn_dsnv_tim, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(QuanLyNhanVien1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_qlnv_tim1, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                            .addComponent(txt_qlnv_thongbao1))))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        QuanLyNhanVien1Layout.setVerticalGroup(
+            QuanLyNhanVien1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(QuanLyNhanVien1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(QuanLyNhanVien1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_dsnv_tim)
+                    .addComponent(txt_qlnv_tim1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(txt_qlnv_thongbao1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(sp_qlnv1, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        DanhSachNhanVIen.add(QuanLyNhanVien1, "qlnhanvien");
+
+        cardlayout_QuanLyNhanVien.add(DanhSachNhanVIen, "qlnv");
 
         MainPanel.add(cardlayout_QuanLyNhanVien, "qlynhanvien");
 
@@ -2765,7 +2858,7 @@ public class MainFrame extends javax.swing.JFrame {
             txt_qlnv_tim.requestFocus();
         }
         else {
-            // Tìm kiếm khách hàng theo số điện thoại
+            
             NhanVien_DAO nv_dao = new NhanVien_DAO();
             List<NhanVien> nhanViens = nv_dao.getAllNhanViens();
             List<NhanVien> result = new ArrayList<NhanVien>();
@@ -2777,7 +2870,7 @@ public class MainFrame extends javax.swing.JFrame {
             txt_qlnv_thongbao.setText("");
             if(result.isEmpty()){
                JOptionPane.showMessageDialog(null, "Không tìm thấy số điện thoại", "Thông báo", JOptionPane.WARNING_MESSAGE);
-               update_table_qlnv(table_qlnv);
+               update_table_qlnv(table_dsnv);
                return;
             }
             txt_qlnv_thongbao.setText("");
@@ -3153,6 +3246,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void btn_quanlinvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quanlinvActionPerformed
         // TODO add your handling code here:
         popup_nv.show(btn_quanlinv, 280, WIDTH);
+        
 //        update_table_qlnv();
 //        CardLayout card = (CardLayout)MainPanel.getLayout();
 //        card.show(MainPanel, "qlynhanvien");
@@ -3198,6 +3292,9 @@ public class MainFrame extends javax.swing.JFrame {
         update_table_qlnv(table_qlnv);
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlynhanvien");
+        card = (CardLayout)cardlayout_QuanLyNhanVien.getLayout();
+        card.show(cardlayout_QuanLyNhanVien, "qlnhanvien");
+        
         
     }//GEN-LAST:event_popup_item_qlnvActionPerformed
  
@@ -3539,7 +3636,52 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void popup_item_qlnv_dsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlnv_dsActionPerformed
         // TODO add your handling code here:
+        update_table_qlnv(table_dsnv);
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "qlynhanvien");
+        card = (CardLayout)cardlayout_QuanLyNhanVien.getLayout();
+        card.show(cardlayout_QuanLyNhanVien, "qlnv");
     }//GEN-LAST:event_popup_item_qlnv_dsActionPerformed
+
+    private void btn_dsnv_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dsnv_timActionPerformed
+        // TODO add your handling code here:
+        String sdt = txt_qlnv_tim1.getText().trim();
+        if (sdt.isEmpty()) {
+            txt_qlnv_thongbao1.setText("Nhập số điện thoại cần tìm!");
+            txt_qlnv_tim1.requestFocus();
+        }
+        else if (!sdt.matches("[0-9].*")) {
+            txt_qlnv_thongbao1.setText("Phải là số!");
+            txt_qlnv_tim1.requestFocus();
+        }
+        else {
+            
+            NhanVien_DAO nv_dao = new NhanVien_DAO();
+            List<NhanVien> nhanViens = nv_dao.getAllNhanViens();
+            List<NhanVien> result = new ArrayList<NhanVien>();
+            for (NhanVien nv : nhanViens) {
+                if(nv.getSoDienThoai().contains(sdt)){
+                    result.add(nv);
+                }
+            }
+            txt_qlnv_thongbao1.setText("");
+            if(result.isEmpty()){
+               JOptionPane.showMessageDialog(null, "Không tìm thấy số điện thoại", "Thông báo", JOptionPane.WARNING_MESSAGE);
+               update_table_qlnv(table_dsnv);
+               return;
+            }
+            txt_qlnv_thongbao1.setText("");
+            update_table_qlnv_search(result);
+        }
+    }//GEN-LAST:event_btn_dsnv_timActionPerformed
+
+    private void txt_qlnv_thongbao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_qlnv_thongbao1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_qlnv_thongbao1ActionPerformed
+
+    private void table_dsnvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_dsnvMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_table_dsnvMouseClicked
     
     /**
      * @param args the command line arguments
@@ -3581,6 +3723,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ChucNang;
     private javax.swing.JPanel DangNhap;
     private javax.swing.JPanel DanhSachKhachHang;
+    private javax.swing.JPanel DanhSachNhanVIen;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel Outer;
@@ -3591,10 +3734,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel QuanLyKhachHang;
     private javax.swing.JPanel QuanLyMonAn;
     private javax.swing.JPanel QuanLyNhanVien;
+    private javax.swing.JPanel QuanLyNhanVien1;
     private javax.swing.JPanel ThongKe;
     private javax.swing.JButton btb_thongke;
     private javax.swing.JButton btn_dangnhap_dangnhap;
     private javax.swing.JButton btn_dangxuat;
+    private javax.swing.JButton btn_dsnv_tim;
     private javax.swing.JButton btn_qlban_suaban;
     private javax.swing.JButton btn_qlban_themban;
     private javax.swing.JButton btn_qlban_xoaban;
@@ -3717,8 +3862,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane sp_qlkh;
     private javax.swing.JScrollPane sp_qlkh_tim;
     private javax.swing.JScrollPane sp_qlnv;
+    private javax.swing.JScrollPane sp_qlnv1;
     private javax.swing.JTable table_ban;
     private javax.swing.JTable table_datban;
+    private javax.swing.JTable table_dsnv;
     private javax.swing.JTable table_monan;
     private javax.swing.JTable table_qldm_ds;
     private javax.swing.JTable table_qldm_gio;
@@ -3767,6 +3914,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txt_qlnv_sdt;
     private javax.swing.JTextField txt_qlnv_tennv;
     private javax.swing.JTextField txt_qlnv_thongbao;
+    private javax.swing.JTextField txt_qlnv_thongbao1;
     private javax.swing.JTextField txt_qlnv_tim;
+    private javax.swing.JTextField txt_qlnv_tim1;
     // End of variables declaration//GEN-END:variables
 }
