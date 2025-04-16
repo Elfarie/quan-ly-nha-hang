@@ -8,6 +8,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 import dao.*;
 import java.awt.CardLayout;
 import entity.*;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -96,9 +97,11 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         popup_item_qldb = new javax.swing.JMenuItem();
         popup_item_qlban = new javax.swing.JMenuItem();
+        popup_item_dsban = new javax.swing.JMenuItem();
         popup_monan = new javax.swing.JPopupMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         popup_item_qlmon = new javax.swing.JMenuItem();
+        popup_item_dsmon = new javax.swing.JMenuItem();
         popup_kh = new javax.swing.JPopupMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         popup_item_qlkh = new javax.swing.JMenuItem();
@@ -185,6 +188,8 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
+        txt_qlhd_tongtien = new javax.swing.JTextField();
+        txt_qlhd_trungbinh = new javax.swing.JTextField();
         cardlayout_QuanLyKhachHang = new javax.swing.JPanel();
         QuanLyKhachHang = new javax.swing.JPanel();
         btn_qlkh_taokh = new javax.swing.JButton();
@@ -215,16 +220,19 @@ public class MainFrame extends javax.swing.JFrame {
         scroll_ban = new javax.swing.JScrollPane();
         table_ban = new javax.swing.JTable();
         txt_qlban_maban = new javax.swing.JTextField();
-        txt_qlban_makhu = new javax.swing.JTextField();
         txt_qlban_trangthai = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         txt_qlban_thongbao = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         txt_qlban_soluongnguoi = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btn_qlban_tim = new javax.swing.JButton();
         txt_qlban_tim = new javax.swing.JTextField();
+        danhsachban = new javax.swing.JPanel();
+        scroll_ban1 = new javax.swing.JScrollPane();
+        table_dsban = new javax.swing.JTable();
+        btn_dsban_tim = new javax.swing.JButton();
+        txt_dsban_tim = new javax.swing.JTextField();
         cardlayout_QuanLyDatBan = new javax.swing.JPanel();
         QuanLyDatBan = new javax.swing.JPanel();
         btn_qldb_datmon = new javax.swing.JButton();
@@ -281,6 +289,11 @@ public class MainFrame extends javax.swing.JFrame {
         txt_qlmon_tenmon = new javax.swing.JTextField();
         btn_qlmon_tim = new javax.swing.JButton();
         txt_qlmon_tim = new javax.swing.JTextField();
+        danhsachmon = new javax.swing.JPanel();
+        scroll_mon1 = new javax.swing.JScrollPane();
+        table_dsmon = new javax.swing.JTable();
+        btn_dsmon_tim = new javax.swing.JButton();
+        txt_dsmon_tim = new javax.swing.JTextField();
         Menu = new javax.swing.JPanel();
         btn_quanliban = new javax.swing.JButton();
         btn_quanlikh = new javax.swing.JButton();
@@ -321,6 +334,16 @@ public class MainFrame extends javax.swing.JFrame {
         popup_qlban.add(popup_item_qlban);
         popup_item_qlban.getAccessibleContext().setAccessibleName("ban");
 
+        popup_item_dsban.setBackground(new java.awt.Color(57, 41, 42));
+        popup_item_dsban.setForeground(new java.awt.Color(255, 255, 255));
+        popup_item_dsban.setText("Danh Sách Bàn");
+        popup_item_dsban.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_item_dsbanActionPerformed(evt);
+            }
+        });
+        popup_qlban.add(popup_item_dsban);
+
         popup_monan.setBackground(new java.awt.Color(57, 41, 42));
         popup_monan.setForeground(java.awt.Color.white);
 
@@ -338,6 +361,16 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         popup_monan.add(popup_item_qlmon);
+
+        popup_item_dsmon.setBackground(new java.awt.Color(57, 41, 42));
+        popup_item_dsmon.setForeground(new java.awt.Color(255, 255, 255));
+        popup_item_dsmon.setText("Danh Sách Món Ăn");
+        popup_item_dsmon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popup_item_dsmonActionPerformed(evt);
+            }
+        });
+        popup_monan.add(popup_item_dsmon);
 
         popup_kh.setBackground(new java.awt.Color(57, 41, 42));
         popup_kh.setForeground(java.awt.Color.white);
@@ -1051,6 +1084,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel43.setText("Tổng doanh thu từng hóa đơn:");
 
+        txt_qlhd_tongtien.setEnabled(false);
+
+        txt_qlhd_trungbinh.setEnabled(false);
+
         javax.swing.GroupLayout ThongKeLayout = new javax.swing.GroupLayout(ThongKe);
         ThongKe.setLayout(ThongKeLayout);
         ThongKeLayout.setHorizontalGroup(
@@ -1081,15 +1118,21 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btb_thongke)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(ThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel42)
-                                .addComponent(jLabel43))
-                            .addGap(317, 317, 317)))
+                            .addGroup(ThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(ThongKeLayout.createSequentialGroup()
+                                    .addComponent(jLabel43)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txt_qlhd_tongtien, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(ThongKeLayout.createSequentialGroup()
+                                    .addComponent(jLabel42)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txt_qlhd_trungbinh, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(113, 113, 113)))
                     .addGroup(ThongKeLayout.createSequentialGroup()
                         .addComponent(jLabel44)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         ThongKeLayout.setVerticalGroup(
             ThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1106,21 +1149,23 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(ThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel43)
-                            .addComponent(btb_thongke, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btb_thongke, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_qlhd_tongtien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel41)
                     .addComponent(ngay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(thang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel42))
+                    .addComponent(jLabel42)
+                    .addComponent(txt_qlhd_trungbinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel45)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel44)
-                .addContainerGap(338, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         cardlayout_QuanLyHoaDon.add(ThongKe, "thongke");
@@ -1383,10 +1428,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(DanhSachKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_qlkh_ds_sdt)
                     .addComponent(txt_qlkh_ds_tim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addComponent(txt_qlkh_ds_thongbao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sp_qlkh_tim, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_qlkh_ds_thongbao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(sp_qlkh_tim, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -1467,9 +1512,6 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel19.setText("Mã bàn:");
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel20.setText("Mã khu:");
-
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel21.setText("Trạng thái:");
 
@@ -1484,7 +1526,12 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Tìm Mã Bàn:");
+        btn_qlban_tim.setText("Tìm Mã Bàn:");
+        btn_qlban_tim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qlban_timActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout QuanLyBanLayout = new javax.swing.GroupLayout(QuanLyBan);
         QuanLyBan.setLayout(QuanLyBanLayout);
@@ -1501,47 +1548,38 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txt_qlban_maban, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                                    .addComponent(txt_qlban_makhu, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txt_qlban_trangthai))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel22)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_qlban_soluongnguoi, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(199, 199, 199))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_qlban_soluongnguoi, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, QuanLyBanLayout.createSequentialGroup()
-                        .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, QuanLyBanLayout.createSequentialGroup()
-                                .addComponent(txt_qlban_thongbao, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_qlban_xoaban, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_qlban_suaban, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_qlban_themban, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, QuanLyBanLayout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_qlban_tim, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(247, Short.MAX_VALUE))))
+                        .addComponent(txt_qlban_thongbao, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_qlban_xoaban, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_qlban_suaban, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_qlban_themban, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, QuanLyBanLayout.createSequentialGroup()
+                        .addComponent(btn_qlban_tim)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_qlban_tim, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QuanLyBanLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(82, Short.MAX_VALUE)
                 .addComponent(scroll_ban, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48))
         );
         QuanLyBanLayout.setVerticalGroup(
             QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(QuanLyBanLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(57, 57, 57)
                 .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
                     .addComponent(txt_qlban_maban, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19)
                     .addComponent(jLabel22)
                     .addComponent(txt_qlban_soluongnguoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_qlban_makhu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
@@ -1555,13 +1593,79 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(QuanLyBanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_qlban_tim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btn_qlban_tim))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scroll_ban, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+                .addComponent(scroll_ban, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
                 .addGap(43, 43, 43))
         );
 
         cardlayout_QuanLyBan.add(QuanLyBan, "qlban");
+
+        danhsachban.setBackground(new java.awt.Color(255, 255, 255));
+        danhsachban.setMaximumSize(new java.awt.Dimension(1000, 720));
+        danhsachban.setMinimumSize(new java.awt.Dimension(1000, 720));
+
+        table_dsban.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Mã Bàn", "Số Lượng Người", "Trạng Thái"
+            }
+        ));
+        table_dsban.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                table_dsbanAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        scroll_ban1.setViewportView(table_dsban);
+        if (table_dsban.getColumnModel().getColumnCount() > 0) {
+            table_dsban.getColumnModel().getColumn(0).setResizable(false);
+            table_dsban.getColumnModel().getColumn(1).setResizable(false);
+            table_dsban.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        btn_dsban_tim.setText("Tìm Mã Bàn:");
+        btn_dsban_tim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_dsban_timActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout danhsachbanLayout = new javax.swing.GroupLayout(danhsachban);
+        danhsachban.setLayout(danhsachbanLayout);
+        danhsachbanLayout.setHorizontalGroup(
+            danhsachbanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, danhsachbanLayout.createSequentialGroup()
+                .addContainerGap(82, Short.MAX_VALUE)
+                .addGroup(danhsachbanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scroll_ban1, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(danhsachbanLayout.createSequentialGroup()
+                        .addComponent(btn_dsban_tim)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_dsban_tim, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48))
+        );
+        danhsachbanLayout.setVerticalGroup(
+            danhsachbanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(danhsachbanLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(danhsachbanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_dsban_tim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_dsban_tim))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scroll_ban1, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+
+        cardlayout_QuanLyBan.add(danhsachban, "dsban");
 
         MainPanel.add(cardlayout_QuanLyBan, "qlyban");
 
@@ -2139,7 +2243,80 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        cardlayout_QuanLyMonAn.add(QuanLyMonAn, "qlban");
+        cardlayout_QuanLyMonAn.add(QuanLyMonAn, "qlmon");
+
+        danhsachmon.setBackground(new java.awt.Color(255, 255, 255));
+        danhsachmon.setMaximumSize(new java.awt.Dimension(1000, 720));
+        danhsachmon.setMinimumSize(new java.awt.Dimension(1000, 720));
+
+        table_dsmon.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Mã Món ăn", "Tên Món ăn", "Đơn giá"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        table_dsmon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                table_dsmonMouseClicked(evt);
+            }
+        });
+        scroll_mon1.setViewportView(table_dsmon);
+        if (table_dsmon.getColumnModel().getColumnCount() > 0) {
+            table_dsmon.getColumnModel().getColumn(0).setResizable(false);
+            table_dsmon.getColumnModel().getColumn(1).setResizable(false);
+            table_dsmon.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        btn_dsmon_tim.setText("Tìm tên món:");
+        btn_dsmon_tim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_dsmon_timActionPerformed(evt);
+            }
+        });
+
+        txt_dsmon_tim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_dsmon_timActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout danhsachmonLayout = new javax.swing.GroupLayout(danhsachmon);
+        danhsachmon.setLayout(danhsachmonLayout);
+        danhsachmonLayout.setHorizontalGroup(
+            danhsachmonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(danhsachmonLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(danhsachmonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(danhsachmonLayout.createSequentialGroup()
+                        .addComponent(btn_dsmon_tim)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_dsmon_tim, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scroll_mon1, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        danhsachmonLayout.setVerticalGroup(
+            danhsachmonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(danhsachmonLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(danhsachmonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_dsmon_tim)
+                    .addComponent(txt_dsmon_tim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scroll_mon1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+
+        cardlayout_QuanLyMonAn.add(danhsachmon, "dsmon");
 
         MainPanel.add(cardlayout_QuanLyMonAn, "qlymon");
 
@@ -2950,6 +3127,8 @@ public class MainFrame extends javax.swing.JFrame {
         update_table_Ban(table_ban);
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlyban");
+        card = (CardLayout)cardlayout_QuanLyBan.getLayout();
+        card.show(cardlayout_QuanLyBan, "qlban");
     }//GEN-LAST:event_popup_item_qlbanActionPerformed
     private void update_table_mon(JTable t) {
         DefaultTableModel model = (DefaultTableModel) t.getModel();
@@ -3203,6 +3382,10 @@ public class MainFrame extends javax.swing.JFrame {
         
         String maban = txt_datban_ban.getText();
         DefaultTableModel model = (DefaultTableModel) table_qldm_gio.getModel();
+        if( model.getRowCount()==0){
+            txt_qldm_thongbao.setText("Giỏ hàng không được trống");
+            return;
+        }
         HoaDon_DAO hd_dao = new HoaDon_DAO();
         
         int n = hd_dao.getAllHoaDons().size();
@@ -3276,6 +3459,8 @@ public class MainFrame extends javax.swing.JFrame {
         update_table_mon(table_monan);
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "qlymon");
+        card = (CardLayout)cardlayout_QuanLyMonAn.getLayout();
+        card.show(cardlayout_QuanLyMonAn, "qlmon");
     }//GEN-LAST:event_popup_item_qlmonActionPerformed
 
     private void popup_item_qlkhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_qlkhActionPerformed
@@ -3481,7 +3666,32 @@ public class MainFrame extends javax.swing.JFrame {
                 coHoaDon = true;
             }
         }
+        double tong = 0.0;
+        int soDong = 0;
+        model = (DefaultTableModel) table_qlhd_tk.getModel();
 
+        for (int i = 0; i < model.getRowCount(); i++) {
+            Object value = model.getValueAt(i, 6); // Cột "Tổng Tiền"
+            if (value != null) {
+                try {
+                    double tien = Double.parseDouble(value.toString().replace(",", ""));
+                    tong += tien;
+                    soDong++;
+                } catch (NumberFormatException e) {
+                    System.err.println("Dữ liệu không hợp lệ ở dòng " + i + ": " + value);
+                }
+            }
+        }
+
+        // Format lại số tiền để hiển thị đẹp
+        DecimalFormat df = new DecimalFormat("#,###.##");
+
+        // Tính trung bình
+        double trungBinh = soDong > 0 ? tong / soDong : 0;
+
+        // Gán vào ô text
+        txt_qlhd_tongtien.setText(df.format(tong) + " VND");
+        txt_qlhd_trungbinh.setText(df.format(trungBinh) + " VND");
         if (!coHoaDon) {
             JOptionPane.showMessageDialog(this, "Không có hóa đơn nào trong khoảng thời gian đã chọn!");
         }
@@ -3682,6 +3892,122 @@ public class MainFrame extends javax.swing.JFrame {
     private void table_dsnvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_dsnvMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_table_dsnvMouseClicked
+
+    private void table_dsbanAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_table_dsbanAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_table_dsbanAncestorAdded
+
+    private void btn_qlban_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qlban_timActionPerformed
+        // TODO add your handling code here:
+        update_table_Ban(table_ban);
+        DefaultTableModel model = (DefaultTableModel) table_ban.getModel();
+        Ban_DAO ban_dao = new Ban_DAO();
+        ArrayList<Ban> dsTatCa = (ArrayList<Ban>) ban_dao.getAllBans();
+        String maTim = txt_qlban_tim.getText();
+        ArrayList<Ban> ketQua = new ArrayList<>();
+
+        for (Ban b : dsTatCa) {
+            if (b.getMaBan().equalsIgnoreCase(maTim)) {
+                ketQua.add(b);
+            }
+        }
+
+        model.setRowCount(0); // Xoá toàn bộ dữ liệu cũ trong bảng
+
+        if (!ketQua.isEmpty()) {
+            for (Ban b : ketQua) {
+                model.addRow(new Object[]{b.getMaBan(), b.getSoLuongNguoi(), b.getTrangThai()});
+            }
+        } else {
+            update_table_Ban(table_ban);
+            JOptionPane.showMessageDialog(null, "Không tìm thấy bàn với mã: " + maTim, "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_btn_qlban_timActionPerformed
+
+    private void popup_item_dsbanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_dsbanActionPerformed
+        // TODO add your handling code here:
+        update_table_Ban(table_dsban);
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "qlyban");
+        card = (CardLayout)cardlayout_QuanLyBan.getLayout();
+        card.show(cardlayout_QuanLyBan, "dsban");
+    }//GEN-LAST:event_popup_item_dsbanActionPerformed
+
+    private void popup_item_dsmonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popup_item_dsmonActionPerformed
+        // TODO add your handling code here:
+        update_table_mon(table_dsmon);
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "qlymon");
+        card = (CardLayout)cardlayout_QuanLyMonAn.getLayout();
+        card.show(cardlayout_QuanLyMonAn, "dsmon");
+    }//GEN-LAST:event_popup_item_dsmonActionPerformed
+
+    private void btn_dsban_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dsban_timActionPerformed
+        // TODO add your handling code here:
+        update_table_Ban(table_dsban);
+        DefaultTableModel model = (DefaultTableModel) table_dsban.getModel();
+        Ban_DAO ban_dao = new Ban_DAO();
+        ArrayList<Ban> dsTatCa = (ArrayList<Ban>) ban_dao.getAllBans();
+        String maTim = txt_dsban_tim.getText();
+        ArrayList<Ban> ketQua = new ArrayList<>();
+
+        for (Ban b : dsTatCa) {
+            if (b.getMaBan().equalsIgnoreCase(maTim)) {
+                ketQua.add(b);
+            }
+        }
+
+        model.setRowCount(0); // Xoá toàn bộ dữ liệu cũ trong bảng
+
+        if (!ketQua.isEmpty()) {
+            for (Ban b : ketQua) {
+                model.addRow(new Object[]{b.getMaBan(), b.getSoLuongNguoi(), b.getTrangThai()});
+            }
+        } else {
+            update_table_Ban(table_dsban);
+            JOptionPane.showMessageDialog(null, "Không tìm thấy bàn với mã: " + maTim, "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btn_dsban_timActionPerformed
+
+    private void btn_dsmon_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dsmon_timActionPerformed
+        // TODO add your handling code here:
+        update_table_mon(table_dsmon);
+        String tenMonTim = txt_dsmon_tim.getText().trim().toLowerCase(); // Tên món nhập vào
+
+        DefaultTableModel model = (DefaultTableModel) table_dsmon.getModel();
+
+// Danh sách chứa các dòng thỏa điều kiện
+        List<Object[]> ketQua = new ArrayList<>();
+
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String tenMon = model.getValueAt(i, 1).toString().toLowerCase(); // Cột tên món (cột 1)
+
+            boolean matchTen = tenMonTim.isEmpty() || tenMon.contains(tenMonTim);
+
+            if (matchTen) {
+                Object[] row = new Object[model.getColumnCount()];
+                for (int j = 0; j < model.getColumnCount(); j++) {
+                    row[j] = model.getValueAt(i, j);
+                }
+                ketQua.add(row);
+            }
+        }
+
+// Xóa toàn bộ bảng rồi nạp lại kết quả lọc
+        model.setRowCount(0);
+        for (Object[] row : ketQua) {
+            model.addRow(row);
+        }
+    }//GEN-LAST:event_btn_dsmon_timActionPerformed
+
+    private void txt_dsmon_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dsmon_timActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_dsmon_timActionPerformed
+
+    private void table_dsmonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_dsmonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_table_dsmonMouseClicked
     
     /**
      * @param args the command line arguments
@@ -3739,9 +4065,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btb_thongke;
     private javax.swing.JButton btn_dangnhap_dangnhap;
     private javax.swing.JButton btn_dangxuat;
+    private javax.swing.JButton btn_dsban_tim;
+    private javax.swing.JButton btn_dsmon_tim;
     private javax.swing.JButton btn_dsnv_tim;
     private javax.swing.JButton btn_qlban_suaban;
     private javax.swing.JButton btn_qlban_themban;
+    private javax.swing.JButton btn_qlban_tim;
     private javax.swing.JButton btn_qlban_xoaban;
     private javax.swing.JButton btn_qldb_datban;
     private javax.swing.JButton btn_qldb_datmon;
@@ -3779,7 +4108,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel cardlayout_QuanLyMonAn;
     private javax.swing.JPanel cardlayout_QuanLyNhanVien;
     private javax.swing.JComboBox<String> combo_qldb;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel danhsachban;
+    private javax.swing.JPanel danhsachmon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3792,7 +4122,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -3838,6 +4167,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> nam1;
     private javax.swing.JComboBox<String> ngay;
     private javax.swing.JComboBox<String> ngay1;
+    private javax.swing.JMenuItem popup_item_dsban;
+    private javax.swing.JMenuItem popup_item_dsmon;
     private javax.swing.JMenuItem popup_item_qlban;
     private javax.swing.JMenuItem popup_item_qldb;
     private javax.swing.JMenuItem popup_item_qlhd;
@@ -3853,8 +4184,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPopupMenu popup_qlban;
     private javax.swing.JPopupMenu popup_qlhd;
     private javax.swing.JScrollPane scroll_ban;
+    private javax.swing.JScrollPane scroll_ban1;
     private javax.swing.JScrollPane scroll_datmonn;
     private javax.swing.JScrollPane scroll_mon;
+    private javax.swing.JScrollPane scroll_mon1;
     private javax.swing.JScrollPane scroll_qlhd_ds;
     private javax.swing.JScrollPane scrollpane_datban;
     private javax.swing.JLabel slogan1;
@@ -3865,6 +4198,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane sp_qlnv1;
     private javax.swing.JTable table_ban;
     private javax.swing.JTable table_datban;
+    private javax.swing.JTable table_dsban;
+    private javax.swing.JTable table_dsmon;
     private javax.swing.JTable table_dsnv;
     private javax.swing.JTable table_monan;
     private javax.swing.JTable table_qldm_ds;
@@ -3880,8 +4215,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPasswordField txt_dangnhap_matkhau;
     private javax.swing.JTextField txt_dangnhap_taikhoan;
     private javax.swing.JTextField txt_datban_ban;
+    private javax.swing.JTextField txt_dsban_tim;
+    private javax.swing.JTextField txt_dsmon_tim;
     private javax.swing.JTextField txt_qlban_maban;
-    private javax.swing.JTextField txt_qlban_makhu;
     private javax.swing.JTextField txt_qlban_soluongnguoi;
     private javax.swing.JTextField txt_qlban_thongbao;
     private javax.swing.JTextField txt_qlban_tim;
@@ -3896,6 +4232,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txt_qldm_tongtien;
     private javax.swing.JTextField txt_qlhd_sdtkh;
     private javax.swing.JTextField txt_qlhd_sdtnv;
+    private javax.swing.JTextField txt_qlhd_tongtien;
+    private javax.swing.JTextField txt_qlhd_trungbinh;
     private javax.swing.JTextField txt_qlkh_ds_thongbao;
     private javax.swing.JTextField txt_qlkh_ds_tim;
     private javax.swing.JTextField txt_qlkh_makh;

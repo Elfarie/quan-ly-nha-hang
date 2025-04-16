@@ -1,3 +1,4 @@
+UII\MainFrame$80.class
 UII\MainFrame$50.class
 dao\NhanVien_DAO.class
 UII\MainFrame$30.class
@@ -8,6 +9,7 @@ UII\MainFrame$40.class
 entity\Ban.class
 UII\MainFrame$63.class
 UII\MainFrame$73.class
+UII\MainFrame$83.class
 UII\MainFrame$53.class
 entity\NhanVien.class
 UII\MainFrame$38.class
@@ -45,10 +47,12 @@ UII\MainFrame$65.class
 UII\MainFrame$2.class
 UII\MainFrame$37.class
 dao\Ban_DAO.class
+UII\MainFrame$82.class
 UII\MainFrame$42.class
 UII\MainFrame$77.class
 UII\MainFrame$57.class
 UII\MainFrame$67.class
+UII\MainFrame$87.class
 dao\ChiTiet_HoaDon_DAO.class
 UII\MainFrame$9.class
 entity\KhachHang.class
@@ -65,9 +69,11 @@ UII\MainFrame$6.class
 UII\MainFrame$61.class
 dao\ChiTiet_DatBan_DAO.class
 UII\MainFrame$41.class
+UII\MainFrame$81.class
 dao\MonAn_DAO.class
 UII\MainFrame$3.class
 dao\KhachHang_DAO.class
+UII\MainFrame$84.class
 UII\MainFrame$64.class
 UII\HoaDon_GUI.class
 UII\HoaDon_GUI$1.class
@@ -77,13 +83,16 @@ UII\MainFrame$52.class
 UII\MainFrame$72.class
 UII\MainFrame$29.class
 UII\MainFrame$75.class
+UII\MainFrame$85.class
 entity\ChiTiet_HoaDon.class
 UII\MainFrame$69.class
+UII\MainFrame$79.class
 UII\MainFrame$39.class
 UII\MainFrame$4.class
 UII\MainFrame$16.class
 UII\MainFrame$56.class
 UII\MainFrame$46.class
+UII\MainFrame$86.class
 UII\HoaDon_GUI$2.class
 UII\MainFrame$28.class
 UII\MainFrame$33.class
