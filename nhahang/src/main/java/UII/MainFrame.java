@@ -2874,11 +2874,11 @@ public class MainFrame extends javax.swing.JFrame {
                return;
             }
             txt_qlnv_thongbao.setText("");
-            update_table_qlnv_search(result);
+            update_table_qlnv_search(result,table_dsnv);
         }
     }//GEN-LAST:event_btn_qlnv_timkhtheosdtActionPerformed
-    private void update_table_qlnv_search(List<NhanVien> nhanViens){
-        DefaultTableModel model = (DefaultTableModel) table_qlnv.getModel();
+    private void update_table_qlnv_search(List<NhanVien> nhanViens,JTable t){
+        DefaultTableModel model = (DefaultTableModel) t.getModel();
         TK_NhanVien_DAO tknv_dao = new TK_NhanVien_DAO();
         ArrayList<TK_NhanVien> taiKhoans = (ArrayList<TK_NhanVien>) tknv_dao.getAllTK_NhanViens();
         
@@ -3671,7 +3671,7 @@ public class MainFrame extends javax.swing.JFrame {
                return;
             }
             txt_qlnv_thongbao1.setText("");
-            update_table_qlnv_search(result);
+            update_table_qlnv_search(result,table_dsnv);
         }
     }//GEN-LAST:event_btn_dsnv_timActionPerformed
 
