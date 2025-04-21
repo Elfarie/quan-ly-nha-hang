@@ -3404,7 +3404,9 @@ public class MainFrame extends javax.swing.JFrame {
         ChiTiet_DatBan ctdb = new ChiTiet_DatBan(new Ban(maban), hd);
         ctdb_dao.addChiTiet_DatBan(ctdb);
         String tongtien= String.valueOf(Double.parseDouble(txt_qldm_tongtien.getText())*1.05);
+        
         JFrame frame_hd = new HoaDon_GUI(maban, hd, model, tongtien);
+        
         frame_hd.setVisible(true);
         clear_table_giohang();
     }//GEN-LAST:event_btn_qldm_laphdActionPerformed

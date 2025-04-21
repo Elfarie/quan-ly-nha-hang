@@ -45,13 +45,7 @@ public class Ban_DAO {
 
         return ban;
     }
-    public String getMaKhuFromMaBan(String maBan) {
-        if (maBan.endsWith("V")) {
-            return "VIP";
-        }
-        return "Thường";
-    }
-
+    
     public List<Ban> getAllBans() {
         List<Ban> bans = new ArrayList<>();
         String query = "SELECT MaBan, SoLuongNguoi, TrangThai FROM Ban";
