@@ -29,59 +29,61 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    private List<HoaDon> danhSachHoaDon;
-
+    private List<HoaDon> dshd_tam = new ArrayList<>();
+    private List<ChiTiet_HoaDon> cthd_tam = new ArrayList<>();
+    private List<ChiTiet_DatBan> ctdb_tam = new ArrayList<>();
+    
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         try {
-        UIManager.setLookAndFeel(new FlatLightLaf());
-    } catch (Exception ex) {
-        System.err.println("Failed to initialize FlatLaf");
-    }
-    initComponents();
-    
-    // Thêm ngày từ 1 đến 31
-    for (int i = 1; i <= 31; i++) {
-        ngay.addItem(String.valueOf(i));
-    }
-    
-    // Thêm tháng từ 1 đến 12
-    for (int j = 1; j <= 12; j++) {
-        thang.addItem(String.valueOf(j));
-    }
-    
-    // Thêm năm từ 1999 đến 2100
-    for (int q = 1999; q <= 2100; q++) {
-        nam.addItem(String.valueOf(q));
-    }
-    
-    // Lấy ngày hiện tại và đặt cho ComboBox
-    LocalDate today = LocalDate.now();
-    ngay.setSelectedItem(String.valueOf(today.getDayOfMonth()));
-    thang.setSelectedItem(String.valueOf(today.getMonthValue()));
-    nam.setSelectedItem(String.valueOf(today.getYear()));
-    
-    for (int i = 1; i <= 31; i++) {
-        ngay1.addItem(String.valueOf(i));
-    }
-    
-    // Thêm tháng từ 1 đến 12
-    for (int j = 1; j <= 12; j++) {
-        thang1.addItem(String.valueOf(j));
-    }
-    
-    // Thêm năm từ 1999 đến 2100
-    for (int q = 1999; q <= 2100; q++) {
-        nam1.addItem(String.valueOf(q));
-    }
-    
-    // Lấy ngày hiện tại và đặt cho ComboBox
-    LocalDate today1 = LocalDate.now();
-    ngay1.setSelectedItem(String.valueOf(today1.getDayOfMonth()));
-    thang1.setSelectedItem(String.valueOf(today1.getMonthValue()));
-    nam1.setSelectedItem(String.valueOf(today1.getYear()));
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize FlatLaf");
+        }
+        initComponents();
+
+        // Thêm ngày từ 1 đến 31
+        for (int i = 1; i <= 31; i++) {
+            ngay.addItem(String.valueOf(i));
+        }
+
+        // Thêm tháng từ 1 đến 12
+        for (int j = 1; j <= 12; j++) {
+            thang.addItem(String.valueOf(j));
+        }
+
+        // Thêm năm từ 1999 đến 2100
+        for (int q = 1999; q <= 2100; q++) {
+            nam.addItem(String.valueOf(q));
+        }
+
+        // Lấy ngày hiện tại và đặt cho ComboBox
+        LocalDate today = LocalDate.now();
+        ngay.setSelectedItem(String.valueOf(today.getDayOfMonth()));
+        thang.setSelectedItem(String.valueOf(today.getMonthValue()));
+        nam.setSelectedItem(String.valueOf(today.getYear()));
+
+        for (int i = 1; i <= 31; i++) {
+            ngay1.addItem(String.valueOf(i));
+        }
+
+        // Thêm tháng từ 1 đến 12
+        for (int j = 1; j <= 12; j++) {
+            thang1.addItem(String.valueOf(j));
+        }
+
+        // Thêm năm từ 1999 đến 2100
+        for (int q = 1999; q <= 2100; q++) {
+            nam1.addItem(String.valueOf(q));
+        }
+
+        // Lấy ngày hiện tại và đặt cho ComboBox
+        LocalDate today1 = LocalDate.now();
+        ngay1.setSelectedItem(String.valueOf(today1.getDayOfMonth()));
+        thang1.setSelectedItem(String.valueOf(today1.getMonthValue()));
+        nam1.setSelectedItem(String.valueOf(today1.getYear()));
     }
 
     /**
@@ -1803,6 +1805,11 @@ public class MainFrame extends javax.swing.JFrame {
         cardlayout_QuanLyDatMon.setMaximumSize(new java.awt.Dimension(1000, 720));
         cardlayout_QuanLyDatMon.setMinimumSize(new java.awt.Dimension(1000, 720));
         cardlayout_QuanLyDatMon.setPreferredSize(new java.awt.Dimension(1000, 720));
+        cardlayout_QuanLyDatMon.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                cardlayout_QuanLyDatMonComponentHidden(evt);
+            }
+        });
         cardlayout_QuanLyDatMon.setLayout(new java.awt.CardLayout());
 
         QuanLyDatMon.setMaximumSize(new java.awt.Dimension(1000, 720));
@@ -2265,11 +2272,6 @@ public class MainFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        table_dsmon.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                table_dsmonMouseClicked(evt);
-            }
-        });
         scroll_mon1.setViewportView(table_dsmon);
         if (table_dsmon.getColumnModel().getColumnCount() > 0) {
             table_dsmon.getColumnModel().getColumn(0).setResizable(false);
@@ -2281,12 +2283,6 @@ public class MainFrame extends javax.swing.JFrame {
         btn_dsmon_tim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_dsmon_timActionPerformed(evt);
-            }
-        });
-
-        txt_dsmon_tim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_dsmon_timActionPerformed(evt);
             }
         });
 
@@ -3391,6 +3387,7 @@ public class MainFrame extends javax.swing.JFrame {
         int n = hd_dao.getAllHoaDons().size();
         String mahd = "HD"+String.valueOf(n);
         HoaDon hd = new HoaDon(mahd,new NhanVien(manv),new KhachHang(makh),0.05,LocalDateTime.now());
+        dshd_tam.remove(hd);
         hd_dao.addHoaDon(hd);
         ChiTiet_HoaDon_DAO cthd_dao = new ChiTiet_HoaDon_DAO();
         for (int i = 0; i < model.getRowCount(); i++) {
@@ -3398,10 +3395,12 @@ public class MainFrame extends javax.swing.JFrame {
             Integer soluong = Integer.valueOf(model.getValueAt(i, 2).toString());
             Double dongia = Double.valueOf(model.getValueAt(i, 3).toString());
             ChiTiet_HoaDon cthd = new ChiTiet_HoaDon(hd, new MonAn(mamon), soluong, dongia);
+            cthd_tam.remove(cthd);
             cthd_dao.addChiTietHoaDon(cthd);
         }
         ChiTiet_DatBan_DAO ctdb_dao = new ChiTiet_DatBan_DAO();
         ChiTiet_DatBan ctdb = new ChiTiet_DatBan(new Ban(maban), hd);
+        ctdb_tam.remove(ctdb);
         ctdb_dao.addChiTiet_DatBan(ctdb);
         String tongtien= String.valueOf(Double.parseDouble(txt_qldm_tongtien.getText())*1.05);
         
@@ -3649,7 +3648,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         boolean coHoaDon = false;
         HoaDon_DAO hd_dao = new HoaDon_DAO();
-        danhSachHoaDon = hd_dao.getAllHoaDons();
+        List<HoaDon> danhSachHoaDon = hd_dao.getAllHoaDons();
 
         for (HoaDon hd : danhSachHoaDon) {
             LocalDateTime ngayLap = hd.getNgayLapHD(); // đảm bảo kiểu LocalDateTime
@@ -3796,6 +3795,26 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btn_qldb_datmonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qldb_datmonActionPerformed
         update_table_mon(table_qldm_ds);
+        
+        DefaultTableModel model = (DefaultTableModel) table_qldm_gio.getModel();
+        model.setRowCount(0);
+        String mahd="";
+        for (ChiTiet_DatBan db : ctdb_tam) {
+            if(txt_datban_ban.getText().equals(db.getBan().getMaBan())){
+                mahd = db.getHd().getMaHD();
+                break;
+            }
+        }
+        if(!mahd.isEmpty()){
+            for (ChiTiet_HoaDon cthd : cthd_tam) {
+                if(cthd.getHd().getMaHD().equals(mahd)){
+                    double thanhTien = cthd.getSoLuong() * cthd.getDonGia();
+                    model.addRow(new Object[]{cthd.getMon().getMaMon(), cthd.getMon().getTenMon(), cthd.getSoLuong(), cthd.getDonGia(), thanhTien});
+                }
+            }
+            update_txt_tongtien();
+        } 
+        
         CardLayout card = (CardLayout)cardlayout_QuanLyDatBan.getLayout();
         card.show(cardlayout_QuanLyDatBan, "qldm");
     }//GEN-LAST:event_btn_qldb_datmonActionPerformed
@@ -4003,13 +4022,37 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_dsmon_timActionPerformed
 
-    private void txt_dsmon_timActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dsmon_timActionPerformed
+    private void cardlayout_QuanLyDatMonComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cardlayout_QuanLyDatMonComponentHidden
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_dsmon_timActionPerformed
+        
+        String manv= txt_dangnhap_taikhoan.getText();
+        if(manv.isBlank()){
+            return;
+        }        
+        String makh="KH000";
+        
+        String maban = txt_datban_ban.getText();
+        DefaultTableModel model = (DefaultTableModel) table_qldm_gio.getModel();
 
-    private void table_dsmonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_dsmonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_table_dsmonMouseClicked
+        HoaDon_DAO hd_dao = new HoaDon_DAO();
+        
+        int n = hd_dao.getAllHoaDons().size() + dshd_tam.size();
+        
+        String mahd = "HD"+String.valueOf(n);
+        
+        HoaDon hd = new HoaDon(mahd,new NhanVien(manv),new KhachHang(makh),0.05,LocalDateTime.now());
+        dshd_tam.add(hd);
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String mamon = model.getValueAt(i, 0).toString();
+            Integer soluong = Integer.valueOf(model.getValueAt(i, 2).toString());
+            Double dongia = Double.valueOf(model.getValueAt(i, 3).toString());
+            ChiTiet_HoaDon cthd = new ChiTiet_HoaDon(hd, new MonAn(mamon), soluong, dongia);
+            cthd_tam.add(cthd);
+        }
+        ChiTiet_DatBan ctdb = new ChiTiet_DatBan(new Ban(maban), hd);
+        ctdb_tam.add(ctdb);
+        System.out.println(cthd_tam.size());
+    }//GEN-LAST:event_cardlayout_QuanLyDatMonComponentHidden
     
     /**
      * @param args the command line arguments

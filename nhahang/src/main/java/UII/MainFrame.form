@@ -2667,6 +2667,9 @@
                           <Dimension value="[1000, 720]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="componentHidden" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="cardlayout_QuanLyDatMonComponentHidden"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
                           <CardConstraints cardName="qldm"/>
@@ -3426,9 +3429,6 @@
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
                               </Properties>
-                              <Events>
-                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="table_dsmonMouseClicked"/>
-                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
@@ -3441,9 +3441,6 @@
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txt_dsmon_tim">
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_dsmon_timActionPerformed"/>
-                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
