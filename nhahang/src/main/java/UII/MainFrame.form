@@ -3131,8 +3131,8 @@
                                                   <Component id="btn_qlmon_xoatrang" min="-2" pref="86" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                                                   <Component id="btn_qlmon_suamon" min="-2" pref="86" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                                  <Component id="btn_qlmon_them" min="-2" pref="86" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                                  <Component id="btn_qlmon_them" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel25" min="-2" pref="65" max="-2" attributes="0"/>
@@ -3213,7 +3213,7 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="btn_qlmon_suamon">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="S&#x1eed;a b&#xe0;n"/>
+                            <Property name="text" type="java.lang.String" value="S&#x1eed;a m&#xf3;n"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlmon_suamonActionPerformed"/>
@@ -3221,7 +3221,7 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="btn_qlmon_them">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Th&#xea;m b&#xe0;n"/>
+                            <Property name="text" type="java.lang.String" value="Th&#xea;m m&#xf3;n"/>
                           </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_qlmon_themActionPerformed"/>

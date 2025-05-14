@@ -2086,14 +2086,14 @@ public class MainFrame extends javax.swing.JFrame {
         QuanLyMonAn.setMaximumSize(new java.awt.Dimension(1000, 720));
         QuanLyMonAn.setMinimumSize(new java.awt.Dimension(1000, 720));
 
-        btn_qlmon_suamon.setText("Sửa bàn");
+        btn_qlmon_suamon.setText("Sửa món");
         btn_qlmon_suamon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_qlmon_suamonActionPerformed(evt);
             }
         });
 
-        btn_qlmon_them.setText("Thêm bàn");
+        btn_qlmon_them.setText("Thêm món");
         btn_qlmon_them.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_qlmon_themActionPerformed(evt);
@@ -2191,8 +2191,8 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(btn_qlmon_xoatrang, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(67, 67, 67)
                                 .addComponent(btn_qlmon_suamon, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
-                                .addComponent(btn_qlmon_them, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(63, 63, 63)
+                                .addComponent(btn_qlmon_them))
                             .addGroup(QuanLyMonAnLayout.createSequentialGroup()
                                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -3387,7 +3387,6 @@ public class MainFrame extends javax.swing.JFrame {
         int n = hd_dao.getAllHoaDons().size();
         String mahd = "HD"+String.valueOf(n);
         HoaDon hd = new HoaDon(mahd,new NhanVien(manv),new KhachHang(makh),0.05,LocalDateTime.now());
-        dshd_tam.remove(hd);
         hd_dao.addHoaDon(hd);
         ChiTiet_HoaDon_DAO cthd_dao = new ChiTiet_HoaDon_DAO();
         for (int i = 0; i < model.getRowCount(); i++) {
@@ -3395,12 +3394,10 @@ public class MainFrame extends javax.swing.JFrame {
             Integer soluong = Integer.valueOf(model.getValueAt(i, 2).toString());
             Double dongia = Double.valueOf(model.getValueAt(i, 3).toString());
             ChiTiet_HoaDon cthd = new ChiTiet_HoaDon(hd, new MonAn(mamon), soluong, dongia);
-            cthd_tam.remove(cthd);
             cthd_dao.addChiTietHoaDon(cthd);
         }
         ChiTiet_DatBan_DAO ctdb_dao = new ChiTiet_DatBan_DAO();
         ChiTiet_DatBan ctdb = new ChiTiet_DatBan(new Ban(maban), hd);
-        ctdb_tam.remove(ctdb);
         ctdb_dao.addChiTiet_DatBan(ctdb);
         String tongtien= String.valueOf(Double.parseDouble(txt_qldm_tongtien.getText())*1.05);
         
