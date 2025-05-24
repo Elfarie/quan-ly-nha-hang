@@ -632,7 +632,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/mon1 (1).jpg"))); // NOI18N
 
         jLabel36.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jLabel36.setText("NGON NHƯ Ở NHÀ");
+        jLabel36.setText("NGON NHƯ Ở NHÀ.");
 
         jLabel37.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel37.setText("MÓN ĂN GIA ĐÌNH");
