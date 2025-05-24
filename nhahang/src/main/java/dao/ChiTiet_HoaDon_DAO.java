@@ -5,6 +5,7 @@ import entity.ChiTiet_HoaDon;
 import entity.HoaDon;
 import entity.MonAn;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,48 @@ public class ChiTiet_HoaDon_DAO {
             System.err.println("Error adding ChiTiet_HoaDon: " + e.getMessage());
         }
     }
+    public int getSoLuongMonAnDaBan(String maMonAn) {
+    String query = "SELECT SUM(SoLuong) AS TongSoLuong FROM ChiTiet_HoaDon WHERE MaMon = ?";
+    int tongSoLuong = 0;
+
+    try (PreparedStatement stmt = connection.prepareStatement(query)) {
+        stmt.setString(1, maMonAn);
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            tongSoLuong = rs.getInt("TongSoLuong");
+        }
+    } catch (SQLException e) {
+        System.err.println("Error calculating total sold for MonAn: " + e.getMessage());
+    }
+
+    return tongSoLuong;
+}
+public List<ChiTiet_HoaDon> getChiTietHoaDonTheoMaHD(String maHD) {
+    List<ChiTiet_HoaDon> list = new ArrayList<>();
+    String sql = "SELECT MaMon, SoLuong, DonGia FROM ChiTiet_HoaDon WHERE MaHD = ?";
+
+    try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+        stmt.setString(1, maHD);
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            String maMon = rs.getString("MaMon");
+            int soLuong = rs.getInt("SoLuong");
+            double donGia = rs.getDouble("DonGia");
+
+            MonAn mon = new MonAn(maMon); // chỉ cần MaMon
+            HoaDon hd = new HoaDon(maHD); // chỉ cần MaHD
+
+            list.add(new ChiTiet_HoaDon(hd, mon, soLuong, donGia));
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return list;
+}
+
+
 
     public ChiTiet_HoaDon getChiTietHoaDon(String maHD, String maMon) {
         String query = "SELECT MaHD, MaMon, SoLuong, DonGia FROM ChiTiet_HoaDon WHERE MaHD = ? AND MaMon = ?";
@@ -92,7 +135,28 @@ public class ChiTiet_HoaDon_DAO {
             System.err.println("Error updating ChiTiet_HoaDon: " + e.getMessage());
         }
     }
+public int getSoLuongMonAnDaBanTrongKhoang(String maMon, LocalDateTime tuNgay, LocalDateTime denNgay) {
+    int tongSoLuong = 0;
 
+    String query = "SELECT SUM(SoLuong) as TongSoLuong FROM ChiTiet_HoaDon ct " +
+                   "JOIN HoaDon hd ON ct.MaHD = hd.MaHD " +
+                   "WHERE ct.MaMon = ? AND hd.NgayLap BETWEEN ? AND ?";
+
+    try (PreparedStatement stmt = connection.prepareStatement(query)) {
+        stmt.setString(1, maMon);
+        stmt.setTimestamp(2, Timestamp.valueOf(tuNgay));
+        stmt.setTimestamp(3, Timestamp.valueOf(denNgay));
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            tongSoLuong = rs.getInt("TongSoLuong");
+        }
+    } catch (SQLException e) {
+        System.err.println("Lỗi khi thống kê theo thời gian: " + e.getMessage());
+    }
+
+    return tongSoLuong;
+}
     public void deleteChiTietHoaDon(String maHD, String maMon) {
         String query = "DELETE FROM ChiTiet_HoaDon WHERE MaHD = ? AND MaMon = ?";
 
@@ -104,4 +168,7 @@ public class ChiTiet_HoaDon_DAO {
             System.err.println("Error deleting ChiTiet_HoaDon: " + e.getMessage());
         }
     }
-}
+    
+    }
+
+    // Hiển thị thông báo nếu không có món nào được bán
