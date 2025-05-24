@@ -4262,8 +4262,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btb_thongke1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btb_thongke1ActionPerformed
         // TODO add your handling code here:
+    // Xóa dữ liệu cũ trên bảng
     DefaultTableModel model = (DefaultTableModel) table_qlhd_tk1.getModel();
-    model.setRowCount(0); // Xóa dữ liệu cũ trên bảng
+    model.setRowCount(0);
 
     // Lấy ngày bắt đầu và kết thúc
     int n = Integer.parseInt(ngay2.getSelectedItem().toString());
@@ -4274,8 +4275,8 @@ public class MainFrame extends javax.swing.JFrame {
     int t1 = Integer.parseInt(thang3.getSelectedItem().toString());
     int na1 = Integer.parseInt(nam3.getSelectedItem().toString());
 
-    LocalDateTime tuNgayLap = LocalDate.of(na, t, n).atStartOfDay();
-    LocalDateTime denNgayLap = LocalDate.of(na1, t1, n1).atTime(23, 59, 59);
+    LocalDateTime tuNgayLap = LocalDate.of(na1, t1, n1).atStartOfDay();
+    LocalDateTime denNgayLap = LocalDate.of(na, t, n).atTime(23, 59, 59);
 
     // Khởi tạo DAO
     HoaDon_DAO hdDAO = new HoaDon_DAO();
@@ -4298,23 +4299,31 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
 
-    // Lấy danh sách món ăn để hiển thị tên món
+    // Lấy danh sách món ăn để hiển thị
     List<MonAn> danhSachMonAn = monAnDAO.getAllMonAns();
+    List<Object[]> dataRows = new ArrayList<>();
     boolean coMonBan = false;
 
     for (MonAn mon : danhSachMonAn) {
         String maMon = mon.getMaMon();
         String tenMon = mon.getTenMon();
         int soLuongDaBan = soLuongBanMap.getOrDefault(maMon, 0);
-
+        dataRows.add(new Object[]{maMon, tenMon, soLuongDaBan});
         if (soLuongDaBan > 0) {
-            model.addRow(new Object[]{maMon, tenMon, soLuongDaBan});
             coMonBan = true;
         }
     }
 
+    // Sắp xếp danh sách theo số lượng đã bán (giảm dần)
+    dataRows.sort((a, b) -> Integer.compare((int) b[2], (int) a[2]));
+
+    // Thêm dữ liệu vào bảng
+    for (Object[] row : dataRows) {
+        model.addRow(row);
+    }
+
     if (!coMonBan) {
-        JOptionPane.showMessageDialog(this, "Chưa có món ăn nào được bán trong khoảng thời gian đã chọn.");
+        JOptionPane.showMessageDialog(this, "Tất cả món ăn đều chưa được bán trong khoảng thời gian đã chọn.");
     }
     }//GEN-LAST:event_btb_thongke1ActionPerformed
 
